@@ -5,6 +5,7 @@
 #include <memory>
 #include "Player.h"
 #include "Camera.h"
+#include "GameObjects.h"
 
 class SceneComponent
 {
@@ -34,12 +35,11 @@ public:
 
         if (camera.getCameraPosition().x <= -texture.width * 2)
         {
-            std::cout << "We're in the if" << std::endl;
+            
             xOffset = camera.getCameraOffset().x;
         }
         else
         {
-            std::cout << "The position is: " << camera.getCameraPosition().x << "The texture width is: " << texture.width * 2 << std::endl;
             xOffset = 0;
         } 
     }
@@ -160,14 +160,36 @@ public:
         components.push_back(component);
     }
 
+    void AddGameObjectPointerToSceneVector(GameObjects* object)
+    {
+        objects.push_back(object);
+    }
+
+    NPC* getNPC()
+    {
+        for (const auto& object : objects)
+        {
+            NPC* npc = dynamic_cast<NPC*>(object);
+            if (npc != nullptr)
+            {
+                return npc;
+            }
+            return nullptr;
+        }
+    }
     void DrawScene(Player& player, CameraController& camera) const
     {
         camera.BeginCameraMode();
+
         for (const auto& component : components)
         {
             component->Draw(camera);
         }
 
+        for (const auto& object : objects)
+        {
+            object->DrawObject(camera);
+        }
         player.Draw();
 
         camera.EndCameraMode();
@@ -177,9 +199,16 @@ public:
     {
         camera.UpdateCamera(player.GetPlayerPosition());
 
+
+
         for (const auto& component : components)
         {
             component->Update(camera);
+        }
+
+        for (const auto& object : objects)
+        {
+            object->UpdateObject();
         }
 
         player.Update();
@@ -196,6 +225,8 @@ public:
 
 private:
     std::vector<SceneComponent*> components;
+    std::vector<GameObjects*> objects;
+
 };
 
 
@@ -208,12 +239,25 @@ public:
         return *this;
     };
 
+    SceneBuilder& AddComponent(std::unique_ptr<GameObjects> object)
+    {
+        gameObjects.push_back(std::move(object));
+        return *this;
+    }
+
     Scene Build()
     {
         Scene scene;
+
         for (const auto& component : sceneComponents)
         {
             scene.AddComponentPointerToSceneVector(component.get());
+        }
+
+        for (const auto& object : gameObjects)
+        {
+
+            scene.AddGameObjectPointerToSceneVector(object.get());
         }
         return scene;
     }
@@ -221,8 +265,10 @@ public:
     void Unload()
     {
         sceneComponents.clear();
+        gameObjects.clear();
     }
 
 private:
     std::vector<std::unique_ptr<SceneComponent>> sceneComponents;
+    std::vector<std::unique_ptr<GameObjects>> gameObjects;
 };

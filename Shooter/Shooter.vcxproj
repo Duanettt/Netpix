@@ -146,15 +146,16 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\GameObjects.h" />
     <ClInclude Include="src\ScreenManager.h" />
+    <ClInclude Include="src\States.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\character\Attack.png" />
-    <Image Include="src\character\Dead.png" />
-    <Image Include="src\character\Hurt.png" />
-    <Image Include="src\character\idle.png" />
-    <Image Include="src\character\Run.png" />
+    <Image Include="src\character\main\Attack.png" />
+    <Image Include="src\character\main\Dead.png" />
+    <Image Include="src\character\main\Hurt.png" />
+    <Image Include="src\character\main\idle.png" />
+    <Image Include="src\character\main\Run.png" />
     <Image Include="src\character\scarfy.png" />
-    <Image Include="src\character\Walk.png" />
+    <Image Include="src\character\main\Walk.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="src\sounds\CVHarris.mp3" />

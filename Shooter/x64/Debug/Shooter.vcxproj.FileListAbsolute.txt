@@ -1,1 +1,2 @@
 C:\dev\Shooter\Shooter\Shooter\x64\Debug\Shooter.vcxproj.Up2Date
+C:\dev\Netpix\Shooter\x64\Debug\Shooter.vcxproj.Up2Date

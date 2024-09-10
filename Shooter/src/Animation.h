@@ -49,7 +49,7 @@ public:
 class IdleSpritesheet : public Spritesheet
 {
 public:
-    IdleSpritesheet() : Spritesheet("src/character/Idle.png", 6)
+    IdleSpritesheet(const char* filePath) : Spritesheet(filePath, 6)
     {
     }
 };
@@ -57,7 +57,7 @@ public:
 class RunningSpritesheet : public Spritesheet
 {
 public:
-    RunningSpritesheet() : Spritesheet("src/character/Run.png", 10)
+    RunningSpritesheet(const char* filePath) : Spritesheet(filePath, 10)
     {
     }
 };
@@ -65,7 +65,7 @@ public:
 class WalkingSpritesheet : public Spritesheet
 {
 public:
-    WalkingSpritesheet() : Spritesheet("src/character/Walk.png", 10)
+    WalkingSpritesheet(const char* filePath) : Spritesheet(filePath, 10)
     {
     }
 };
@@ -73,7 +73,7 @@ public:
 class AttackSpritesheet : public Spritesheet
 {
 public:
-    AttackSpritesheet() : Spritesheet("src/character/Attack.png", 4)
+    AttackSpritesheet(const char* filePath) : Spritesheet(filePath, 4)
     {
     }
 };

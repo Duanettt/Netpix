@@ -62,24 +62,27 @@
     <ClInclude Include="src\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\States.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\character\idle.png">
+    <Image Include="src\character\main\idle.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="src\character\Hurt.png">
+    <Image Include="src\character\main\Hurt.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="src\character\Attack.png">
+    <Image Include="src\character\main\Attack.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="src\character\Dead.png">
+    <Image Include="src\character\main\Dead.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="src\character\Run.png">
+    <Image Include="src\character\main\Run.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="src\character\Walk.png">
+    <Image Include="src\character\main\Walk.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="src\character\scarfy.png">

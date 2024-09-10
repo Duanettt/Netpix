@@ -3,14 +3,7 @@
 #include <unordered_map>
 #include "Animation.h"
 #include <iostream>
-
-enum PlayerState {
-    IDLE = 0,
-    WALKING = 1,
-    RUNNING = 2,
-    JUMPING = 3,
-    ATTACK = 4,
-};
+#include "States.h"
 
 class Player {
 public:
@@ -23,8 +16,8 @@ public:
     void SetPlayerPosition(Vector2 newPosition);
     Vector2 GetPlayerPosition();
 private:
-    std::unordered_map<PlayerState, Spritesheet*> animations;
-    PlayerState playerState;
+    std::unordered_map<State, Spritesheet*> animations;
+    State playerState;
     Vector2 position;
     Spritesheet* currentAnimation = nullptr;
 
@@ -33,5 +26,5 @@ private:
     void HandleInput();
     void HandleMovementInput();
     bool HandleMouseInput();
-    void SetPlayerState(PlayerState state);
+    void SetPlayerState(State state);
 };

@@ -1,10 +1,10 @@
 #include "Player.h"
 
 Player::Player() : playerState(IDLE), position{ 358.0f, 224.0f } {
-    animations[IDLE] = new IdleSpritesheet();
-    animations[WALKING] = new WalkingSpritesheet();
-    animations[RUNNING] = new RunningSpritesheet();
-    animations[ATTACK] = new AttackSpritesheet();
+    animations[IDLE] = new IdleSpritesheet("src/character/main/idle.png");
+    animations[WALKING] = new WalkingSpritesheet("src/character/main/Walk.png");
+    animations[RUNNING] = new RunningSpritesheet("src/character/main/Run.png");
+    animations[ATTACK] = new AttackSpritesheet("src/character/main/Attack.png");
 
     // Set the initial animation
     currentAnimation = animations[IDLE];
@@ -109,7 +109,7 @@ bool Player::HandleMouseInput()
 
 
 
-void Player::SetPlayerState(PlayerState state) {
+void Player::SetPlayerState(State state) {
     if (playerState != state) {
         playerState = state;
         currentAnimation = animations[playerState];
