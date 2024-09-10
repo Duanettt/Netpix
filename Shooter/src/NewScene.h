@@ -4,12 +4,13 @@
 #include <vector>
 #include <memory>
 #include "Player.h"
+#include "Camera.h"
 
 class SceneComponent
 {
 public:
-    virtual void Update() = 0;
-    virtual void Draw() const = 0;
+    virtual void Update(CameraController& camera) = 0;
+    virtual void Draw(CameraController& camera) = 0;
     virtual void Unload() = 0;
     virtual ~SceneComponent() {}  // Ensure proper cleanup of derived classes
 };
@@ -26,17 +27,28 @@ public:
         }
     }
 
-    void Update() override
+    void Update(CameraController& camera) override
     {
-        scrollingBack -= 0.1f;
 
-        if (scrollingBack <= -texture.width * 2) scrollingBack = 0;
+        // Loop the texture when it reaches the end
+
+        if (camera.getCameraPosition().x <= -texture.width * 2)
+        {
+            std::cout << "We're in the if" << std::endl;
+            xOffset = camera.getCameraOffset().x;
+        }
+        else
+        {
+            std::cout << "The position is: " << camera.getCameraPosition().x << "The texture width is: " << texture.width * 2 << std::endl;
+            xOffset = 0;
+        } 
     }
 
-    void Draw() const override
+    void Draw(CameraController& camera) override
     {
-        DrawTextureEx(texture, Vector2{ scrollingBack, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(texture, Vector2{ scrollingBack + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
     }
 
     void Unload() override
@@ -51,7 +63,7 @@ public:
 
 private:
     Texture2D texture;
-    float scrollingBack = 0.0f;
+    float xOffset = 0.0f;
 };
 
 class Midground : public SceneComponent
@@ -66,17 +78,19 @@ public:
         }
     }
 
-    void Update() override
-    {
-        scrollingBack -= 0.5f;
+void Update(CameraController& camera) override
+{
 
-        if (scrollingBack <= -texture.width * 2) scrollingBack = 0;
-    }
+    // Loop the texture when it reaches the end
+    xOffset = camera.getCameraOffset().x;
+    if (xOffset <= -texture.width * 2) xOffset = 0;
+}
 
-    void Draw() const override
+    void Draw(CameraController& camera) override
     {
-        DrawTextureEx(texture, Vector2{ scrollingBack, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(texture, Vector2{ scrollingBack + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
     }
 
     void Unload() override
@@ -91,7 +105,7 @@ public:
 
 private:
     Texture2D texture;
-    float scrollingBack = 0.0f;
+    float xOffset = 0.0f;
 };
 
 class Foreground : public SceneComponent
@@ -106,17 +120,20 @@ public:
         }
     }
 
-    void Update() override
+    void Update(CameraController& camera) override
     {
-        scrollingBack -= 1.0f;
 
-        if (scrollingBack <= -texture.width * 2) scrollingBack = 0;
+        // Loop the texture when it reaches the end
+        xOffset = camera.getCameraOffset().x;
+        if (xOffset >= -texture.width * 2) xOffset = 0;
     }
 
-    void Draw() const override
+
+    void Draw(CameraController& camera) override
     {
-        DrawTextureEx(texture, Vector2{ scrollingBack, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(texture, Vector2{ scrollingBack + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
     }
 
     void Unload() override
@@ -131,7 +148,7 @@ public:
 
 private:
     Texture2D texture;
-    float scrollingBack = 0.0f;
+    float xOffset = 0.0f;
 };
 
 
@@ -143,21 +160,26 @@ public:
         components.push_back(component);
     }
 
-    void DrawScene(Player& player) const
+    void DrawScene(Player& player, CameraController& camera) const
     {
+        camera.BeginCameraMode();
         for (const auto& component : components)
         {
-            component->Draw();
+            component->Draw(camera);
         }
 
         player.Draw();
+
+        camera.EndCameraMode();
     }
 
-    void UpdateScene(Player& player)
+    void UpdateScene(Player& player, CameraController& camera)
     {
+        camera.UpdateCamera(player.GetPlayerPosition());
+
         for (const auto& component : components)
         {
-            component->Update();
+            component->Update(camera);
         }
 
         player.Update();

@@ -54,6 +54,7 @@ void Player::HandleMovementInput()
     SetPlayerState(IDLE);
 
 
+
     if (IsKeyDown(KEY_S) && position.y <= 275.0f)
     {
         position.y += 2.0f;

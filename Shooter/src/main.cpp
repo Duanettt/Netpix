@@ -4,6 +4,7 @@
 
 #include "ScreenManager.h"
 #include "NewScene.h"
+#include "Camera.h"
 
 
 #define MAX_FRAME_SPEED     15
@@ -37,25 +38,28 @@ int main(void) {
 
     Scene scene = builder.Build();
 
-    builder.AddComponent(std::make_unique<Background>("src/background/b2/1.png"))
+    builder.AddComponent(std::make_unique<Foreground>("src/background/b2/1.png"))
         .AddComponent(std::make_unique<Midground>("src/background/b2/2.png"))
         .AddComponent(std::make_unique<Midground>("src/background/b2/3.png"))
-        .AddComponent(std::make_unique<Foreground>("src/background/b2/4.png"));
+        .AddComponent(std::make_unique<Background>("src/background/b2/4.png"));
 
     Scene scene2 = builder.Build();
 
+
     GameScreen gs = LOGO;
+    
+    CameraController camera;
          
-    Music music = LoadMusicStream("src/sounds/CVHarris.mp3");
+   // Music music = LoadMusicStream("src/sounds/CVHarris.mp3");
 
     SetTargetFPS(60); // Set our game to run at 60 frames-per-second
 
     while (!WindowShouldClose()) 
     {
-        UpdateMusicStream(music);
+        //UpdateMusicStream(music);
         
 
-        PlayMusicStream(music);
+        //PlayMusicStream(music);
 
 
        /* scrollingBack -= 0.1f;
@@ -71,17 +75,18 @@ int main(void) {
         if (scrollingFore <= -foreground.width * 2) scrollingFore = 0;
                 */
 
+        camera.UpdateCamera(player.GetPlayerPosition());
 
-        scene.UpdateScene(player);
+        scene2.UpdateScene(player, camera);
 
         BeginDrawing();
         ClearBackground(GetColor(0x052c46ff));
 
 
-        scene.DrawScene(player);
+        scene2.DrawScene(player, camera);
 
-        DrawText("BACKGROUND SCROLLING & PARALLAX", 10, 10, 20, RED);
-        DrawText("(c) Cyberpunk Street Environment by Luis Zuno (@ansimuz)", screenWidth - 330, screenHeight - 20, 10, RAYWHITE);
+        DrawText("use WASD to move", 10, 10, 20, RED);
+        DrawText("(c) Netpix by Duaine Nettey", screenWidth - 330, screenHeight - 20, 10, RAYWHITE);
         EndDrawing();
     }
 

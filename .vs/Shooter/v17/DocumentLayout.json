@@ -7,22 +7,6 @@
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\NewScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\NewScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\background\\b1\\5.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\background\\b1\\5.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -31,8 +15,20 @@
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\NewScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\NewScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,7 +48,7 @@
               "RelativeDocumentMoniker": "Shooter\\src\\main.cpp",
               "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\main.cpp",
               "RelativeToolTip": "Shooter\\src\\main.cpp",
-              "ViewState": "AQIAAEoAAAAAAAAAAAApwFcAAAAuAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAFcAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-07T19:21:34.711Z",
               "IsPinned": true,
@@ -60,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Player.h",
               "RelativeDocumentMoniker": "Shooter\\src\\Player.h",
               "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Player.h",
               "RelativeToolTip": "Shooter\\src\\Player.h",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABQAAAAQAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB4AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-08T17:23:00.026Z",
               "IsPinned": true,
@@ -74,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Scene.cpp",
               "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.cpp",
               "RelativeDocumentMoniker": "Shooter\\src\\Scene.cpp",
@@ -88,63 +84,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "5.png",
-              "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\background\\b1\\5.png",
-              "RelativeDocumentMoniker": "Shooter\\src\\background\\b1\\5.png",
-              "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\background\\b1\\5.png",
-              "RelativeToolTip": "Shooter\\src\\background\\b1\\5.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-09-09T22:48:39.204Z",
+              "DocumentIndex": 6,
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene.h",
+              "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h",
+              "RelativeToolTip": "Shooter\\src\\Scene.h",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-10T03:22:46.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Camera.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Camera.h",
+              "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Camera.h",
+              "RelativeToolTip": "Shooter\\src\\Camera.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-09T23:59:37.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "NewScene.h",
               "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\NewScene.h",
               "RelativeDocumentMoniker": "Shooter\\src\\NewScene.h",
               "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\NewScene.h",
               "RelativeToolTip": "Shooter\\src\\NewScene.h",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAIwHUAAAAbAAAA",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAAALEAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-09T17:38:28.612Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene.h",
-              "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Scene.h",
-              "RelativeToolTip": "Shooter\\src\\Scene.h",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAADAAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-09T02:11:29.466Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Animation.h",
-              "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Animation.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Animation.h",
-              "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Animation.h",
-              "RelativeToolTip": "Shooter\\src\\Animation.h",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAEwA8AAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-08T22:53:29.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Player.cpp",
               "RelativeDocumentMoniker": "Shooter\\src\\Player.cpp",
               "ToolTip": "C:\\dev\\Shooter\\Shooter\\Shooter\\src\\Player.cpp",
               "RelativeToolTip": "Shooter\\src\\Player.cpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAEwDYAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-08T17:37:34.235Z",
               "EditorCaption": ""
