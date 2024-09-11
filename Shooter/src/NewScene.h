@@ -83,12 +83,16 @@ void Update(CameraController& camera) override
 
     // Loop the texture when it reaches the end
     xOffset = camera.getCameraOffset().x;
-    if (xOffset <= -texture.width * 2) xOffset = 0;
+    if (camera.getCameraPosition().x >= 1157.0f)
+    {
+       
+    }
+    std::cout << camera.getCameraPosition().x << std::endl;
 }
 
     void Draw(CameraController& camera) override
     {
-        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        // Use only the horizontal offset
         DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
         DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
     }

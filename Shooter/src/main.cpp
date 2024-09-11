@@ -95,8 +95,6 @@ int main(void) {
         if (scrollingFore <= -foreground.width * 2) scrollingFore = 0;
                 */
 
-        camera.UpdateCamera(player.GetPlayerPosition());
-
         scene2.UpdateScene(player, camera);
 
         BeginDrawing();

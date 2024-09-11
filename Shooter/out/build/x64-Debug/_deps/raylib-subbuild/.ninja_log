@@ -1,0 +1,21 @@
+# ninja log v5
+4	162	7477151877822183	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir	87686a75704afaac
+4	162	7477151877822183	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-mkdir	87686a75704afaac
+3	41315	7477152397256356	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download	972919b46395b7
+3	41315	7477152397256356	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-download	972919b46395b7
+41315	41558	0	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	cf6f99a636befd67
+41315	41558	0	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-update	cf6f99a636befd67
+41559	41658	7477152400693804	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	102e0d33803e8d92
+41559	41658	7477152400693804	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-patch	102e0d33803e8d92
+41658	41756	7477152401669403	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	fffde6f151bdb5e2
+41658	41756	7477152401669403	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-configure	fffde6f151bdb5e2
+41757	41860	7477152402715052	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	1b44496db7e81db6
+41757	41860	7477152402715052	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-build	1b44496db7e81db6
+41861	41958	7477152403692013	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	7901054b0926f8f1
+41861	41958	7477152403692013	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-install	7901054b0926f8f1
+41958	42057	7477152404686766	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	93cc371429dd0892
+41958	42057	7477152404686766	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-test	93cc371429dd0892
+42058	42199	7477152406086892	CMakeFiles/raylib-populate-complete	4ec0e041dd324eba
+42058	42199	7477152406086892	raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	4ec0e041dd324eba
+42058	42199	7477152406086892	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/CMakeFiles/raylib-populate-complete	4ec0e041dd324eba
+42058	42199	7477152406086892	C:/dev/Netpix/Shooter/out/build/x64-Debug/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/raylib-populate-done	4ec0e041dd324eba

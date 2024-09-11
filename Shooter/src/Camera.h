@@ -28,6 +28,16 @@ public:
 		EndMode2D();
 	}
 
+	void setCameraTargetX(float cameraTarget)
+	{
+		camera.target.x = cameraTarget;
+	}
+
+	void setCameraTargetY(float cameraTarget)
+	{
+		camera.target.y = cameraTarget;
+	}
+
 	Vector2 getCameraOffset()
 	{
 		return { camera.target.x - camera.offset.x, 0.0f }; // Ignore vertical offset

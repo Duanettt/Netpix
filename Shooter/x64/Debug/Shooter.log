@@ -1,5 +1,9 @@
-﻿  main.cpp
-C:\dev\Netpix\Shooter\src\NewScene.h(179,1): warning C4715: 'Scene::getNPC': not all control paths return a value
+﻿  Camera.cpp
+  GameObjects.cpp
+  NewScene.cpp
+  main.cpp
+  Generating Code...
+C:\dev\Netpix\Shooter\src\NewScene.h(183,1): warning C4715: 'Scene::getNPC': not all control paths return a value
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

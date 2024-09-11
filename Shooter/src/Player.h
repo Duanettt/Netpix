@@ -19,6 +19,7 @@ private:
     std::unordered_map<State, Spritesheet*> animations;
     State playerState;
     Vector2 position;
+    bool isFacingRight = false;
     Spritesheet* currentAnimation = nullptr;
 
     bool isAttacking;

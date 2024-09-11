@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include <iostream>
 
 class Animation
 {
@@ -9,7 +10,7 @@ public:
     void LoadAnimation(const char* filePath, int frameCount)
     {
         texture = LoadTexture(filePath);
-        frameRec = { 0.0f, 0.0f, (float)texture.width / frameCount, (float)texture.height }; // Update frameRec after loading texture
+        frameRec = { 0.0f, 0.0f, (float)texture.width / frameCount, (float)texture.height };
         this->frameCount = frameCount;
     }
 
@@ -24,17 +25,36 @@ public:
             frameRec.x = (float)currentFrame * (float)texture.width / frameCount;
         }
     }
+    void DrawAnimation(Vector2 position, bool isFacingRight) {
+        // Had a lot of trouble with this but ChatGPT helped..
+        /*
+        * The main thing was understanding what was going on with the frameRec
+        * frameRec itself was handling the updating of our spritesheet. When we negated that it completely
+        * changed the way we rendered our spritesheet
+        * So instead we had to assign a temporary rectangle to allow for us to perform transformations on a specific frame.
+        */
+        Rectangle sourceRec = frameRec;
+        if (!isFacingRight) {
+            // Flip the sprite horizontally if not facing right
+            sourceRec.width = -frameRec.width;
+        }
+
+        DrawTextureRec(texture, sourceRec, position, WHITE);
+    }
+
 
     void DrawAnimation(Vector2 position)
     {
         DrawTextureRec(texture, frameRec, position, WHITE);
     }
 
+
 protected:
     Texture2D texture;
+    Rectangle frameRec;
     int currentFrame = 0;
     int frameCount = 0;
-    Rectangle frameRec;
+    float temp = 0.0f;
 };
 
 class Spritesheet : public Animation

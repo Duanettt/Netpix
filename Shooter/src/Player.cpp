@@ -25,7 +25,7 @@ void Player::Update() {
 
 void Player::Draw() {
     if (currentAnimation) {
-        currentAnimation->DrawAnimation(position);
+        currentAnimation->DrawAnimation(position, isFacingRight);
     }
 }
 
@@ -77,6 +77,7 @@ void Player::HandleMovementInput()
     }
     if (IsKeyDown(KEY_D))
     {
+        isFacingRight = true;
         position.x += 2.0f;
         SetPlayerState(WALKING);
         if (IsKeyDown(KEY_LEFT_SHIFT))
@@ -87,6 +88,7 @@ void Player::HandleMovementInput()
     }
     if (IsKeyDown(KEY_A))
     {
+        isFacingRight = false;
         position.x -= 2.0f;
         SetPlayerState(WALKING);
         if (IsKeyDown(KEY_LEFT_SHIFT))
