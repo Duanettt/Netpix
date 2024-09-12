@@ -16,8 +16,8 @@ Player::~Player() {
     }
 }
 
-void Player::Update() {
-    HandleInput();
+void Player::Update(float worldWidth) {
+    HandleInput(worldWidth);
     if (currentAnimation) {
         currentAnimation->UpdateAnimation(8);
     }
@@ -39,20 +39,19 @@ Vector2 Player::GetPlayerPosition()
     return position;
 }
 
-void Player::HandleInput() 
+void Player::HandleInput(float worldWidth) 
 {
     isAttacking = HandleMouseInput();
 
     if (!isAttacking)
     {
-        HandleMovementInput();
+        HandleMovementInput(worldWidth);
     }
 }
 
-void Player::HandleMovementInput()
+void Player::HandleMovementInput(float worldWidth)
 {
     SetPlayerState(IDLE);
-
 
 
     if (IsKeyDown(KEY_S) && position.y <= 275.0f)
@@ -75,7 +74,7 @@ void Player::HandleMovementInput()
             SetPlayerState(RUNNING);
         }
     }
-    if (IsKeyDown(KEY_D))
+    if (IsKeyDown(KEY_D) && position.x <= worldWidth - 25.0f)
     {
         isFacingRight = true;
         position.x += 2.0f;
@@ -86,7 +85,7 @@ void Player::HandleMovementInput()
             SetPlayerState(RUNNING);
         }
     }
-    if (IsKeyDown(KEY_A))
+    if (IsKeyDown(KEY_A) && position.x >= 0)
     {
         isFacingRight = false;
         position.x -= 2.0f;

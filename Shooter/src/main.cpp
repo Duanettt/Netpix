@@ -60,11 +60,15 @@ int main(void) {
         .AddComponent(std::make_unique<Midground>("src/background/b2/2.png"))
         .AddComponent(std::make_unique<Midground>("src/background/b2/3.png"))
         .AddComponent(std::make_unique<Background>("src/background/b2/4.png"))
-        .AddComponent(std::make_unique<NPC>(spritesheets));
+        .AddObject(std::make_unique<NPC>(spritesheets));
+
 
     Scene scene2 = builder.Build();
 
+
+    npc->setCurrentAnimation(WALKING);
     scene2.getNPC()->setCurrentAnimation(IDLE);
+
 
     GameScreen gs = LOGO;
     
@@ -80,20 +84,6 @@ int main(void) {
         
 
         //PlayMusicStream(music);
-
-
-       /* scrollingBack -= 0.1f;
-        scrollingMid -= 0.5f;
-        /*
-        * This scrolling fore is used to move the screen leftward.
-        scrollingFore -= 1.0f;
-
-        // NOTE: Texture is scaled twice its size, so it sould be considered on scrolling
-
-        if (scrollingBack <= -background.width * 2) scrollingBack = 0;
-        if (scrollingMid <= -midground.width * 2) scrollingMid = 0;
-        if (scrollingFore <= -foreground.width * 2) scrollingFore = 0;
-                */
 
         scene2.UpdateScene(player, camera);
 
@@ -112,4 +102,4 @@ int main(void) {
     builder.Unload();
 
     return 0;
-}
+} 

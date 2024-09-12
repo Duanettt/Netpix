@@ -10,7 +10,7 @@ public:
     Player();
     ~Player();
 
-    void Update();
+    void Update(float worldWidth);
     void Draw();
 
     void SetPlayerPosition(Vector2 newPosition);
@@ -22,10 +22,12 @@ private:
     bool isFacingRight = false;
     Spritesheet* currentAnimation = nullptr;
 
+    float halfScreenWidth = GetScreenWidth() / 2;
+
     bool isAttacking;
 
-    void HandleInput();
-    void HandleMovementInput();
+    void HandleInput(float worldWidth);
+    void HandleMovementInput(float worldWidth);
     bool HandleMouseInput();
     void SetPlayerState(State state);
 };

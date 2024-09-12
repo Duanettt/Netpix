@@ -13,7 +13,16 @@ public:
     virtual void Update(CameraController& camera) = 0;
     virtual void Draw(CameraController& camera) = 0;
     virtual void Unload() = 0;
+
+    Texture2D getTexture()
+    {
+        return texture;
+    }
+
     virtual ~SceneComponent() {}  // Ensure proper cleanup of derived classes
+
+protected:
+    Texture2D texture;
 };
 
 class Background : public SceneComponent
@@ -62,7 +71,6 @@ public:
     }
 
 private:
-    Texture2D texture;
     float xOffset = 0.0f;
 };
 
@@ -78,17 +86,16 @@ public:
         }
     }
 
-void Update(CameraController& camera) override
-{
+    void Update(CameraController& camera) override
+    {
 
     // Loop the texture when it reaches the end
-    xOffset = camera.getCameraOffset().x;
-    if (camera.getCameraPosition().x >= 1157.0f)
-    {
-       
+     xOffset = camera.getCameraOffset().x;
+
+
+     
+
     }
-    std::cout << camera.getCameraPosition().x << std::endl;
-}
 
     void Draw(CameraController& camera) override
     {
@@ -108,8 +115,8 @@ void Update(CameraController& camera) override
     }
 
 private:
-    Texture2D texture;
     float xOffset = 0.0f;
+    bool wallDetection = false;
 };
 
 class Foreground : public SceneComponent
@@ -122,6 +129,8 @@ public:
         {
             TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
         }
+
+       
     }
 
     void Update(CameraController& camera) override
@@ -151,7 +160,6 @@ public:
     }
 
 private:
-    Texture2D texture;
     float xOffset = 0.0f;
 };
 
@@ -181,6 +189,33 @@ public:
             return nullptr;
         }
     }
+
+    float getWorldWidth()
+    {
+        for (const auto& component : components)
+        {
+            Foreground* fg = dynamic_cast<Foreground*>(component);
+            if (fg != nullptr)
+            {
+               return fg->getTexture().width * 2;
+            }
+        }
+        return 0.0f;
+    }
+
+    float getWorldHeight()
+    {
+        for (const auto& component : components)
+        {
+            Foreground* fg = dynamic_cast<Foreground*>(component);
+            if (fg != nullptr)
+            {
+                return fg->getTexture().height * 2;
+            }
+        }
+        return 0.0f;
+    }
+
     void DrawScene(Player& player, CameraController& camera) const
     {
         camera.BeginCameraMode();
@@ -201,9 +236,7 @@ public:
 
     void UpdateScene(Player& player, CameraController& camera)
     {
-        camera.UpdateCamera(player.GetPlayerPosition());
-
-
+        camera.UpdateCamera(player.GetPlayerPosition(), this->getWorldWidth(), this->getWorldHeight());
 
         for (const auto& component : components)
         {
@@ -215,7 +248,7 @@ public:
             object->UpdateObject();
         }
 
-        player.Update();
+        player.Update(this->getWorldWidth());
     }
 
     void Unload()
@@ -243,10 +276,15 @@ public:
         return *this;
     };
 
-    SceneBuilder& AddComponent(std::unique_ptr<GameObjects> object)
+    SceneBuilder& AddObject(std::unique_ptr<GameObjects> object)
     {
         gameObjects.push_back(std::move(object));
         return *this;
+    }
+
+    SceneBuilder& AddMusic(std::unique_ptr<Music> music)
+    {
+
     }
 
     Scene Build()
@@ -263,6 +301,8 @@ public:
 
             scene.AddGameObjectPointerToSceneVector(object.get());
         }
+
+        
         return scene;
     }
 
@@ -275,4 +315,5 @@ public:
 private:
     std::vector<std::unique_ptr<SceneComponent>> sceneComponents;
     std::vector<std::unique_ptr<GameObjects>> gameObjects;
+    std::vector <std::unique_ptr<Music>> musicVec;
 };

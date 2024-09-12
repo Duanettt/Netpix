@@ -30,7 +30,6 @@ void ScreenManager::UpdateScreen(GameScreen& currentScreen, int& framesCounter, 
     case GAMEPLAY:
     {
         // TODO: Update GAMEPLAY screen variables here!
-        player.Update();
 
         // Press enter to change to ENDING screen
         if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP))
@@ -78,8 +77,6 @@ void ScreenManager::DrawScreen(GameScreen& currentScreen, int screenWidth, int s
         DrawRectangle(0, 0, screenWidth, screenHeight, PURPLE);
         DrawText("GAMEPLAY SCREEN", 20, 20, 40, MAROON);
         DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, MAROON);
-
-        player.Draw();
 
     } break;
     case ENDING:

@@ -2,26 +2,37 @@
 #include <raylib.h>
 #include <iostream>
 
+/* 
+The animation class is responsible for our animations. It allows for our game objects class to utilise this and create animations
+.
+*/
+
 class Animation
 {
 public:
     int framesCounter = 0;
 
+    // Load animation essentially loads our animation into a texture member variable.
     void LoadAnimation(const char* filePath, int frameCount)
     {
         texture = LoadTexture(filePath);
+        // Frame rectangle used for drawing an animation frame by frame.
         frameRec = { 0.0f, 0.0f, (float)texture.width / frameCount, (float)texture.height };
         this->frameCount = frameCount;
     }
 
     void UpdateAnimation(int framesSpeed)
     {
+        // counts how many frames.
         framesCounter++;
+
+        // This check allows for us to determine the rate at which the frameRec moves over our spritesheet.
         if (framesCounter >= (60 / framesSpeed))
         {
             framesCounter = 0;
             currentFrame++;
             if (currentFrame >= frameCount) currentFrame = 0;
+            // Moves the frame.
             frameRec.x = (float)currentFrame * (float)texture.width / frameCount;
         }
     }
@@ -36,6 +47,7 @@ public:
         Rectangle sourceRec = frameRec;
         if (!isFacingRight) {
             // Flip the sprite horizontally if not facing right
+            // Distinguishes between left and right for our player.
             sourceRec.width = -frameRec.width;
         }
 
@@ -45,6 +57,7 @@ public:
 
     void DrawAnimation(Vector2 position)
     {
+        // Basic draw call for each animation.
         DrawTextureRec(texture, frameRec, position, WHITE);
     }
 
@@ -57,6 +70,9 @@ protected:
     float temp = 0.0f;
 };
 
+
+// The spritesheets are useful for creating various different spritesheets and allows us to construct a spritesheet
+// for our own specific use.
 class Spritesheet : public Animation
 {
 public:

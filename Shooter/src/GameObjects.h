@@ -11,17 +11,28 @@
 #include "States.h"
 
 
+// Game objects is an interface for constructing various objects within our game that the player will have to interact with.
+
 class GameObjects
 {
 public:
+	// Draws the object
 	virtual void DrawObject(CameraController& camera) const = 0;
+	// Updates the object, animation, position etcetera;
 	virtual void UpdateObject() const = 0;
+	// Allows us to set a state for the object.
 	virtual void setCurrentAnimation(State state) = 0;
-	virtual void setPosition(const Vector2& pos) = 0;
-private:
+	// Allows us to set a position
+	void setPosition(const Vector2& pos) 
+	{
+		position = pos;
+	}
+
+protected:
+	Vector2 position;
 };
 
-
+// NPC for example now inherits from game object and we can now create an NPC object and add to our scene in the client.
 class NPC : public GameObjects
 {
 public:
@@ -36,14 +47,10 @@ public:
 		currentAnimation = npcAnimations[IDLE];
 		setPosition({ 358.0f, 224.0f });
 	}
-
-	void setPosition(const Vector2& pos) override
-	{
-		position = pos;
-	}
-
 	void setCurrentAnimation(State state) override
 	{
+		// set the default state of our npc.
+		// we can now change the state if we need different animations to play.
 		currentAnimation = npcAnimations[state];
 	}
 
@@ -84,6 +91,4 @@ public:
 private:
 	std::unordered_map<State, Spritesheet*> npcAnimations;
 	Spritesheet* currentAnimation;
-	Vector2 position;
 };
-
