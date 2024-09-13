@@ -2,12 +2,12 @@
 
 #include <memory>
 
-#include "ScreenManager.h"
-#include "States.h"
-#include "Scene.h"
-#include "Animation.h"
-#include "Camera.h"
-
+#include "../src/Core/ScreenManager.h"
+#include "../src/Core/States.h"
+#include "../src/Scene/Scene.h"
+#include "../src/Animation/Animation.h"
+#include "../src/Core/Camera.h"
+#include "../src/Scene/SceneManager.h"
 
 
 #define MAX_FRAME_SPEED     15
@@ -26,11 +26,12 @@ int main(void) {
 
     InitAudioDevice();
 
+    auto& sceneManager = SceneManager::getInstance();
 
     Player player;
 
-    Spritesheet* idleSpritesheet = new IdleSpritesheet("src/character/npc1/Idle.png");
-    Spritesheet* walkingSpritesheet = new WalkingSpritesheet("src/character/npc1/Walk.png");
+    Spritesheet* idleSpritesheet = new IdleSpritesheet("res/character/npc1/Idle.png");
+    Spritesheet* walkingSpritesheet = new WalkingSpritesheet("res/character/npc1/Walk.png");
 
     std::unordered_map<State, Spritesheet*> spritesheets = {
         {IDLE, idleSpritesheet},
@@ -40,30 +41,31 @@ int main(void) {
     auto npc = std::make_unique<NPC>(spritesheets);
 
     SceneBuilder builder;
-    builder.AddComponent(std::make_unique<Background>("src/background/b1/1.png"))
-        .AddComponent(std::make_unique<Midground>("src/background/b1/2.png"))
-        .AddComponent(std::make_unique<Midground>("src/background/b1/3.png"))
-        .AddComponent(std::make_unique<Foreground>("src/background/b1/4.png"));
+    builder.AddComponent(std::make_unique<Background>("res/background/b1/1.png"))
+        .AddComponent(std::make_unique<Midground>("res/background/b1/2.png"))
+        .AddComponent(std::make_unique<Midground>("res/background/b1/3.png"))
+        .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"));
 
     Scene scene = builder.Build();
 
-    std::string music1 = "music1";
-
-    builder.AddComponent(std::make_unique<Foreground>("src/background/b2/1.png"))
-        .AddComponent(std::make_unique<Midground>("src/background/b2/2.png"))
-        .AddComponent(std::make_unique<Midground>("src/background/b2/3.png"))
-        .AddComponent(std::make_unique<Background>("src/background/b2/4.png"))
+    builder.AddComponent(std::make_unique<Foreground>("res/background/b2/1.png"))
+        .AddComponent(std::make_unique<Midground>("res/background/b2/2.png"))
+        .AddComponent(std::make_unique<Midground>("res/background/b2/3.png"))
+        .AddComponent(std::make_unique<Background>("res/background/b2/4.png"))
         .AddObject(std::make_unique<NPC>(spritesheets))
-        .AddMusic(music1,std::make_unique<MusicComponent>("src/sounds/CVHarris.mp3"));
+        .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
 
 
     Scene scene2 = builder.Build();
 
 
+    sceneManager.AddScene(&scene)
+                .AddScene(&scene2);
+
     npc->setCurrentAnimation(WALKING);
     scene2.getNPC()->setCurrentAnimation(IDLE);
 
-
+    sceneManager.SetScene(1);
     GameScreen gs = LOGO;
     
     CameraController camera;
@@ -79,15 +81,15 @@ int main(void) {
 
         //PlayMusicStream(music);
 
-        scene2.setCurrentSong("music1");
+        sceneManager.getCurrentScene()->setCurrentSong("music1");
 
-        scene2.UpdateScene(player, camera);
+        sceneManager.UpdateCurrentScene(player, camera);
 
         BeginDrawing();
         ClearBackground(GetColor(0x052c46ff));
 
 
-        scene2.DrawScene(player, camera);
+        sceneManager.DrawCurrentScene(player, camera);
 
         DrawText("use WASD to move", 10, 10, 20, RED);
         DrawText("(c) Netpix by Duaine Nettey", screenWidth - 330, screenHeight - 20, 10, RAYWHITE);

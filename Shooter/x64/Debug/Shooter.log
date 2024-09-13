@@ -1,25 +1,7 @@
-﻿  Scene.cpp
-C:\dev\Netpix\Shooter\src\Player.h(25,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/Scene.cpp')
+﻿  Player.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(25,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Game/Player.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene.h(207,46): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/Scene.cpp')
-  
-C:\dev\Netpix\Shooter\src\Scene.h(220,48): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/Scene.cpp')
-  
-  main.cpp
-C:\dev\Netpix\Shooter\src\Player.h(25,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/main.cpp')
-  
-C:\dev\Netpix\Shooter\src\Scene.h(207,46): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/main.cpp')
-  
-C:\dev\Netpix\Shooter\src\Scene.h(220,48): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/main.cpp')
-  
-  Generating Code...
-C:\dev\Netpix\Shooter\src\Scene.h(198,1): warning C4715: 'Scene::getNPC': not all control paths return a value
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

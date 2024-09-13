@@ -129,40 +129,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Music.cpp" />
-    <ClCompile Include="src\ResourceManager.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\ParallaxScene.cpp" />
-    <ClCompile Include="src\Animation.cpp" />
-    <ClCompile Include="src\Player.cpp" />
-    <ClCompile Include="src\GameObjects.cpp" />
-    <ClCompile Include="src\ScreenManager.cpp" />
+    <ClCompile Include="src\Scene\SceneManager.cpp" />
+    <ClCompile Include="src\Sound\Music.cpp" />
+    <ClCompile Include="src\Core\ResourceManager.cpp" />
+    <ClCompile Include="src\Core\Camera.cpp" />
+    <ClCompile Include="src\Scene\Scene.cpp" />
+    <ClCompile Include="src\Scene\ParallaxScene.cpp" />
+    <ClCompile Include="src\Animation\Animation.cpp" />
+    <ClCompile Include="src\Game\Player.cpp" />
+    <ClCompile Include="src\Game\GameObjects.cpp" />
+    <ClCompile Include="src\Core\ScreenManager.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Music.h" />
-    <ClInclude Include="src\ResourceManager.h" />
-    <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\Scene.h" />
-    <ClInclude Include="src\ParallaxScene.h" />
-    <ClInclude Include="src\Animation.h" />
-    <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\GameObjects.h" />
-    <ClInclude Include="src\ScreenManager.h" />
-    <ClInclude Include="src\States.h" />
+    <ClInclude Include="src\Scene\SceneManager.h" />
+    <ClInclude Include="src\Sound\Music.h" />
+    <ClInclude Include="src\Core\ResourceManager.h" />
+    <ClInclude Include="src\Core\Camera.h" />
+    <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\Scene\ParallaxScene.h" />
+    <ClInclude Include="src\Animation\Animation.h" />
+    <ClInclude Include="src\Game\Player.h" />
+    <ClInclude Include="src\Game\GameObjects.h" />
+    <ClInclude Include="src\Core\ScreenManager.h" />
+    <ClInclude Include="src\Core\States.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\character\main\Attack.png" />
-    <Image Include="src\character\main\Dead.png" />
-    <Image Include="src\character\main\Hurt.png" />
-    <Image Include="src\character\main\idle.png" />
-    <Image Include="src\character\main\Run.png" />
-    <Image Include="src\character\scarfy.png" />
-    <Image Include="src\character\main\Walk.png" />
+    <Image Include="res\character\main\Attack.png" />
+    <Image Include="res\character\main\Dead.png" />
+    <Image Include="res\character\main\Hurt.png" />
+    <Image Include="res\character\main\idle.png" />
+    <Image Include="res\character\main\Run.png" />
+    <Image Include="res\character\scarfy.png" />
+    <Image Include="res\character\main\Walk.png" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="src\sounds\CVHarris.mp3" />
+    <Media Include="res\sounds\CVHarris.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
