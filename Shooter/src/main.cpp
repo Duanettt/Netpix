@@ -4,7 +4,7 @@
 
 #include "ScreenManager.h"
 #include "States.h"
-#include "NewScene.h"
+#include "Scene.h"
 #include "Animation.h"
 #include "Camera.h"
 
@@ -22,17 +22,9 @@ int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib [texture] example - sprite anim");
+    InitWindow(screenWidth, screenHeight, "Netpix");
 
     InitAudioDevice();
-
-   /**/ Texture2D background = LoadTexture("src/background/b1/1.png");
-    Texture2D midground = LoadTexture("src/background/b1/3.png");
-    Texture2D foreground = LoadTexture("src/background/b1/4.png");
-
-    //float scrollingBack = 0.0f;
-    //float scrollingMid = 0.0f;
-    //float scrollingFore = 0.0f;
 
 
     Player player;
@@ -53,14 +45,16 @@ int main(void) {
         .AddComponent(std::make_unique<Midground>("src/background/b1/3.png"))
         .AddComponent(std::make_unique<Foreground>("src/background/b1/4.png"));
 
-
     Scene scene = builder.Build();
+
+    std::string music1 = "music1";
 
     builder.AddComponent(std::make_unique<Foreground>("src/background/b2/1.png"))
         .AddComponent(std::make_unique<Midground>("src/background/b2/2.png"))
         .AddComponent(std::make_unique<Midground>("src/background/b2/3.png"))
         .AddComponent(std::make_unique<Background>("src/background/b2/4.png"))
-        .AddObject(std::make_unique<NPC>(spritesheets));
+        .AddObject(std::make_unique<NPC>(spritesheets))
+        .AddMusic(music1,std::make_unique<MusicComponent>("src/sounds/CVHarris.mp3"));
 
 
     Scene scene2 = builder.Build();
@@ -84,6 +78,8 @@ int main(void) {
         
 
         //PlayMusicStream(music);
+
+        scene2.setCurrentSong("music1");
 
         scene2.UpdateScene(player, camera);
 

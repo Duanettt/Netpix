@@ -1,135 +1,350 @@
 #pragma once
+
 #include <raylib.h>
+#include <unordered_map>
 #include <vector>
-#include <string>
+#include <memory>
+#include "Player.h"
+#include "Camera.h"
+#include "GameObjects.h"
+#include "Music.h"
 
 class SceneComponent
 {
 public:
-    SceneComponent(const char* filePath)
+    virtual void Update(CameraController& camera) = 0;
+    virtual void Draw(CameraController& camera) = 0;
+    virtual void Unload() = 0;
+
+    Texture2D getTexture()
     {
-        tex = LoadTexture(filePath);
-        if (tex.width == 0 || tex.height == 0)
+        return texture;
+    }
+
+    virtual ~SceneComponent() {}  // Ensure proper cleanup of derived classes
+
+protected:
+    Texture2D texture;
+};
+
+class Background : public SceneComponent
+{
+public:
+    Background(const char* filePath)
+    {
+        texture = LoadTexture(filePath);
+        if (texture.width == 0 || texture.height == 0)
         {
-            // Handle texture loading error
             TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
         }
     }
 
-    SceneComponent() {}
-
-    void Unload()
+    void Update(CameraController& camera) override
     {
-        UnloadTexture(tex);
+
+        // Loop the texture when it reaches the end
+
+        if (camera.getCameraPosition().x <= -texture.width * 2)
+        {
+            
+            xOffset = camera.getCameraOffset().x;
+        }
+        else
+        {
+            xOffset = 0;
+        } 
     }
 
-    int getWidth() const { return tex.width; }
-    int getHeight() const { return tex.height; }
-    Texture2D getTex() const 
+    void Draw(CameraController& camera) override
     {
-        return tex; 
+        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+    }
+
+    void Unload() override
+    {
+        UnloadTexture(texture);
+    }
+
+    ~Background() override
+    {
+        Unload();
     }
 
 private:
-    Texture2D tex;
+    float xOffset = 0.0f;
 };
+
+class Midground : public SceneComponent
+{
+public:
+    Midground(const char* filePath)
+    {
+        texture = LoadTexture(filePath);
+        if (texture.width == 0 || texture.height == 0)
+        {
+            TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
+        }
+    }
+
+    void Update(CameraController& camera) override
+    {
+
+    // Loop the texture when it reaches the end
+     xOffset = camera.getCameraOffset().x;
+
+
+     
+
+    }
+
+    void Draw(CameraController& camera) override
+    {
+        // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+    }
+
+    void Unload() override
+    {
+        // No resources to unload for Midground
+    }
+
+    ~Midground() override
+    {
+        Unload();
+    }
+
+private:
+    float xOffset = 0.0f;
+    bool wallDetection = false;
+};
+
+class Foreground : public SceneComponent
+{
+public:
+    Foreground(const char* filePath)
+    {
+        texture = LoadTexture(filePath);
+        if (texture.width == 0 || texture.height == 0)
+        {
+            TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
+        }
+
+       
+    }
+
+    void Update(CameraController& camera) override
+    {
+
+        // Loop the texture when it reaches the end
+        xOffset = camera.getCameraOffset().x;
+        if (xOffset >= -texture.width * 2) xOffset = 0;
+    }
+
+
+    void Draw(CameraController& camera) override
+    {
+        xOffset = camera.getCameraOffset().x; // Use only the horizontal offset
+        DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+    }
+
+    void Unload() override
+    {
+        // No resources to unload for Foreground
+    }
+
+    ~Foreground() override
+    {
+        Unload();
+    }
+
+private:
+    float xOffset = 0.0f;
+};
+
 
 class Scene
 {
 public:
-    Scene(const SceneComponent& bg, const SceneComponent& mg, const SceneComponent& fg)
-        : background(bg), midground(mg), foreground(fg)
+    void AddComponentPointerToSceneVector(SceneComponent* component)
     {
+        components.push_back(component);
     }
 
-    void UpdateScene(Player& player)
+    void AddGameObjectPointerToSceneVector(GameObjects* object)
     {
-        scrollingBack -= 0.1f;
-        scrollingMid -= 0.5f;
-        scrollingFore -= 1.0f;
-
-        if (scrollingBack <= -background.getWidth() * 2) scrollingBack = 0;
-        if (scrollingMid <= -midground.getWidth() * 2) scrollingMid = 0;
-        if (scrollingFore <= -foreground.getWidth() * 2) scrollingFore = 0;
-
-
-        player.Update();
+        objects.push_back(object);
     }
 
-    void DrawScene(Player& player) const
+    void AddMusicPointerToMusicMap(std::string musicName, MusicComponent* music)
     {
-        // Draw background twice
-        /*
-        * We draw the texture twice to create the illusion of an infinitely scrolling foreground.
-        * The first texture is drawn at its current scrolling point, the second one is drawn immediately after the first texture ends.
-        * First draw call places the first foreground texture at the scrolling position
-        * We place a second copy of the foreground texture right after the first one, at scrollingFore + foreground.width * 2. The foreground.width * 2 accounts for the width of the texture, considering that it's scaled by a factor of 2.0. By placing the second texture here, it "follows" the first one and will appear when the first texture has moved off the screen
-        */
-        DrawTextureEx(background.getTex(), Vector2{scrollingFore, 450.0f - (background.getHeight() * 2)}, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(background.getTex(), Vector2{ scrollingFore + background.getWidth() * 2, 450.0f - (background.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        musicMap[musicName] = music;
+    }
 
+    NPC* getNPC()
+    {
+        for (const auto& object : objects)
+        {
+            NPC* npc = dynamic_cast<NPC*>(object);
+            if (npc != nullptr)
+            {
+                return npc;
+            }
+            return nullptr;
+        }
+    }
 
-        // Draw middleground twice
-        /*
-        * The second parameter is a vector, scrolling fore sets the horizontal x value
-        * screenHeight - foreground etcetera, this sets the vertical position. This helps to place the texture so that its bottom edge aligns with our window/screen height.
-        */
-        DrawTextureEx(midground.getTex(), Vector2{ scrollingFore, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(midground.getTex(), Vector2{ scrollingFore + midground.getWidth() * 2, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+    float getWorldWidth()
+    {
+        for (const auto& component : components)
+        {
+            Foreground* fg = dynamic_cast<Foreground*>(component);
+            if (fg != nullptr)
+            {
+               return fg->getTexture().width * 2;
+            }
+        }
+        return 0.0f;
+    }
 
+    float getWorldHeight()
+    {
+        for (const auto& component : components)
+        {
+            Foreground* fg = dynamic_cast<Foreground*>(component);
+            if (fg != nullptr)
+            {
+                return fg->getTexture().height * 2;
+            }
+        }
+        return 0.0f;
+    }
 
+    void DrawScene(Player& player, CameraController& camera) const
+    {
+        currentMusic->PlayMusic();
 
-        // Draw foreground image twice
-        DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore + foreground.getWidth() * 2, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        camera.BeginCameraMode();
 
+        for (const auto& component : components)
+        {
+            component->Draw(camera);
+        }
+
+        for (const auto& object : objects)
+        {
+            object->DrawObject(camera);
+        }
         player.Draw();
+
+
+        camera.EndCameraMode();
     }
 
-private:
-    float scrollingBack = 0.0f;
-    float scrollingMid = 0.0f;
-    float scrollingFore = 0.0f;
-
-    SceneComponent background;
-    SceneComponent midground;
-    SceneComponent foreground;
-};
-
-class SceneBuilder
-{
-public:
-    SceneBuilder& AddBackground(const char* filePath)
+    void UpdateScene(Player& player, CameraController& camera)
     {
-        background = SceneComponent(filePath);
-        return *this;
-    }
+        currentMusic->UpdateMusic();
 
-    SceneBuilder& AddMidground(const char* filePath)
-    {
-        midground = SceneComponent(filePath);
-        return *this;
-    }
+        camera.UpdateCamera(player.GetPlayerPosition(), this->getWorldWidth(), this->getWorldHeight());
 
-    SceneBuilder& AddForeground(const char* filePath)
-    {
-        foreground = SceneComponent(filePath);
-        return *this;
-    }
+        for (const auto& component : components)
+        {
+            component->Update(camera);
+        }
 
-    Scene Build() const
-    {
-        return Scene(background, midground, foreground);
+        for (const auto& object : objects)
+        {
+            object->UpdateObject();
+        }
+
+        player.Update(this->getWorldWidth());
     }
 
     void Unload()
     {
-        background.Unload();
-        midground.Unload();
-        foreground.Unload();
+        for (auto& component : components)
+        {
+            component->Unload();
+        }
+
+        // Need more unloading functions for musicMap and objects
+        components.clear();
     }
+
+    void setCurrentSong(std::string musicName)
+    {
+        auto it = musicMap.find(musicName);
+        if (it != musicMap.end())
+        {
+            currentMusic = it->second;
+            currentMusic->PlayMusic();
+        }
+    }
+
 private:
-    SceneComponent background;
-    SceneComponent midground;
-    SceneComponent foreground;
+    std::vector<SceneComponent*> components;
+    std::vector<GameObjects*> objects;
+    std::unordered_map<std::string, MusicComponent*> musicMap;
+    MusicComponent* currentMusic = nullptr;
+
+};
+
+
+class SceneBuilder
+{
+public:
+    SceneBuilder& AddComponent(std::unique_ptr<SceneComponent> component)
+    {
+        sceneComponents.push_back(std::move(component));
+        return *this;
+    };
+
+    SceneBuilder& AddObject(std::unique_ptr<GameObjects> object)
+    {
+        gameObjects.push_back(std::move(object));
+        return *this;
+    }
+
+    SceneBuilder& AddMusic(const std::string name,std::unique_ptr<MusicComponent> musicObject)
+    {
+        musicMap[name] = std::move(musicObject);
+        return *this;
+    }
+
+    Scene Build()
+    {
+        Scene scene;
+
+        for (const auto& component : sceneComponents)
+        {
+            scene.AddComponentPointerToSceneVector(component.get());
+        }
+
+        for (const auto& object : gameObjects)
+        {
+            scene.AddGameObjectPointerToSceneVector(object.get());
+        }
+
+        for (const auto& [name, music] : musicMap)
+        {
+            scene.AddMusicPointerToMusicMap(name, music.get());
+        }
+        return scene;
+    }
+
+
+    void Unload()
+    {
+        sceneComponents.clear();
+        gameObjects.clear();
+        musicMap.clear();
+    }
+
+private:
+    std::vector<std::unique_ptr<SceneComponent>> sceneComponents;
+    std::vector<std::unique_ptr<GameObjects>> gameObjects;
+    std::unordered_map<std::string, std::unique_ptr<MusicComponent>> musicMap;
 };

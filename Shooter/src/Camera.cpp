@@ -47,6 +47,23 @@ Vector2 CameraController::getCameraPosition()
 	return camera.target;
 }
 
+bool CameraController::getCameraDirection(float objectPosition)
+{
+	{
+		float currentOffset = this->getCameraOffset().x;
+		float currentPosition = this->getCameraPosition().x;
+		std::cout << objectPosition << std::endl;
+		if (currentPosition + currentOffset >= objectPosition)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
 void CameraController::XAxisBoundaryCheck(const Vector2& playerPosition, float halfScreenWidth, float worldWidth)
 {
 

@@ -129,9 +129,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Music.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\NewScene.cpp" />
     <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\ParallaxScene.cpp" />
     <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\GameObjects.cpp" />
@@ -139,9 +141,11 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Music.h" />
+    <ClInclude Include="src\ResourceManager.h" />
     <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\NewScene.h" />
     <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\ParallaxScene.h" />
     <ClInclude Include="src\Animation.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\GameObjects.h" />

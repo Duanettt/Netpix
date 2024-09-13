@@ -58,6 +58,7 @@ public:
     void DrawAnimation(Vector2 position)
     {
         // Basic draw call for each animation.
+        
         DrawTextureRec(texture, frameRec, position, WHITE);
     }
 
