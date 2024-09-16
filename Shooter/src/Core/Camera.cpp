@@ -52,7 +52,7 @@ bool CameraController::getCameraDirection(float objectPosition)
 	{
 		float currentOffset = this->getCameraOffset().x;
 		float currentPosition = this->getCameraPosition().x;
-		std::cout << objectPosition << std::endl;
+
 		if (currentPosition + currentOffset >= objectPosition)
 		{
 			return true;

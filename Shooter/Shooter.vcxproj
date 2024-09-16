@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\sounds\CVHarris.mp3" />
+    <Media Include="res\sounds\Jingle Bells.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

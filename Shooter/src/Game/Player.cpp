@@ -1,10 +1,10 @@
 #include "Player.h"
 
 Player::Player() : playerState(IDLE), position{ 358.0f, 224.0f } {
-    animations[IDLE] = new IdleSpritesheet("res/character/main/idle.png");
-    animations[WALKING] = new WalkingSpritesheet("res/character/main/Walk.png");
-    animations[RUNNING] = new RunningSpritesheet("res/character/main/Run.png");
-    animations[ATTACK] = new AttackSpritesheet("res/character/main/Attack.png");
+    animations[IDLE] = new IdleSpritesheet("res/character/main/idle.png",6);
+    animations[WALKING] = new WalkingSpritesheet("res/character/main/Walk.png",10);
+    animations[RUNNING] = new RunningSpritesheet("res/character/main/Run.png",10);
+    animations[ATTACK] = new AttackSpritesheet("res/character/main/Attack.png",10);
 
     // Set the initial animation
     currentAnimation = animations[IDLE];
@@ -27,6 +27,27 @@ void Player::Draw() {
     if (currentAnimation) {
         currentAnimation->DrawAnimation(position, isFacingRight);
     }
+}
+
+Rectangle Player::GetPlayerBoundingRect()
+{
+    float rectangleWidth = 0;
+    float rectangleHeight = 0;
+
+    
+
+    if (currentAnimation != nullptr)
+    {   // We get the full texture's width and divide it by the number of frames within the texture.
+
+        float currentFrameCount = currentAnimation->getFrameCount();
+        rectangleWidth = (currentAnimation->getTextureWidth() / currentFrameCount);
+        // std::cout << "This is the players width: " << rectangleWidth << std::endl;
+        rectangleHeight = (currentAnimation->getTextureHeight());
+        // std::cout << "This is the players height: " << rectangleWidth << std::endl;
+    }
+    
+    Rectangle playerRect = Rectangle({ position.x, position.y, rectangleWidth, rectangleHeight });
+    return playerRect;
 }
 
 void Player::SetPlayerPosition(Vector2 newPosition)

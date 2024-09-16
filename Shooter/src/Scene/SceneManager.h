@@ -12,7 +12,7 @@ public:
 	static SceneManager& getInstance();
 
 	// Adds scene to our map
-	SceneManager& AddScene(Scene* scene);
+	SceneManager& AddScene(std::unique_ptr<Scene> scene);
 	// Sets the scene
 	void SetScene(int number);
 	// Draws the current scene
@@ -20,11 +20,15 @@ public:
 	// Updates our current scene.
 	void UpdateCurrentScene(Player& player, CameraController& camera);
 
+	// Get our current scene count
+
+	int GetSceneCount();
+
 	Scene* getCurrentScene();
 private:
 	static int sceneCounter;
 	static SceneManager sceneManager;
 	Scene* currentScene;
-	std::unordered_map<int, Scene*> sceneMap;
+	std::unordered_map<int, std::unique_ptr<Scene>> sceneMap;
 };
 

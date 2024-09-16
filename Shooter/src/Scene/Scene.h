@@ -195,8 +195,23 @@ public:
             {
                 return npc;
             }
-            return nullptr;
         }
+        return nullptr;
+    }
+
+    NPC* getNPCByIndex(int num)
+    {
+        std::vector<NPC*> npcVec;
+
+        for (const auto& object : objects)
+        {
+            NPC* npc = dynamic_cast<NPC*>(object);
+            if (npc != nullptr)
+            {
+                npcVec.push_back(npc);
+            } 
+        }
+        return nullptr;
     }
 
     float getWorldWidth()
@@ -263,6 +278,8 @@ public:
         }
 
         player.Update(this->getWorldWidth());
+
+        this->checkCollisions(player);
     }
 
     void Unload()
@@ -282,8 +299,32 @@ public:
         if (it != musicMap.end())
         {
             currentMusic = it->second;
+            std::cout << it->first;
             currentMusic->PlayMusic();
         }
+        else
+        {
+            TraceLog(LOG_ERROR, "Current song chosen is not compatible with this scene!");
+        }
+    }
+
+    bool checkCollisions(Player& player)
+    {
+        Rectangle playerRect = player.GetPlayerBoundingRect();
+        for (const auto& object : objects)
+        {
+            NPC* npc = dynamic_cast<NPC*>(object);
+            if (npc != nullptr)
+            {
+                if (CheckCollisionRecs(npc->GetCurrentObjectBoundingRect(), playerRect))
+                {
+                    // std::cout << "Collision Detected" << std::endl;
+                    DrawRectangle(player.GetPlayerPosition().x, player.GetPlayerPosition().y, playerRect.width, playerRect.height, RED);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 private:
@@ -334,6 +375,8 @@ public:
         {
             scene.AddMusicPointerToMusicMap(name, music.get());
         }
+
+        std::cout << "Built scene" << std::endl;
         return scene;
     }
 

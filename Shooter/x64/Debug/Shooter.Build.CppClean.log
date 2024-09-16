@@ -11,11 +11,11 @@ c:\dev\netpix\shooter\x64\debug\camera.obj
 c:\dev\netpix\shooter\x64\debug\resourcemanager.obj
 c:\dev\netpix\shooter\x64\debug\music.obj
 c:\dev\netpix\shooter\x64\debug\scenemanager.obj
-c:\dev\netpix\x64\debug\shooter.exe
-c:\dev\netpix\x64\debug\shooter.pdb
 c:\dev\netpix\x64\debug\raylib.dll
 c:\dev\netpix\x64\debug\glfw3.dll
 c:\dev\netpix\shooter\x64\debug\shooter.ilk
+c:\dev\netpix\x64\debug\shooter.pdb
+c:\dev\netpix\x64\debug\shooter.exe
 c:\dev\netpix\shooter\x64\debug\shooter.tlog\cl.command.1.tlog
 c:\dev\netpix\shooter\x64\debug\shooter.tlog\cl.items.tlog
 c:\dev\netpix\shooter\x64\debug\shooter.tlog\cl.read.1.tlog

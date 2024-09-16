@@ -12,7 +12,7 @@ public:
 
     void Update(float worldWidth);
     void Draw();
-
+    Rectangle GetPlayerBoundingRect();
     void SetPlayerPosition(Vector2 newPosition);
     Vector2 GetPlayerPosition();
 private:

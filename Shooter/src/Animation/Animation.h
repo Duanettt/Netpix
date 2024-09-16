@@ -36,6 +36,26 @@ public:
             frameRec.x = (float)currentFrame * (float)texture.width / frameCount;
         }
     }
+
+
+    void UpdateAnimation(int framesSpeed, Rectangle playerBox)
+    {
+        // counts how many frames.
+        framesCounter++;
+
+        // This check allows for us to determine the rate at which the frameRec moves over our spritesheet.
+        if (framesCounter >= (60 / framesSpeed))
+        {
+            framesCounter = 0;
+            currentFrame++;
+            if (currentFrame >= frameCount) currentFrame = 0;
+            // Moves the frame.
+            frameRec.x = (float)currentFrame * (float)texture.width / frameCount;
+        }
+
+
+    }
+
     void DrawAnimation(Vector2 position, bool isFacingRight) {
         // Had a lot of trouble with this but ChatGPT helped..
         /*
@@ -50,7 +70,8 @@ public:
             // Distinguishes between left and right for our player.
             sourceRec.width = -frameRec.width;
         }
-
+        // Useful for boundary boxes:
+        // DrawRectangle(position.x, position.y, sourceRec.width, sourceRec.height, GREEN);
         DrawTextureRec(texture, sourceRec, position, WHITE);
     }
 
@@ -62,6 +83,21 @@ public:
         DrawTextureRec(texture, frameRec, position, WHITE);
     }
 
+    float getTextureWidth()
+    {
+        return texture.width;
+    }
+
+
+    float getTextureHeight()
+    {
+        return texture.height;
+    }
+
+    int getFrameCount()
+    {
+        return frameCount;
+    }
 
 protected:
     Texture2D texture;
@@ -86,7 +122,7 @@ public:
 class IdleSpritesheet : public Spritesheet
 {
 public:
-    IdleSpritesheet(const char* filePath) : Spritesheet(filePath, 6)
+    IdleSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount)
     {
     }
 };
@@ -94,7 +130,7 @@ public:
 class RunningSpritesheet : public Spritesheet
 {
 public:
-    RunningSpritesheet(const char* filePath) : Spritesheet(filePath, 10)
+    RunningSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount)
     {
     }
 };
@@ -102,7 +138,7 @@ public:
 class WalkingSpritesheet : public Spritesheet
 {
 public:
-    WalkingSpritesheet(const char* filePath) : Spritesheet(filePath, 10)
+    WalkingSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount)
     {
     }
 };
@@ -110,7 +146,7 @@ public:
 class AttackSpritesheet : public Spritesheet
 {
 public:
-    AttackSpritesheet(const char* filePath) : Spritesheet(filePath, 4)
+    AttackSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount)
     {
     }
 };

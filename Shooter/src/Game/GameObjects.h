@@ -33,8 +33,30 @@ public:
 		return position;
 	}
 
+	Rectangle GetCurrentObjectBoundingRect()
+	{
+		float rectangleWidth = 0;
+		float rectangleHeight = 0;
+
+
+
+		if (currentAnimation != nullptr)
+		{   // We get the full texture's width and divide it by the number of frames within the texture.
+
+			float currentFrameCount = currentAnimation->getFrameCount();
+			rectangleWidth = (currentAnimation->getTextureWidth() / currentFrameCount);
+			// std::cout << "This is the rectangle's width: " << rectangleWidth << std::endl;
+			rectangleHeight = (currentAnimation->getTextureHeight());
+			// std::cout << "This is the rectangle's height: " << rectangleWidth << std::endl;
+		}
+
+		Rectangle playerRect = Rectangle({ position.x, position.y, rectangleWidth, rectangleHeight});
+		return playerRect;
+	}
+
 protected:
 	Vector2 position;
+	Spritesheet* currentAnimation;
 };
 
 // NPC for example now inherits from game object and we can now create an NPC object and add to our scene in the client.
@@ -53,6 +75,7 @@ public:
 		setPosition({ 758.0f, 224.0f });
 	}
 	void setCurrentAnimation(State state) override
+
 	{
 		// set the default state of our npc.
 		// we can now change the state if we need different animations to play.
@@ -100,5 +123,4 @@ public:
 	}
 private:
 	std::unordered_map<State, Spritesheet*> npcAnimations;
-	Spritesheet* currentAnimation;
 };

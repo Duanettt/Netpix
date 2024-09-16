@@ -30,44 +30,53 @@ int main(void) {
 
     Player player;
 
-    Spritesheet* idleSpritesheet = new IdleSpritesheet("res/character/npc1/Idle.png");
-    Spritesheet* walkingSpritesheet = new WalkingSpritesheet("res/character/npc1/Walk.png");
+    Spritesheet* idleSpritesheet = new IdleSpritesheet("res/character/npc1/Idle.png",6);
+    Spritesheet* walkingSpritesheet = new WalkingSpritesheet("res/character/npc1/Walk.png",10);
 
     std::unordered_map<State, Spritesheet*> spritesheets = {
         {IDLE, idleSpritesheet},
         {WALKING, walkingSpritesheet} 
     };
 
-    auto npc = std::make_unique<NPC>(spritesheets);
+
+    Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
+    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet("res/character/Onre/Walk.png", 10);
+
+
+    std::unordered_map<State, Spritesheet*> tSpritesheets = {
+       {IDLE, tracyIdleSpritesheet},
+       {WALKING, tracyWalkingSpritesheet}
+    };
 
     SceneBuilder builder;
+
     builder.AddComponent(std::make_unique<Background>("res/background/b1/1.png"))
         .AddComponent(std::make_unique<Midground>("res/background/b1/2.png"))
         .AddComponent(std::make_unique<Midground>("res/background/b1/3.png"))
-        .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"));
+        .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"))
+        .AddObject(std::make_unique<NPC>(spritesheets))
+        .AddObject(std::make_unique<NPC>(tSpritesheets))
+        .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
 
-    Scene scene = builder.Build();
+    Scene scene1 = builder.Build();
 
     builder.AddComponent(std::make_unique<Foreground>("res/background/b2/1.png"))
         .AddComponent(std::make_unique<Midground>("res/background/b2/2.png"))
         .AddComponent(std::make_unique<Midground>("res/background/b2/3.png"))
         .AddComponent(std::make_unique<Background>("res/background/b2/4.png"))
         .AddObject(std::make_unique<NPC>(spritesheets))
-        .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
-
+        .AddMusic("music2", std::make_unique<MusicComponent>("res/sounds/Jingle Bells.mp3"));
 
     Scene scene2 = builder.Build();
 
+    sceneManager.AddScene(std::make_unique<Scene>(scene2));
+    sceneManager.AddScene(std::make_unique<Scene>(scene1));
 
-    sceneManager.AddScene(&scene)
-                .AddScene(&scene2);
+    sceneManager.SetScene(2);
 
-    npc->setCurrentAnimation(WALKING);
-    scene2.getNPC()->setCurrentAnimation(IDLE);
+    sceneManager.getCurrentScene()->setCurrentSong("music1");
 
-    sceneManager.SetScene(1);
-    GameScreen gs = LOGO;
-    
+    sceneManager.getCurrentScene()->getNPCByIndex(0);
     CameraController camera;
          
    // Music music = LoadMusicStream("src/sounds/CVHarris.mp3");
@@ -80,8 +89,6 @@ int main(void) {
         
 
         //PlayMusicStream(music);
-
-        sceneManager.getCurrentScene()->setCurrentSong("music1");
 
         sceneManager.UpdateCurrentScene(player, camera);
 
