@@ -2,6 +2,10 @@
 
 **Netpix** is a 2D game/game engine developed in C++ using the Raylib library. This project serves as a platform to deepen my knowledge of C++ and game development concepts, from basic rendering to more advanced features like scene management and sprite-based animations.
 
+## Needs implementing
+- We need to implement the collision detection system, a resource manager, some type of dialog system.
+______
+
 ## How to Use
 
 As of September 2024, **Netpix** is primarily set up for use with **Visual Studio**. I am actively working on adding **CMake** support to make the project more versatile across platforms and development environments.
