@@ -12,13 +12,15 @@ SceneManager& SceneManager::getInstance()
 
 SceneManager& SceneManager::AddScene(std::unique_ptr<Scene> scene)
 {
+
+
     if (scene != nullptr)
     {
         sceneCounter++;
         sceneMap[sceneCounter] = std::move(scene);
         std::cout << "Scene added" << std::endl;
     }
-
+    // Allows for chaining of scene additions
     return *this;
 }
 
@@ -47,10 +49,10 @@ void SceneManager::DrawCurrentScene(Player& player, CameraController& camera)
 
 void SceneManager::UpdateCurrentScene(Player& player, CameraController& camera)
 {
-    std::cout << "Our scene is: " << currentScene << std::endl;
+    //std::cout << "Our scene is: " << currentScene << std::endl;
     if (currentScene != nullptr)
     {
-        std::cout << "In the update scene" << std::endl;
+        //std::cout << "In the update scene" << std::endl;
         currentScene->UpdateScene(player, camera);
     }
 }
@@ -64,7 +66,7 @@ Scene* SceneManager::getCurrentScene()
 {
     if (currentScene != nullptr)
     {
-        std::cout << "We have a scene!" << std::endl;
+        //std::cout << "We have a scene!" << std::endl;
         return currentScene;
     }
     else

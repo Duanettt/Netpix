@@ -18,6 +18,7 @@ public:
 private:
     std::unordered_map<State, Spritesheet*> animations;
     State playerState;
+    State currentState = State::IDLE;
     Vector2 position;
     bool isFacingRight = false;
     Spritesheet* currentAnimation = nullptr;
@@ -30,4 +31,5 @@ private:
     void HandleMovementInput(float worldWidth);
     bool HandleMouseInput();
     void SetPlayerState(State state);
+    void CheckStatePriority(State state);
 };

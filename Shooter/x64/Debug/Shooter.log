@@ -1,32 +1,32 @@
 ﻿  main.cpp
-C:\dev\Netpix\Shooter\src\Animation\Animation.h(88,23): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Animation\Animation.h(90,23): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Animation\Animation.h(94,23): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Animation\Animation.h(96,23): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Game\Player.h(25,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Game\Player.h(26,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Game\GameObjects.h(46,28): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Game\GameObjects.h(47,28): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(224,46): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(232,46): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(237,48): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(245,48): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(322,123): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(331,123): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(322,105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(331,105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(322,91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(331,91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\Scene\Scene.h(322,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene.h(331,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe

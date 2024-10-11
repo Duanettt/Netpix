@@ -171,6 +171,14 @@ private:
 class Scene
 {
 public:
+    // Unfinished might be a decent idea to reduce the amount of add vectors we have..
+    template<typename T>
+    void addPointerToSceneVector(T* component)
+    {
+
+    }
+
+    // For these we could use a template method.
     void AddComponentPointerToSceneVector(SceneComponent* component)
     {
         components.push_back(component);
@@ -211,7 +219,7 @@ public:
                 npcVec.push_back(npc);
             } 
         }
-        return nullptr;
+        return npcVec[num];
     }
 
     float getWorldWidth()
@@ -308,6 +316,7 @@ public:
         }
     }
 
+    // This doesnt work.... 
     bool checkCollisions(Player& player)
     {
         Rectangle playerRect = player.GetPlayerBoundingRect();
@@ -318,7 +327,7 @@ public:
             {
                 if (CheckCollisionRecs(npc->GetCurrentObjectBoundingRect(), playerRect))
                 {
-                    // std::cout << "Collision Detected" << std::endl;
+                    //std::cout << "Collision Detected" << std::endl;
                     DrawRectangle(player.GetPlayerPosition().x, player.GetPlayerPosition().y, playerRect.width, playerRect.height, RED);
                     return true;
                 }
@@ -376,7 +385,7 @@ public:
             scene.AddMusicPointerToMusicMap(name, music.get());
         }
 
-        std::cout << "Built scene" << std::endl;
+        std::cout << "Scene sucessfully built..." << std::endl;
         return scene;
     }
 

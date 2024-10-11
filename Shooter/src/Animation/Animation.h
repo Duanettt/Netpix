@@ -4,6 +4,8 @@
 
 /* 
 The animation class is responsible for our animations. It allows for our game objects class to utilise this and create animations
+
+For our attack animation we're going to need to implement an attack timer. We have to be able to dictate when an attack animation is finished and a state priority.
 .
 */
 

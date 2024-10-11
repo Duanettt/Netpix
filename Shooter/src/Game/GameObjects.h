@@ -30,11 +30,12 @@ public:
 
 	Vector2& getPosition()
 	{
+		std::cout << "Current X position of NPC: " << position.x << std::endl;
+		std::cout << "Current Y position of NPC: " << position.y << std::endl;
 		return position;
 	}
 
-	Rectangle GetCurrentObjectBoundingRect()
-	{
+	Rectangle GetCurrentObjectBoundingRect() {
 		float rectangleWidth = 0;
 		float rectangleHeight = 0;
 

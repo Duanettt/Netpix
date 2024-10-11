@@ -7,3 +7,6 @@ enum State {
     JUMPING = 3,
     ATTACK = 4,
 };
+
+
+// For the attack state we can use a progress animation checker. We can check the progress of the animation each time the animation is called. 

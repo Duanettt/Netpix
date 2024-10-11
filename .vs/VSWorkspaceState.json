@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Shooter",
-    "\\Shooter\\src",
-    "\\Shooter\\src\\background"
+    "\\Shooter\\res",
+    "\\Shooter\\src"
   ],
   "SelectedNode": "\\Shooter.sln",
   "PreviewInSolutionExplorer": false

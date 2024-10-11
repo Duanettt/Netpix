@@ -30,6 +30,8 @@ int main(void) {
 
     Player player;
 
+    // Solve collision detection problems..
+
     Spritesheet* idleSpritesheet = new IdleSpritesheet("res/character/npc1/Idle.png",6);
     Spritesheet* walkingSpritesheet = new WalkingSpritesheet("res/character/npc1/Walk.png",10);
 
@@ -39,14 +41,14 @@ int main(void) {
     };
 
 
-    Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
-    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet("res/character/Onre/Walk.png", 10);
+ /*   Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
+    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet("res/character/Onre/Run.png", 10);
 
 
     std::unordered_map<State, Spritesheet*> tSpritesheets = {
        {IDLE, tracyIdleSpritesheet},
        {WALKING, tracyWalkingSpritesheet}
-    };
+    };  */
 
     SceneBuilder builder;
 
@@ -55,7 +57,6 @@ int main(void) {
         .AddComponent(std::make_unique<Midground>("res/background/b1/3.png"))
         .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"))
         .AddObject(std::make_unique<NPC>(spritesheets))
-        .AddObject(std::make_unique<NPC>(tSpritesheets))
         .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
 
     Scene scene1 = builder.Build();
@@ -76,7 +77,11 @@ int main(void) {
 
     sceneManager.getCurrentScene()->setCurrentSong("music1");
 
-    sceneManager.getCurrentScene()->getNPCByIndex(0);
+    sceneManager.getCurrentScene()->getNPCByIndex(0)->setCurrentAnimation(IDLE);
+
+    // Bug 1 -> When we set the position it doesn't update the draw object position.
+    //sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 450, 250 });
+
     CameraController camera;
          
    // Music music = LoadMusicStream("src/sounds/CVHarris.mp3");
@@ -85,16 +90,10 @@ int main(void) {
 
     while (!WindowShouldClose()) 
     {
-        //UpdateMusicStream(music);
-        
-
-        //PlayMusicStream(music);
-
         sceneManager.UpdateCurrentScene(player, camera);
 
         BeginDrawing();
         ClearBackground(GetColor(0x052c46ff));
-
 
         sceneManager.DrawCurrentScene(player, camera);
 

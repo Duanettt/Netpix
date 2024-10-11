@@ -4,7 +4,7 @@ Player::Player() : playerState(IDLE), position{ 358.0f, 224.0f } {
     animations[IDLE] = new IdleSpritesheet("res/character/main/idle.png",6);
     animations[WALKING] = new WalkingSpritesheet("res/character/main/Walk.png",10);
     animations[RUNNING] = new RunningSpritesheet("res/character/main/Run.png",10);
-    animations[ATTACK] = new AttackSpritesheet("res/character/main/Attack.png",10);
+    animations[ATTACK] = new AttackSpritesheet("res/character/main/Attack.png",4);
 
     // Set the initial animation
     currentAnimation = animations[IDLE];
@@ -121,7 +121,7 @@ void Player::HandleMovementInput(float worldWidth)
 
 bool Player::HandleMouseInput()
 {
-    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
     {
         SetPlayerState(ATTACK);
         return true;
@@ -132,8 +132,30 @@ bool Player::HandleMouseInput()
 
 
 void Player::SetPlayerState(State state) {
+
     if (playerState != state) {
         playerState = state;
+        CheckStatePriority(playerState);
         currentAnimation = animations[playerState];
+    }
+}
+
+void Player::CheckStatePriority(State state)
+{
+    // PROBLEM: The animation class plays based on holding instead of clicking in animation we need to build a new way of animating so when the user clicks it plays the full animation.. So its when the user released the click.
+    // This checks for our players current state based on the user input.
+
+    // Somewhat solved -- We have the basic attack.
+    if (currentState < state)
+    {
+        // We print out our state
+        std::cout << currentState << "\n" << std::endl;
+        // Find the time taken for our attack state to finish the animation.
+
+        currentState = state;
+        std::cout << "New state is greater than the previous state!";
+
+        // Now successfully checks which state is greater than which.
+        // One issue: If we start walking 
     }
 }
