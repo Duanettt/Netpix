@@ -129,12 +129,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Scene\Scene Components\Background.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\Foreground.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\Midground.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\SceneBuilder.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\SceneComponent.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Sound\Music.cpp" />
     <ClCompile Include="src\Core\ResourceManager.cpp" />
     <ClCompile Include="src\Core\Camera.cpp" />
-    <ClCompile Include="src\Scene\Scene.cpp" />
-    <ClCompile Include="src\Scene\ParallaxScene.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\Scene.cpp" />
+    <ClCompile Include="src\Scene\temp\ParallaxScene.cpp" />
     <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\Game\Player.cpp" />
     <ClCompile Include="src\Game\GameObjects.cpp" />
@@ -142,12 +147,13 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Sound\Music.h" />
     <ClInclude Include="src\Core\ResourceManager.h" />
     <ClInclude Include="src\Core\Camera.h" />
-    <ClInclude Include="src\Scene\Scene.h" />
-    <ClInclude Include="src\Scene\ParallaxScene.h" />
+    <ClInclude Include="src\Scene\temp\Scene3.h" />
+    <ClInclude Include="src\Scene\temp\ParallaxScene.h" />
     <ClInclude Include="src\Animation\Animation.h" />
     <ClInclude Include="src\Game\Player.h" />
     <ClInclude Include="src\Game\GameObjects.h" />
@@ -166,6 +172,7 @@
   <ItemGroup>
     <Media Include="res\sounds\CVHarris.mp3" />
     <Media Include="res\sounds\Jingle Bells.mp3" />
+    <Media Include="res\sounds\Tems-FreeMind.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

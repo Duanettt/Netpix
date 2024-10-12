@@ -1,45 +1,24 @@
+#pragma once
+#include <raylib.h>
+
+// MusicComponent handles loading, playing, and updating music streams.
 class MusicComponent
 {
 public:
-    MusicComponent(const char* filePath)
-    {
-        music = LoadMusicStream(filePath);
-        if (music.frameCount == 0) 
-        {
-            TraceLog(LOG_ERROR, "Failed to load music: %s", filePath);
-        }
-        else 
-        {
-            TraceLog(LOG_INFO, "Successfully loaded music: %s", filePath);
-        }
-    }
+    // Constructor to load music from a file path.
+    MusicComponent(const char* filePath);
 
-    ~MusicComponent()
-    {
-        UnloadMusicStream(music);
-    }
+    // Destructor to unload the music stream.
+    ~MusicComponent();
 
-    void PlayMusic()
-    {
-        if (music.frameCount > 0) {
-            PlayMusicStream(music);
-        }
-        else {
-        }
-    }
+    // Play the loaded music.
+    void PlayMusic();
 
-    void UpdateMusic()
-    {
+    // Update the music stream.
+    void UpdateMusic();
 
-        if (music.frameCount > 0) {
-            UpdateMusicStream(music);
-        }
-    }
-
-    bool IsValid() const
-    {
-        return music.frameCount > 0;
-    }
+    // Check if the music component is valid.
+    bool IsValid() const;
 
 private:
     Music music;
