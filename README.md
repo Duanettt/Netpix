@@ -1,5 +1,5 @@
 # Netpix
-
+![image](https://github.com/user-attachments/assets/104dabab-e34c-49a4-9b37-0e14c513b539)
 **Netpix** is a 2D game/game engine developed in C++ using the Raylib library. This project serves as a platform to deepen my knowledge of C++ and game development concepts, from basic rendering to more advanced features like scene management and sprite-based animations.
 
 ## Features
