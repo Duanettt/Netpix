@@ -2,6 +2,15 @@
 
 **Netpix** is a 2D game/game engine developed in C++ using the Raylib library. This project serves as a platform to deepen my knowledge of C++ and game development concepts, from basic rendering to more advanced features like scene management and sprite-based animations.
 
+## Features
+
+- 2D Game World: Navigate through various scenes with background, midground, and foreground elements.
+- Player Movement: Movement mechanics allow players to move left and right, with support for animations based on the player's state (e.g., running, idle).
+- NPC Interactions: NPCs are integrated into the game, each with its own animations and state management.
+- Animation System: Support for loading and managing animations from spritesheets, including attack, idle, walking, and running animations.
+- Parallax Scrolling: The background moves based on the player's movement, creating a sense of depth.
+- Sound & Music Integration: In-game music is managed using a MusicComponent system to provide a dynamic audio experience.
+
 ## How to Use
 
 As of September 2024, **Netpix** is primarily set up for use with **Visual Studio**. I am actively working on adding **CMake** support to make the project more versatile across platforms and development environments.
@@ -21,3 +30,13 @@ As of September 2024, **Netpix** is primarily set up for use with **Visual Studi
    * Run the game directly from Visual Studio.
 
 I will update this section with CMake instructions once it's ready for cross-platform development.
+
+## Usages
+- Movement: Control the player using the arrow keys.
+- Animations: Player states change automatically based on movement and interactions.
+- Music: Background music plays while the game runs. You can customize it by replacing the audio files in the assets directory.
+
+## Future Plans
+- Combat System: Implement a combat system allowing players to attack enemies and NPC's, this mainly involves building out our collision detection.
+- Level System: Add multiple levels with increasing difficulty.
+- Menu System: Implement a main menu and pause menu with options for controlling music and game settings.
