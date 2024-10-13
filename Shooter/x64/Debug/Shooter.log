@@ -1,7 +1,4 @@
-﻿  main.cpp
-C:\dev\Netpix\Shooter\src\Game\Player.h(26,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'src/main.cpp')
-  
+﻿  GUI.cpp
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

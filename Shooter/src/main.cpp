@@ -8,6 +8,7 @@
 #include "../src/Animation/Animation.h"
 #include "../src/Core/Camera.h"
 #include "../src/Scene/SceneManager.h"
+#include "../src/UI/GUI.h"
 
 
 #define MAX_FRAME_SPEED     15
@@ -18,7 +19,6 @@
 // the npc objects to vector and draw whenevers theres a new scene.
 // We'll utilise the scene builder for this aswell.
 
-typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
 
 int main(void) {
     const int screenWidth = 800;
@@ -73,15 +73,17 @@ int main(void) {
 
     Scene scene2 = builder.Build();
 
+
+
     sceneManager.AddScene(std::make_unique<Scene>(scene2));
     sceneManager.AddScene(std::make_unique<Scene>(scene1));
 
 
-    //sceneManager.SetScene(1);
+    sceneManager.SetScene(1);
 
-    //sceneManager.getCurrentScene()->setCurrentSong("music2");
+    sceneManager.getCurrentScene()->setCurrentSong("music2");
 
-    //sceneManager.getCurrentScene()->getNPCByIndex(0)->setCurrentAnimation(IDLE);
+    sceneManager.getCurrentScene()->getNPCByIndex(0)->setCurrentAnimation(IDLE);
 
     // Bug 1 -> When we set the position it doesn't update the draw object position.
     //sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 450, 250 });
@@ -89,6 +91,11 @@ int main(void) {
     CameraController camera;
 
     GameScreen currentScreen = GameScreen::LOGO;
+    
+    Vector2 mousePoint = { 0.0f , 0.0f };
+
+    Menu menu;
+
 
 
     int mainFramesCounter = 0;
@@ -104,27 +111,29 @@ int main(void) {
             case GameScreen::LOGO:
 
                 mainFramesCounter++;
-                sceneManager.SetScene(2);
-                sceneManager.getCurrentScene()->setCurrentSong("music1");
+                //sceneManager.SetScene(2);
+                //sceneManager.getCurrentScene()->setCurrentSong("music1");
+                mousePoint = GetMousePosition();
 
-
-
-
+              /*  button.Update(mousePoint)*/;
                 std::cout << mainFramesCounter << std::endl;
 
-                sceneManager.UpdateCurrentScene(player, camera);
+                //sceneManager.UpdateCurrentScene(player, camera);
 
                 if (mainFramesCounter > 120)
                 {
-                    currentScreen = GameScreen::GAMEPLAY;
+                    currentScreen = GameScreen::TITLE;
                 }
                 
                 break;
 
-            case GameScreen::GAMEPLAY:
+            case GameScreen::TITLE:
+                // We send in the current screen to our menu which will then based on options selected will change our currentScreen variable.
+                menu.Update(currentScreen);
 
-                sceneManager.SetScene(1);
-                sceneManager.getCurrentScene()->setCurrentSong("music2");
+                break;
+
+            case GameScreen::GAMEPLAY:
 
                 sceneManager.UpdateCurrentScene(player, camera);       
 
@@ -137,20 +146,22 @@ int main(void) {
         switch (currentScreen)
         {
             case GameScreen::LOGO:
-            {
             // TODO: Draw LOGO screen here!
             /*DrawText("LOGO SCREEN", 20, 20, 40, LIGHTGRAY);
             DrawText("WAIT for 2 SECONDS...", 290, 220, 20, GRAY);*/
-
-                sceneManager.DrawCurrentScene(player, camera);
+            //button.Draw();
+            //sceneManager.DrawCurrentScene(player, camera);
             break;
-            };
+            
+            case GameScreen::TITLE:
+                menu.Draw();
+
+                break;
+           
             case GameScreen::GAMEPLAY:
-            {
                 // TODO: Draw GAMEPLAY screen here!
                 sceneManager.DrawCurrentScene(player, camera);
-                break;
-            }        
+                break;        
         }
 
         //sceneManager.UpdateCurrentScene(player, camera);

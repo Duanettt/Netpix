@@ -3,10 +3,10 @@
 #include <vector>
 #include <string>
 
-class SceneComponent
+class ParallaxSceneComponent
 {
 public:
-    SceneComponent(const char* filePath)
+    ParallaxSceneComponent(const char* filePath)
     {
         tex = LoadTexture(filePath);
         if (tex.width == 0 || tex.height == 0)
@@ -16,7 +16,7 @@ public:
         }
     }
 
-    SceneComponent() {}
+    ParallaxSceneComponent() {}
 
     void Unload()
     {
@@ -34,12 +34,16 @@ private:
     Texture2D tex;
 };
 
-class Scene
+class ParallaxScene
 {
 public:
-    Scene(const SceneComponent& bg, const SceneComponent& mg, const SceneComponent& fg)
-        : background(bg), midground(mg), foreground(fg)
+    ParallaxScene(const ParallaxSceneComponent& bg)
+        : background(bg)    {
+    }
+
+    ParallaxScene()
     {
+
     }
 
     void UpdateScene()
@@ -49,11 +53,8 @@ public:
         scrollingFore -= 1.0f;
 
         if (scrollingBack <= -background.getWidth() * 2) scrollingBack = 0;
-        if (scrollingMid <= -midground.getWidth() * 2) scrollingMid = 0;
-        if (scrollingFore <= -foreground.getWidth() * 2) scrollingFore = 0;
 
 
-        player.Update();
     }
 
     void DrawScene() const
@@ -74,16 +75,15 @@ public:
         * The second parameter is a vector, scrolling fore sets the horizontal x value
         * screenHeight - foreground etcetera, this sets the vertical position. This helps to place the texture so that its bottom edge aligns with our window/screen height.
         */
-        DrawTextureEx(midground.getTex(), Vector2{ scrollingFore, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(midground.getTex(), Vector2{ scrollingFore + midground.getWidth() * 2, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        //DrawTextureEx(midground.getTex(), Vector2{ scrollingFore, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        //DrawTextureEx(midground.getTex(), Vector2{ scrollingFore + midground.getWidth() * 2, 450.0f - (midground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
 
 
 
         // Draw foreground image twice
-        DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore + foreground.getWidth() * 2, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+ /*       DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(foreground.getTex(), Vector2{ scrollingFore + foreground.getWidth() * 2, 450.0f - (foreground.getHeight() * 2) }, 0.0f, 2.0f, WHITE);*/
 
-        player.Draw();
     }
 
 private:
@@ -91,45 +91,43 @@ private:
     float scrollingMid = 0.0f;
     float scrollingFore = 0.0f;
 
-    SceneComponent background;
-    SceneComponent midground;
-    SceneComponent foreground;
+    ParallaxSceneComponent background;
 };
 
-class SceneBuilder
-{
-public:
-    SceneBuilder& AddBackground(const char* filePath)
-    {
-        background = SceneComponent(filePath);
-        return *this;
-    }
-
-    SceneBuilder& AddMidground(const char* filePath)
-    {
-        midground = SceneComponent(filePath);
-        return *this;
-    }
-
-    SceneBuilder& AddForeground(const char* filePath)
-    {
-        foreground = SceneComponent(filePath);
-        return *this;
-    }
-
-    Scene Build() const
-    {
-        return Scene(background, midground, foreground);
-    }
-
-    void Unload()
-    {
-        background.Unload();
-        midground.Unload();
-        foreground.Unload();
-    }
-private:
-    SceneComponent background;
-    SceneComponent midground;
-    SceneComponent foreground;
-};
+//class SceneBuilder
+//{
+//public:
+//    SceneBuilder& AddBackground(const char* filePath)
+//    {
+//        background = ParallaxSceneComponent(filePath);
+//        return *this;
+//    }
+//
+//    SceneBuilder& AddMidground(const char* filePath)
+//    {
+//        midground = ParallaxSceneComponent(filePath);
+//        return *this;
+//    }
+//
+//    SceneBuilder& AddForeground(const char* filePath)
+//    {
+//        foreground = ParallaxSceneComponent(filePath);
+//        return *this;
+//    }
+//
+//    ParallaxScene Build() const
+//    {
+//        return ParallaxScene(background, midground, foreground);
+//    }
+//
+//    void Unload()
+//    {
+//        background.Unload();
+//        midground.Unload();
+//        foreground.Unload();
+//    }
+//private:
+//    ParallaxSceneComponent background;
+//    ParallaxSceneComponent midground;
+//    ParallaxSceneComponent foreground;
+//};

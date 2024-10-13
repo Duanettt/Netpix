@@ -63,6 +63,15 @@
     <ClCompile Include="src\Scene\Scene Components\SceneBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Scene Components\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\GUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\ScreenManager.h">
@@ -101,6 +110,12 @@
     <ClInclude Include="src\Scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\UI\GUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\character\main\idle.png">
@@ -122,6 +137,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\character\scarfy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\UI\brown_bar.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

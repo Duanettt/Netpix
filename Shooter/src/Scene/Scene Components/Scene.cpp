@@ -152,3 +152,4 @@ bool Scene::checkCollisions(Player& player)
     }
     return false;
 }
+

@@ -129,8 +129,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\UI\Button.cpp" />
+    <ClCompile Include="src\UI\GUI.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Background.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Foreground.cpp" />
+    <ClCompile Include="src\Scene\Scene Components\MainMenu.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Midground.cpp" />
     <ClCompile Include="src\Scene\Scene Components\SceneBuilder.cpp" />
     <ClCompile Include="src\Scene\Scene Components\SceneComponent.cpp" />
@@ -147,6 +150,8 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\UI\Button.h" />
+    <ClInclude Include="src\UI\GUI.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Sound\Music.h" />
@@ -168,6 +173,7 @@
     <Image Include="res\character\main\Run.png" />
     <Image Include="res\character\scarfy.png" />
     <Image Include="res\character\main\Walk.png" />
+    <Image Include="res\UI\brown_bar.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\sounds\CVHarris.mp3" />

@@ -3,48 +3,44 @@
   "WorkspaceRootPath": "C:\\dev\\Netpix\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Sound\\Music.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Game\\GameObjects.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Core\\ScreenManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Core\\ScreenManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Animation\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Animation\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Game\\GameObjects.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Core\\States.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,33 +50,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\main.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\main.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\main.cpp",
-              "RelativeToolTip": "Shooter\\src\\main.cpp",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAQwIAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-14T02:50:48.229Z",
+              "DocumentIndex": 3,
+              "Title": "GUI.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\GUI.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.h",
+              "RelativeToolTip": "Shooter\\src\\UI\\GUI.h",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswBoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-12T15:07:57.322Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ScreenManager.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Core\\ScreenManager.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.cpp",
-              "RelativeToolTip": "Shooter\\src\\Core\\ScreenManager.cpp",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAQwE8AAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Music.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\Sound\\Music.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
+              "RelativeToolTip": "Shooter\\src\\Sound\\Music.cpp",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-11T20:48:28.964Z",
+              "WhenOpened": "2024-10-13T22:43:31.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Button.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
+              "RelativeToolTip": "Shooter\\src\\UI\\Button.cpp",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-13T22:12:07.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Button.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
+              "RelativeToolTip": "Shooter\\src\\UI\\Button.h",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-13T22:11:18.93Z",
               "EditorCaption": ""
             },
             {
@@ -89,119 +111,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SceneManager.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\SceneManager.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.cpp",
-              "RelativeToolTip": "Shooter\\src\\Scene\\SceneManager.cpp",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAwDYAAAASAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "GUI.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\GUI.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.cpp",
+              "RelativeToolTip": "Shooter\\src\\UI\\GUI.cpp",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-14T02:18:22.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameObjects.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Game\\GameObjects.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.h",
-              "RelativeToolTip": "Shooter\\src\\Game\\GameObjects.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAwBYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T15:28:19.309Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ScreenManager.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Core\\ScreenManager.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Core\\ScreenManager.h",
-              "RelativeToolTip": "Shooter\\src\\Core\\ScreenManager.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T15:29:04.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Animation.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Animation\\Animation.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Animation\\Animation.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Animation\\Animation.h",
-              "RelativeToolTip": "Shooter\\src\\Animation\\Animation.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T21:01:18.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SceneManager.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\SceneManager.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\SceneManager.h",
-              "RelativeToolTip": "Shooter\\src\\Scene\\SceneManager.h",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T15:31:06.976Z",
+              "WhenOpened": "2024-10-13T00:23:20.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\Scene.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\Scene.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\Scene.h",
-              "RelativeToolTip": "Shooter\\src\\Scene\\Scene.h",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAywFQAAAAAAAAAAAAAAA==",
+              "Title": "States.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Core\\States.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
+              "RelativeToolTip": "Shooter\\src\\Core\\States.h",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T15:29:36.523Z",
+              "WhenOpened": "2024-10-13T22:19:24.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameObjects.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Game\\GameObjects.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Game\\GameObjects.cpp",
-              "RelativeToolTip": "Shooter\\src\\Game\\GameObjects.cpp",
+              "DocumentIndex": 5,
+              "Title": "ParallaxScene.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-13T18:24:07.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ParallaxScene.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-11T15:31:22.238Z",
+              "WhenOpened": "2024-10-13T18:24:05.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\main.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\main.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\main.cpp",
+              "RelativeToolTip": "Shooter\\src\\main.cpp",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAD4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-12T14:50:12.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Game\\Player.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.cpp",
-              "RelativeToolTip": "Shooter\\src\\Game\\Player.cpp",
-              "ViewState": "AgIAAGEAAAAAAAAAAIAywG4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-11T15:33:46.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Player.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Game\\Player.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Game\\Player.h",
-              "RelativeToolTip": "Shooter\\src\\Game\\Player.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAIAywBYAAAAWAAAAAAAAAA==",
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\Scene.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\Scene.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\Scene.h",
+              "RelativeToolTip": "Shooter\\src\\Scene\\Scene.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-11T16:47:10.672Z",
+              "WhenOpened": "2024-10-12T15:00:17.186Z",
               "EditorCaption": ""
             }
           ]

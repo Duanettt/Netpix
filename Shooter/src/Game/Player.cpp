@@ -123,6 +123,7 @@ bool Player::HandleMouseInput()
 {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
     {
+        //std::cout << "Click detected!" << std::endl;
         SetPlayerState(ATTACK);
         return true;
     }
