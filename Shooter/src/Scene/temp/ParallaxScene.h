@@ -48,9 +48,9 @@ public:
 
     void UpdateScene()
     {
-        scrollingBack -= 0.1f;
-        scrollingMid -= 0.5f;
-        scrollingFore -= 1.0f;
+        scrollingBack -= 0.4f;
+        //scrollingMid -= 0.5f;
+        //scrollingFore -= 1.0f;
 
         if (scrollingBack <= -background.getWidth() * 2) scrollingBack = 0;
 
@@ -66,8 +66,8 @@ public:
         * First draw call places the first foreground texture at the scrolling position
         * We place a second copy of the foreground texture right after the first one, at scrollingFore + foreground.width * 2. The foreground.width * 2 accounts for the width of the texture, considering that it's scaled by a factor of 2.0. By placing the second texture here, it "follows" the first one and will appear when the first texture has moved off the screen
         */
-        DrawTextureEx(background.getTex(), Vector2{scrollingFore, 450.0f - (background.getHeight() * 2)}, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(background.getTex(), Vector2{ scrollingFore + background.getWidth() * 2, 450.0f - (background.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background.getTex(), Vector2{scrollingBack, 450.0f - (background.getHeight() * 2)}, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background.getTex(), Vector2{ scrollingBack + background.getWidth() * 2, 450.0f - (background.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
 
 
         // Draw middleground twice

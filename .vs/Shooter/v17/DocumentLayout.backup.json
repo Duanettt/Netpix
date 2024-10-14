@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\dev\\Netpix\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -19,20 +31,8 @@
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\Scene\\temp\\ParallaxScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|solutionrelative:Shooter\\src\\UI\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E5B9A5F8-BF0A-4393-9B6F-C161A9818439}|Shooter\\Shooter.vcxproj|C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -50,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "GUI.h",
               "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.h",
               "RelativeDocumentMoniker": "Shooter\\src\\UI\\GUI.h",
@@ -63,60 +63,7 @@
               "ViewState": "AgIAAAIAAAAAAAAAAAAswBoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-12T15:07:57.322Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Music.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Sound\\Music.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
-              "RelativeToolTip": "Shooter\\src\\Sound\\Music.cpp",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T22:43:31.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "States.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Core\\States.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
-              "RelativeToolTip": "Shooter\\src\\Core\\States.h",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAswBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-13T22:19:24.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Button.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
-              "RelativeToolTip": "Shooter\\src\\UI\\Button.cpp",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAADAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T22:12:07.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Button.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
-              "RelativeToolTip": "Shooter\\src\\UI\\Button.h",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-13T22:11:18.93Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -124,33 +71,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ParallaxScene.h",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.h",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h",
-              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.h",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-13T18:24:07.829Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ParallaxScene.cpp",
-              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
-              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
-              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
-              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Music.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\Sound\\Music.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Sound\\Music.cpp",
+              "RelativeToolTip": "Shooter\\src\\Sound\\Music.cpp",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T18:24:05.187Z",
+              "WhenOpened": "2024-10-13T22:43:31.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Button.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.cpp",
+              "RelativeToolTip": "Shooter\\src\\UI\\Button.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-13T22:12:07.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "Button.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\UI\\Button.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\UI\\Button.h",
+              "RelativeToolTip": "Shooter\\src\\UI\\Button.h",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-13T22:11:18.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GUI.cpp",
               "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\UI\\GUI.cpp",
               "RelativeDocumentMoniker": "Shooter\\src\\UI\\GUI.cpp",
@@ -163,7 +121,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "States.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Core\\States.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Core\\States.h",
+              "RelativeToolTip": "Shooter\\src\\Core\\States.h",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-13T22:19:24.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ParallaxScene.h",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.h",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.h*",
+              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.h*",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-13T18:24:07.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ParallaxScene.cpp",
+              "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "RelativeDocumentMoniker": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "ToolTip": "C:\\dev\\Netpix\\Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "RelativeToolTip": "Shooter\\src\\Scene\\temp\\ParallaxScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-13T18:24:05.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\dev\\Netpix\\Shooter\\src\\main.cpp",
               "RelativeDocumentMoniker": "Shooter\\src\\main.cpp",
@@ -171,8 +167,7 @@
               "RelativeToolTip": "Shooter\\src\\main.cpp",
               "ViewState": "AgIAAIIAAAAAAAAAAAAAAD4AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-12T14:50:12.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-12T14:50:12.973Z"
             },
             {
               "$type": "Document",
@@ -184,8 +179,7 @@
               "RelativeToolTip": "Shooter\\src\\Scene\\Scene.h",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-12T15:00:17.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-12T15:00:17.186Z"
             }
           ]
         },
