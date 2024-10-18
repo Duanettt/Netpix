@@ -42,3 +42,6 @@ I will update this section with CMake instructions once it's ready for cross-pla
 - Level System: Add multiple levels with increasing difficulty.
 - Menu System: Implement a main menu and pause menu with options for controlling music and game settings. (50%)
 - NPC AI System: Learning A* for AI development,
+
+**Note:** 
+- The game is extremely object oriented and after reevaluating and learning more on C++ code design a rebuild may happen. However I will complete this little project and use it as a basis.
