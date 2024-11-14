@@ -1,9 +1,14 @@
 #include "../Scene.h"
 #include <iostream>
 
+// This class builds our scene out of various components.
+
 SceneBuilder& SceneBuilder::AddComponent(std::unique_ptr<SceneComponent> component)
 {
+
+    // use move to transfer ownership of our scene component object to the scene components vector.
     sceneComponents.push_back(std::move(component));
+    // We use *this to chain scene components together as seen in main.
     return *this;
 }
 
@@ -22,6 +27,9 @@ SceneBuilder& SceneBuilder::AddMusic(const std::string name, std::unique_ptr<Mus
 Scene SceneBuilder::Build()
 {
     Scene scene;
+
+    // Create a scene varaible
+    // Add every component to our scene vectors
     for (const auto& component : sceneComponents)
     {
         scene.AddComponentPointerToSceneVector(component.get());
@@ -38,11 +46,16 @@ Scene SceneBuilder::Build()
     }
 
     std::cout << "Scene successfully built..." << std::endl;
+
+    //this->sceneComponents.clear();
+    //this->gameObjects.clear();
     return scene;
 }
 
 void SceneBuilder::Unload()
 {
+
+    // Unload everything to free memory again.
     sceneComponents.clear();
     gameObjects.clear();
     musicMap.clear();

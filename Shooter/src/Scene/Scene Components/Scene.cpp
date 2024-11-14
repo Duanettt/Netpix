@@ -7,6 +7,7 @@ void Scene::AddComponentPointerToSceneVector(SceneComponent* component)
 
 void Scene::AddGameObjectPointerToSceneVector(GameObjects* object)
 {
+    std::cout << "The memory address for the object pointer is: " << object << std::endl;
     objects.push_back(object);
 }
 
@@ -35,11 +36,15 @@ NPC* Scene::getNPCByIndex(int num)
     for (const auto& object : objects)
     {
         NPC* npc = dynamic_cast<NPC*>(object);
+        std::cout << "The memory address when we get the NPC by index is: " << npc << std::endl;
         if (npc != nullptr)
         {
             npcVec.push_back(npc);
+            std::cout << "This NPC's memory address is: " << npc << std::endl;
         }
     }
+
+    std::cout << "The memory address we're about to return" << npcVec[num] << std::endl;
     return npcVec[num];
 }
 
@@ -145,7 +150,10 @@ bool Scene::checkCollisions(Player& player)
         {
             if (CheckCollisionRecs(npc->GetCurrentObjectBoundingRect(), playerRect))
             {
-                DrawRectangle(player.GetPlayerPosition().x, player.GetPlayerPosition().y, playerRect.width, playerRect.height, RED);
+                // If this returns true we set a variable to true and draw our rectangle.
+
+                // Collision detection somewhat working for each scene. So now 
+                std::cout << "Collision detected!" << std::endl;
                 return true;
             }
         }

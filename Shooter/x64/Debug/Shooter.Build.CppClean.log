@@ -1,5 +1,6 @@
 c:\dev\netpix\shooter\x64\debug\vc143.pdb
 c:\dev\netpix\shooter\x64\debug\vc143.idb
+c:\dev\netpix\shooter\x64\debug\transitions.obj
 c:\dev\netpix\shooter\x64\debug\main.obj
 c:\dev\netpix\shooter\x64\debug\screenmanager.obj
 c:\dev\netpix\shooter\x64\debug\gameobjects.obj
@@ -14,7 +15,6 @@ c:\dev\netpix\shooter\x64\debug\scenemanager.obj
 c:\dev\netpix\shooter\x64\debug\scenecomponent.obj
 c:\dev\netpix\shooter\x64\debug\scenebuilder.obj
 c:\dev\netpix\shooter\x64\debug\midground.obj
-c:\dev\netpix\shooter\x64\debug\mainmenu.obj
 c:\dev\netpix\shooter\x64\debug\foreground.obj
 c:\dev\netpix\shooter\x64\debug\background.obj
 c:\dev\netpix\shooter\x64\debug\gui.obj

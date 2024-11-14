@@ -24,15 +24,6 @@ protected:
     Texture2D texture;
 };
 
-class MainMenu : public SceneComponent
-{
-    MainMenu(const char* filePath);
-    void Update(CameraController& camera) override;
-    void Draw(CameraController& camera) override;
-    void Unload() override;
-    ~MainMenu() override;
-
-};
 
 class Background : public SceneComponent
 {

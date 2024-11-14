@@ -21,11 +21,10 @@ public:
     void setPosition(const Vector2& pos);
 
     Vector2& getPosition();
-
     Rectangle GetCurrentObjectBoundingRect();
-
 protected:
     Vector2 position;
+    Vector2 cameraAdjustedPosition;
     Spritesheet* currentAnimation;
 };
 

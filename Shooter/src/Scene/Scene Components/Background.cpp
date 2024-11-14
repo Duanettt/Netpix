@@ -1,5 +1,7 @@
 #include "../Scene.h"
 
+
+// Each scene component e.g Background we load our texture into the object. (Will change once we create our resource manager)
 Background::Background(const char* filePath)
 {
     texture = LoadTexture(filePath);

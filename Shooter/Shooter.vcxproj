@@ -133,13 +133,12 @@
     <ClCompile Include="src\UI\GUI.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Background.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Foreground.cpp" />
-    <ClCompile Include="src\Scene\Scene Components\MainMenu.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Midground.cpp" />
     <ClCompile Include="src\Scene\Scene Components\SceneBuilder.cpp" />
     <ClCompile Include="src\Scene\Scene Components\SceneComponent.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Sound\Music.cpp" />
-    <ClCompile Include="src\Core\ResourceManager.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="src\Core\Camera.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Scene.cpp" />
     <ClCompile Include="src\Scene\temp\ParallaxScene.cpp" />
@@ -148,6 +147,7 @@
     <ClCompile Include="src\Game\GameObjects.cpp" />
     <ClCompile Include="src\Core\ScreenManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Animation\Transitions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\UI\Button.h" />
@@ -155,7 +155,7 @@
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Sound\Music.h" />
-    <ClInclude Include="src\Core\ResourceManager.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="src\Core\Camera.h" />
     <ClInclude Include="src\Scene\temp\Scene3.h" />
     <ClInclude Include="src\Scene\temp\ParallaxScene.h" />
@@ -164,6 +164,7 @@
     <ClInclude Include="src\Game\GameObjects.h" />
     <ClInclude Include="src\Core\ScreenManager.h" />
     <ClInclude Include="src\Core\States.h" />
+    <ClInclude Include="src\Animation\Transitions.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\character\main\Attack.png" />

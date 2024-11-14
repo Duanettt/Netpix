@@ -5,7 +5,7 @@
 
 void GameObjects::setPosition(const Vector2& pos)
 {
-    position = pos;
+    this->position = pos;
 }
 
 Vector2& GameObjects::getPosition()
@@ -13,7 +13,8 @@ Vector2& GameObjects::getPosition()
     return position;
 }
 
-Rectangle GameObjects::GetCurrentObjectBoundingRect() {
+Rectangle GameObjects::GetCurrentObjectBoundingRect()
+{
     float rectangleWidth = 0;
     float rectangleHeight = 0;
 
@@ -24,8 +25,9 @@ Rectangle GameObjects::GetCurrentObjectBoundingRect() {
         rectangleWidth = (currentAnimation->getTextureWidth() / currentFrameCount);
         rectangleHeight = (currentAnimation->getTextureHeight());
     }
+    // CameraAdjustedPosition  needs to be implemented here for collision detection.
+    Rectangle playerRect = Rectangle({ cameraAdjustedPosition.x, cameraAdjustedPosition.y, rectangleWidth, rectangleHeight });
 
-    Rectangle playerRect = Rectangle({ position.x, position.y, rectangleWidth, rectangleHeight });
     return playerRect;
 }
 
@@ -57,11 +59,19 @@ void NPC::DrawObject(CameraController& camera)
         // Adjust NPC position based on the camera's offset.
         Vector2 adjustedPosition = Vector2Subtract(position, camera.getCameraOffset());
 
+        cameraAdjustedPosition = adjustedPosition;
+
         float npcPosition = getPosition().x;
 
         bool IsFacingRight = camera.getCameraDirection(npcPosition);
 
         currentAnimation->DrawAnimation(adjustedPosition, IsFacingRight);
+
+        Rectangle rect = this->GetCurrentObjectBoundingRect();
+
+        // See the size of our rectangle height, width
+        //DrawRectangle(rect.x, rect.y, rect.width, rect.height, RED);
+
     }
 }
 

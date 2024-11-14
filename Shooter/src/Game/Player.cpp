@@ -26,6 +26,8 @@ void Player::Update(float worldWidth) {
 void Player::Draw() {
     if (currentAnimation) {
         currentAnimation->DrawAnimation(position, isFacingRight);
+
+        Rectangle playerRect = GetPlayerBoundingRect();
     }
 }
 

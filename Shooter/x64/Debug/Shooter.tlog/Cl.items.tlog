@@ -2,13 +2,12 @@ C:\dev\Netpix\Shooter\src\UI\Button.cpp;C:\dev\Netpix\Shooter\x64\Debug\Button.o
 C:\dev\Netpix\Shooter\src\UI\GUI.cpp;C:\dev\Netpix\Shooter\x64\Debug\GUI.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Background.cpp;C:\dev\Netpix\Shooter\x64\Debug\Background.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Foreground.cpp;C:\dev\Netpix\Shooter\x64\Debug\Foreground.obj
-C:\dev\Netpix\Shooter\src\Scene\Scene Components\MainMenu.cpp;C:\dev\Netpix\Shooter\x64\Debug\MainMenu.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Midground.cpp;C:\dev\Netpix\Shooter\x64\Debug\Midground.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\SceneBuilder.cpp;C:\dev\Netpix\Shooter\x64\Debug\SceneBuilder.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\SceneComponent.cpp;C:\dev\Netpix\Shooter\x64\Debug\SceneComponent.obj
 C:\dev\Netpix\Shooter\src\Scene\SceneManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\SceneManager.obj
 C:\dev\Netpix\Shooter\src\Sound\Music.cpp;C:\dev\Netpix\Shooter\x64\Debug\Music.obj
-C:\dev\Netpix\Shooter\src\Core\ResourceManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ResourceManager.obj
+C:\dev\Netpix\Shooter\ResourceManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ResourceManager.obj
 C:\dev\Netpix\Shooter\src\Core\Camera.cpp;C:\dev\Netpix\Shooter\x64\Debug\Camera.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp;C:\dev\Netpix\Shooter\x64\Debug\Scene.obj
 C:\dev\Netpix\Shooter\src\Scene\temp\ParallaxScene.cpp;C:\dev\Netpix\Shooter\x64\Debug\ParallaxScene.obj
@@ -17,3 +16,4 @@ C:\dev\Netpix\Shooter\src\Game\Player.cpp;C:\dev\Netpix\Shooter\x64\Debug\Player
 C:\dev\Netpix\Shooter\src\Game\GameObjects.cpp;C:\dev\Netpix\Shooter\x64\Debug\GameObjects.obj
 C:\dev\Netpix\Shooter\src\Core\ScreenManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ScreenManager.obj
 C:\dev\Netpix\Shooter\src\main.cpp;C:\dev\Netpix\Shooter\x64\Debug\main.obj
+C:\dev\Netpix\Shooter\src\Animation\Transitions.cpp;C:\dev\Netpix\Shooter\x64\Debug\Transitions.obj

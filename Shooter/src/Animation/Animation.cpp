@@ -29,6 +29,8 @@ void Animation::UpdateAnimation(int framesSpeed)
 void Animation::UpdateAnimation(int framesSpeed, Rectangle playerBox)
 {
     framesCounter++;
+    std::cout << framesCounter << std::endl;
+
     if (framesCounter >= (60 / framesSpeed))
     {
         framesCounter = 0;

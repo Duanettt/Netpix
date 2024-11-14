@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "../src/Core/ScreenManager.h"
+#include "../ResourceManager.h"
 #include "../src/Core/States.h"
 #include "../src/Scene/Scene.h"
 #include "../src/Animation/Animation.h"
@@ -24,6 +25,9 @@ int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
 
+
+    ResourceManager rm;
+
     InitWindow(screenWidth, screenHeight, "Netpix");
 
     InitAudioDevice();
@@ -43,14 +47,14 @@ int main(void) {
     };
 
 
- /*   Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
+    Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
     Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet("res/character/Onre/Run.png", 10);
 
 
     std::unordered_map<State, Spritesheet*> tSpritesheets = {
        {IDLE, tracyIdleSpritesheet},
        {WALKING, tracyWalkingSpritesheet}
-    };  */
+    };  
 
     SceneBuilder builder;
     //ScreenManager screenManager;
@@ -59,7 +63,7 @@ int main(void) {
         .AddComponent(std::make_unique<Midground>("res/background/b1/2.png"))
         .AddComponent(std::make_unique<Midground>("res/background/b1/3.png"))
         .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"))
-        .AddObject(std::make_unique<NPC>(spritesheets))
+        .AddObject(std::make_unique<NPC>(tSpritesheets))
         .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
 
     Scene scene1 = builder.Build();
@@ -76,17 +80,13 @@ int main(void) {
 
 
     sceneManager.AddScene(std::make_unique<Scene>(scene2));
-    sceneManager.AddScene(std::make_unique<Scene>(scene1));
-
+    //sceneManager.AddScene(std::make_unique<Scene>(scene1));
 
     sceneManager.SetScene(1);
 
     sceneManager.getCurrentScene()->setCurrentSong("music2");
 
-    sceneManager.getCurrentScene()->getNPCByIndex(0)->setCurrentAnimation(IDLE);
-
-    // Bug 1 -> When we set the position it doesn't update the draw object position.
-    //sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 450, 250 });
+    sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 758, 200 });
 
     CameraController camera;
 
@@ -96,6 +96,8 @@ int main(void) {
 
     Menu menu;
 
+    // The reason for one of these bugs is because basically in our scene builder we have a vector full of objects we're adding and when we build one scene the settings are saved due to the vector stored.. 
+    // Once one scene is done we basically need to unload these vectors and build the next scene thats proving difficult since we woulld need to use unique pointers to transfer ownership from one class to another class. SceneBuilder -> Scene.
 
 
     int mainFramesCounter = 0;
@@ -122,6 +124,7 @@ int main(void) {
 
                 if (mainFramesCounter > 120)
                 {
+
                     currentScreen = GameScreen::TITLE;
                 }
                 
@@ -160,6 +163,7 @@ int main(void) {
            
             case GameScreen::GAMEPLAY:
                 // TODO: Draw GAMEPLAY screen here!
+
                 sceneManager.DrawCurrentScene(player, camera);
                 break;        
         }

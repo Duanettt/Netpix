@@ -3,7 +3,7 @@
 Button::Button(const char* filePath)
 {
 	this->buttonTexture = LoadTexture(filePath);
-	
+
 	// Get the Height and Width of our frame for our button
 	frameHeight = (float)buttonTexture.height / 2.0f;
 	frameWidth = (float)buttonTexture.width;
@@ -11,12 +11,15 @@ Button::Button(const char* filePath)
 	sourceRec = { 0.0, 0.0, frameWidth, frameHeight };
 
 	buttonBounds = CreateButtonBoundingBox();
+
+	//transition = Transitions(0.5f, [](float t) {return t * t; });
 }
 
 Rectangle Button::CreateButtonBoundingBox()
 {
 	const int screenHeight = GetScreenHeight();
 	const int screenWidth = GetScreenWidth();
+
 
 	// Define button bounds on screen
 	Rectangle btnBounds = { screenWidth / 2.0f - buttonTexture.width / 2.0f, screenHeight / 2.0f - buttonTexture.height / 3 / 2.0f, (float)buttonTexture.width, frameHeight };

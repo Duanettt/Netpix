@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "../Core/States.h"
+#include "../Animation/Transitions.h"
 
 class Button
 {
@@ -13,6 +14,7 @@ public:
 	float frameHeight;
 	float frameWidth;
 	Rectangle sourceRec;
+	//Transitions transition;
 
 	Button(const char* filePath);
 
