@@ -1,0 +1,16 @@
+# Ignore Visual Studio specific files and folders
+.vs/
+.vscode/
+.idea/
+
+# Ignore Debug and other build directories
+x64/Debug/
+x64/Release/
+
+# Ignore other build artifacts (you may also want to ignore other platforms' build outputs)
+Debug/
+Release/
+
+# You can also ignore temporary files like:
+*.log
+*.tmp
