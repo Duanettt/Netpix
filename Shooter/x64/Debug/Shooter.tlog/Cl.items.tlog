@@ -7,7 +7,7 @@ C:\dev\Netpix\Shooter\src\Scene\Scene Components\SceneBuilder.cpp;C:\dev\Netpix\
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\SceneComponent.cpp;C:\dev\Netpix\Shooter\x64\Debug\SceneComponent.obj
 C:\dev\Netpix\Shooter\src\Scene\SceneManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\SceneManager.obj
 C:\dev\Netpix\Shooter\src\Sound\Music.cpp;C:\dev\Netpix\Shooter\x64\Debug\Music.obj
-C:\dev\Netpix\Shooter\ResourceManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ResourceManager.obj
+C:\dev\Netpix\Shooter\src\ResourceManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ResourceManager.obj
 C:\dev\Netpix\Shooter\src\Core\Camera.cpp;C:\dev\Netpix\Shooter\x64\Debug\Camera.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp;C:\dev\Netpix\Shooter\x64\Debug\Scene.obj
 C:\dev\Netpix\Shooter\src\Scene\temp\ParallaxScene.cpp;C:\dev\Netpix\Shooter\x64\Debug\ParallaxScene.obj

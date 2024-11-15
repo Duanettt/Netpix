@@ -138,7 +138,7 @@
     <ClCompile Include="src\Scene\Scene Components\SceneComponent.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Sound\Music.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Core\Camera.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Scene.cpp" />
     <ClCompile Include="src\Scene\temp\ParallaxScene.cpp" />
@@ -155,7 +155,7 @@
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Sound\Music.h" />
-    <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="src\ResourceManager.h" />
     <ClInclude Include="src\Core\Camera.h" />
     <ClInclude Include="src\Scene\temp\Scene3.h" />
     <ClInclude Include="src\Scene\temp\ParallaxScene.h" />

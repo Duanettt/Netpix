@@ -112,6 +112,7 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
 
     player.Update(this->getWorldWidth());
 
+    // Might move this into scenemanager to check for collisions to allow us.
     this->checkCollisions(player);
 }
 

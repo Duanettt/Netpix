@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "../src/Core/ScreenManager.h"
-#include "../ResourceManager.h"
+#include "../src/ResourceManager.h"
 #include "../src/Core/States.h"
 #include "../src/Scene/Scene.h"
 #include "../src/Animation/Animation.h"
@@ -26,7 +26,6 @@ int main(void) {
     const int screenHeight = 450;
 
 
-    ResourceManager rm;
 
     InitWindow(screenWidth, screenHeight, "Netpix");
 
@@ -76,6 +75,8 @@ int main(void) {
         .AddMusic("music2", std::make_unique<MusicComponent>("res/sounds/Tems-FreeMind.mp3"));
 
     Scene scene2 = builder.Build();
+
+    ResourceManager rm;
 
 
 

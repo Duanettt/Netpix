@@ -12,6 +12,14 @@ void Animation::LoadAnimation(const char* filePath, int frameCount)
     this->frameCount = frameCount;
 }
 
+void Animation::LoadAnimation(Texture2D userTexture, int frameCount)
+{
+    texture = userTexture;
+    frameRec = { 0.0f, 0.0f, static_cast<float>(texture.width) / frameCount, static_cast<float>(texture.height) };
+    this->frameCount = frameCount;
+}
+
+
 // Update animation frame based on speed
 void Animation::UpdateAnimation(int framesSpeed)
 {
@@ -79,10 +87,21 @@ Spritesheet::Spritesheet(const char* filePath, int frameCount)
     LoadAnimation(filePath, frameCount);
 }
 
+Spritesheet::Spritesheet(Texture2D* userTexture, int frameCount)
+{
+    LoadAnimation(*userTexture, frameCount);
+}
+
 // Derived classes constructors
+// Constructors for regular path loading.
 IdleSpritesheet::IdleSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount) {}
 RunningSpritesheet::RunningSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount) {}
 WalkingSpritesheet::WalkingSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount) {}
 AttackSpritesheet::AttackSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount) {}
+
+// Testing with resource manager
+IdleSpritesheet::IdleSpritesheet(Texture2D* userTexture, int frameCount) : Spritesheet(userTexture, frameCount) {}
+
+
 
 

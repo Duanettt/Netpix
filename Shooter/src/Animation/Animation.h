@@ -11,6 +11,8 @@ public:
     // Load animation by loading texture and setting up frame rectangle
     void LoadAnimation(const char* filePath, int frameCount);
 
+    void LoadAnimation(Texture2D userTexture, int frameCount);
+
     // Update animation frame based on speed
     void UpdateAnimation(int framesSpeed);
     void UpdateAnimation(int framesSpeed, Rectangle playerBox);
@@ -37,12 +39,14 @@ class Spritesheet : public Animation
 {
 public:
     Spritesheet(const char* filePath, int frameCount);
+    Spritesheet(Texture2D* userTexture, int frameCount);
 };
 
 class IdleSpritesheet : public Spritesheet
 {
 public:
     IdleSpritesheet(const char* filePath, int frameCount);
+    IdleSpritesheet(Texture2D* userTexture, int frameCount);
 };
 
 class RunningSpritesheet : public Spritesheet
