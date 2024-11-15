@@ -1,12 +1,11 @@
 #include "../Scene.h"
 
-Midground::Midground(const char* filePath)
+Midground::Midground(const char* filePath) : SceneComponent(filePath)
 {
-    texture = LoadTexture(filePath);
-    if (texture.width == 0 || texture.height == 0)
-    {
-        TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
-    }
+}
+
+Midground::Midground(std::string textureKey) : SceneComponent(textureKey)
+{
 }
 
 void Midground::Update(CameraController& camera)

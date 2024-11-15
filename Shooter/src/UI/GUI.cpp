@@ -8,7 +8,7 @@ Menu::Menu() : playButton("res/UI/play_button.png")
 
 	parallaxScene = ParallaxScene(background);
 
-	menuMusic = LoadMusicStream("res/sounds/Tems-FreeMind.mp3");
+	menuMusic = rm.GetResource<Music>("game_music_3");
 }
 
 void Menu::Draw()

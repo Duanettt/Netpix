@@ -9,6 +9,7 @@ c:\dev\netpix\shooter\x64\debug\animation.obj
 c:\dev\netpix\shooter\x64\debug\parallaxscene.obj
 c:\dev\netpix\shooter\x64\debug\scene.obj
 c:\dev\netpix\shooter\x64\debug\camera.obj
+c:\dev\netpix\shooter\x64\debug\resourcemanager.obj
 c:\dev\netpix\shooter\x64\debug\music.obj
 c:\dev\netpix\shooter\x64\debug\scenemanager.obj
 c:\dev\netpix\shooter\x64\debug\scenecomponent.obj
@@ -18,7 +19,6 @@ c:\dev\netpix\shooter\x64\debug\foreground.obj
 c:\dev\netpix\shooter\x64\debug\background.obj
 c:\dev\netpix\shooter\x64\debug\gui.obj
 c:\dev\netpix\shooter\x64\debug\button.obj
-c:\dev\netpix\shooter\x64\debug\resourcemanager.obj
 c:\dev\netpix\x64\debug\shooter.exe
 c:\dev\netpix\x64\debug\shooter.pdb
 c:\dev\netpix\x64\debug\raylib.dll

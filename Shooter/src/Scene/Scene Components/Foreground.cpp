@@ -1,12 +1,11 @@
 #include "../Scene.h"
 
-Foreground::Foreground(const char* filePath)
+Foreground::Foreground(const char* filePath) : SceneComponent(filePath)
 {
-    texture = LoadTexture(filePath);
-    if (texture.width == 0 || texture.height == 0)
-    {
-        TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
-    }
+}
+
+Foreground::Foreground(std::string textureKey) : SceneComponent(textureKey)
+{
 }
 
 void Foreground::Update(CameraController& camera)

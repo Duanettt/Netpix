@@ -1,12 +1,14 @@
 #pragma once
 #include <raylib.h>
+#include "../ResourceManager.h"
 
 // MusicComponent handles loading, playing, and updating music streams.
 class MusicComponent
 {
 public:
     // Constructor to load music from a file path.
-    MusicComponent(const char* filePath);
+    //MusicComponent(const char* filePath)
+    MusicComponent(const char* musicKey);
 
     // Destructor to unload the music stream.
     ~MusicComponent();
@@ -21,5 +23,6 @@ public:
     bool IsValid() const;
 
 private:
+    ResourceManager& rm = ResourceManager::getInstance();
     Music music;
 };

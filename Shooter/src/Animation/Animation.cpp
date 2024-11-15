@@ -12,7 +12,7 @@ void Animation::LoadAnimation(const char* filePath, int frameCount)
     this->frameCount = frameCount;
 }
 
-void Animation::LoadAnimation(Texture2D userTexture, int frameCount)
+void Animation::LoadAnimation(Texture2D& userTexture, int frameCount)
 {
     texture = userTexture;
     frameRec = { 0.0f, 0.0f, static_cast<float>(texture.width) / frameCount, static_cast<float>(texture.height) };
@@ -87,9 +87,9 @@ Spritesheet::Spritesheet(const char* filePath, int frameCount)
     LoadAnimation(filePath, frameCount);
 }
 
-Spritesheet::Spritesheet(Texture2D* userTexture, int frameCount)
+Spritesheet::Spritesheet(std::string userPrompt, int frameCount)
 {
-    LoadAnimation(*userTexture, frameCount);
+    LoadAnimation(rm.GetResource<Texture2D>(userPrompt), frameCount);
 }
 
 // Derived classes constructors
@@ -100,7 +100,10 @@ WalkingSpritesheet::WalkingSpritesheet(const char* filePath, int frameCount) : S
 AttackSpritesheet::AttackSpritesheet(const char* filePath, int frameCount) : Spritesheet(filePath, frameCount) {}
 
 // Testing with resource manager
-IdleSpritesheet::IdleSpritesheet(Texture2D* userTexture, int frameCount) : Spritesheet(userTexture, frameCount) {}
+IdleSpritesheet::IdleSpritesheet(std::string userPrompt, int frameCount) : Spritesheet(userPrompt, frameCount) {}
+RunningSpritesheet::RunningSpritesheet(std::string userPrompt, int frameCount) : Spritesheet(userPrompt, frameCount) {}
+WalkingSpritesheet::WalkingSpritesheet(std::string userPrompt, int frameCount) : Spritesheet(userPrompt, frameCount) {}
+AttackSpritesheet::AttackSpritesheet(std::string userPrompt, int frameCount) : Spritesheet(userPrompt, frameCount) {}
 
 
 

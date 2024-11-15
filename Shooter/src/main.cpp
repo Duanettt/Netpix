@@ -22,6 +22,7 @@
 
 
 int main(void) {
+    // Figuring out how to make the game look better in full screen is also another thing on the list to check for.
     const int screenWidth = 800;
     const int screenHeight = 450;
 
@@ -31,14 +32,16 @@ int main(void) {
 
     InitAudioDevice();
 
+
+    ResourceManager& rm = ResourceManager::getInstance();
     auto& sceneManager = SceneManager::getInstance();
 
     Player player;
 
     // Solve collision detection problems..
 
-    Spritesheet* idleSpritesheet = new IdleSpritesheet("res/character/npc1/Idle.png",6);
-    Spritesheet* walkingSpritesheet = new WalkingSpritesheet("res/character/npc1/Walk.png",10);
+    Spritesheet* idleSpritesheet = new IdleSpritesheet(std::string("npc1_4"), 6);
+    Spritesheet* walkingSpritesheet = new WalkingSpritesheet(std::string("npc1_6"), 10);
 
     std::unordered_map<State, Spritesheet*> spritesheets = {
         {IDLE, idleSpritesheet},
@@ -46,9 +49,8 @@ int main(void) {
     };
 
 
-    Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet("res/character/Onre/Idle.png", 6);
-    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet("res/character/Onre/Run.png", 10);
-
+    Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet(std::string("Onre_7"), 6);
+    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet(std::string("Onre_8"), 10);
 
     std::unordered_map<State, Spritesheet*> tSpritesheets = {
        {IDLE, tracyIdleSpritesheet},
@@ -56,35 +58,31 @@ int main(void) {
     };  
 
     SceneBuilder builder;
-    //ScreenManager screenManager;
-
-    builder.AddComponent(std::make_unique<Background>("res/background/b1/1.png"))
-        .AddComponent(std::make_unique<Midground>("res/background/b1/2.png"))
-        .AddComponent(std::make_unique<Midground>("res/background/b1/3.png"))
-        .AddComponent(std::make_unique<Foreground>("res/background/b1/4.png"))
+    // FIXME: Stop using so much std::strings performance issue switch to const char* soon.
+    builder.AddComponent(std::make_unique<Background>(std::string("b1_1")))
+        .AddComponent(std::make_unique<Midground>(std::string("b1_2")))
+        .AddComponent(std::make_unique<Midground>(std::string("b1_3")))
+        .AddComponent(std::make_unique<Foreground>(std::string("b1_4")))
         .AddObject(std::make_unique<NPC>(tSpritesheets))
-        .AddMusic("music1", std::make_unique<MusicComponent>("res/sounds/CVHarris.mp3"));
+        .AddMusic("music1", std::make_unique<MusicComponent>("game_music_1"));
 
     Scene scene1 = builder.Build();
 
-    builder.AddComponent(std::make_unique<Foreground>("res/background/b2/1.png"))
-        .AddComponent(std::make_unique<Midground>("res/background/b2/2.png"))
-        .AddComponent(std::make_unique<Midground>("res/background/b2/3.png"))
-        .AddComponent(std::make_unique<Background>("res/background/b2/4.png"))
+    builder.AddComponent(std::make_unique<Background>(std::string("b2_1")))
+        .AddComponent(std::make_unique<Midground>(std::string("b2_2")))
+        .AddComponent(std::make_unique<Midground>(std::string("b2_3")))
+        .AddComponent(std::make_unique<Foreground>(std::string("b2_4")))
         .AddObject(std::make_unique<NPC>(spritesheets))
-        .AddMusic("music2", std::make_unique<MusicComponent>("res/sounds/Tems-FreeMind.mp3"));
+        .AddMusic("music2", std::make_unique<MusicComponent>("game_music_3"));
 
     Scene scene2 = builder.Build();
-
-    ResourceManager rm;
-
-
 
     sceneManager.AddScene(std::make_unique<Scene>(scene2));
     //sceneManager.AddScene(std::make_unique<Scene>(scene1));
 
     sceneManager.SetScene(1);
 
+    // One thing since we're returning like references in our resource manager it will play music at the last point it was played at so.. maybe a fix will be needed.
     sceneManager.getCurrentScene()->setCurrentSong("music2");
 
     sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 758, 200 });

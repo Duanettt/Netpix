@@ -2,13 +2,13 @@
 
 
 // Each scene component e.g Background we load our texture into the object. (Will change once we create our resource manager)
-Background::Background(const char* filePath)
+// FIXME: We're reusing code a bunch with the same constructor and we can use inheritance to solve this.. can do this at a later point. (FIXED)
+Background::Background(const char* filePath) : SceneComponent(filePath)
 {
-    texture = LoadTexture(filePath);
-    if (texture.width == 0 || texture.height == 0)
-    {
-        TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
-    }
+}
+
+Background::Background(std::string textureKey) : SceneComponent(textureKey)
+{
 }
 
 void Background::Update(CameraController& camera)

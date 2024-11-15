@@ -162,3 +162,20 @@ bool Scene::checkCollisions(Player& player)
     return false;
 }
 
+SceneComponent::SceneComponent(const char* filePath)
+{
+    texture = LoadTexture(filePath);
+    if (texture.width == 0 || texture.height == 0)
+    {
+        TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
+    }
+}
+
+SceneComponent::SceneComponent(std::string textureKey)
+{
+    texture = rm.GetResource<Texture2D>(textureKey);
+    if (texture.width == 0 || texture.height == 0)
+    {
+        TraceLog(LOG_ERROR, "Failed to load texture: %s", textureKey);
+    }
+}

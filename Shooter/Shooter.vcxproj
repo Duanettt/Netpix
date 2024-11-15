@@ -177,9 +177,9 @@
     <Image Include="res\UI\brown_bar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="res\sounds\CVHarris.mp3" />
-    <Media Include="res\sounds\Jingle Bells.mp3" />
-    <Media Include="res\sounds\Tems-FreeMind.mp3" />
+    <Media Include="res\sound\game_music\CVHarris.mp3" />
+    <Media Include="res\sound\game_music\Jingle Bells.mp3" />
+    <Media Include="res\sound\game_music\Tems-FreeMind.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
