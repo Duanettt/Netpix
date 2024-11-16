@@ -37,7 +37,7 @@ I will update this section with CMake instructions once it's ready for cross-pla
 - Music: Background music plays while the game runs. You can customize it by replacing the audio files in the assets directory.
 
 ## Future Plans
-- Resource Manager: Implement a resource manager to load all my textures, spritesheets etcetera.
+- Resource Manager: Implement a resource manager to load all my textures, spritesheets etcetera. [COMPLETED]
 - Combat System: Implement a combat system allowing players to attack enemies and NPC's, this mainly involves building out our collision detection.
 - Level System: Add multiple levels with increasing difficulty.
 - Menu System: Implement a main menu and pause menu with options for controlling music and game settings. (50%)
