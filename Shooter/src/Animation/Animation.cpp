@@ -89,7 +89,7 @@ Spritesheet::Spritesheet(const char* filePath, int frameCount)
 
 Spritesheet::Spritesheet(std::string userPrompt, int frameCount)
 {
-    LoadAnimation(rm.GetResource<Texture2D>(userPrompt), frameCount);
+    LoadAnimation(ResourceManager::getInstance().GetResource<Texture2D>(userPrompt), frameCount);
 }
 
 // Derived classes constructors

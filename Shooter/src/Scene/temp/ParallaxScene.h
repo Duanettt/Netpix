@@ -2,43 +2,15 @@
 #include <raylib.h>
 #include <vector>
 #include <string>
+#include "../SceneManager.h"
 
-class ParallaxSceneComponent
-{
-public:
-    ParallaxSceneComponent(const char* filePath)
-    {
-        tex = LoadTexture(filePath);
-        if (tex.width == 0 || tex.height == 0)
-        {
-            // Handle texture loading error
-            TraceLog(LOG_ERROR, "Failed to load texture: %s", filePath);
-        }
-    }
-
-    ParallaxSceneComponent() {}
-
-    void Unload()
-    {
-        UnloadTexture(tex);
-    }
-
-    int getWidth() const { return tex.width; }
-    int getHeight() const { return tex.height; }
-    Texture2D getTex() const 
-    {
-        return tex; 
-    }
-
-private:
-    Texture2D tex;
-};
-
+// This is a junk class to be honest will find a way to create a parallax background with the scene class rather than calling this class object.
 class ParallaxScene
 {
 public:
-    ParallaxScene(const ParallaxSceneComponent& bg)
-        : background(bg)    {
+    ParallaxScene(const char* backgroundTextureKey)
+    {
+        background = ResourceManager::getInstance().GetResource<Texture2D>(backgroundTextureKey);
     }
 
     ParallaxScene()
@@ -52,7 +24,7 @@ public:
         //scrollingMid -= 0.5f;
         //scrollingFore -= 1.0f;
 
-        if (scrollingBack <= -background.getWidth() * 2) scrollingBack = 0;
+        if (scrollingBack <= -background.width * 2) scrollingBack = 0;
 
 
     }
@@ -66,8 +38,8 @@ public:
         * First draw call places the first foreground texture at the scrolling position
         * We place a second copy of the foreground texture right after the first one, at scrollingFore + foreground.width * 2. The foreground.width * 2 accounts for the width of the texture, considering that it's scaled by a factor of 2.0. By placing the second texture here, it "follows" the first one and will appear when the first texture has moved off the screen
         */
-        DrawTextureEx(background.getTex(), Vector2{scrollingBack, 450.0f - (background.getHeight() * 2)}, 0.0f, 2.0f, WHITE);
-        DrawTextureEx(background.getTex(), Vector2{ scrollingBack + background.getWidth() * 2, 450.0f - (background.getHeight() * 2) }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background, Vector2{scrollingBack, 450.0f - (background.height * 2)}, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background, Vector2{ scrollingBack + background.width * 2, 450.0f - (background.height * 2) }, 0.0f, 2.0f, WHITE);
 
 
         // Draw middleground twice
@@ -91,7 +63,7 @@ private:
     float scrollingMid = 0.0f;
     float scrollingFore = 0.0f;
 
-    ParallaxSceneComponent background;
+    Texture2D background;
 };
 
 //class SceneBuilder

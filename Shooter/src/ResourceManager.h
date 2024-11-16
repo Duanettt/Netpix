@@ -75,7 +75,7 @@ private:
 	std::unordered_map<std::string, Texture2D> textureBuffer;
 	std::unordered_map<std::string, Music> musicBuffer;
 
-	path resourcePath = "./res/";
+	path resourcePath = "../res/";
 
 	std::string previousDirectory = "";
 	int directoryCounter;

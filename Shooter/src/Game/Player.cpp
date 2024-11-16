@@ -1,10 +1,10 @@
 #include "Player.h"
 
 Player::Player() : playerState(IDLE), position{ 358.0f, 224.0f } {
-    animations[IDLE] = new IdleSpritesheet("res/character/main/idle.png",6);
-    animations[WALKING] = new WalkingSpritesheet("res/character/main/Walk.png",10);
-    animations[RUNNING] = new RunningSpritesheet("res/character/main/Run.png",10);
-    animations[ATTACK] = new AttackSpritesheet("res/character/main/Attack.png",4);
+    animations[IDLE] = new IdleSpritesheet(std::string("main_4"), 6);
+    animations[WALKING] = new WalkingSpritesheet(std::string("main_6"), 10);
+    animations[RUNNING] = new RunningSpritesheet(std::string("main_5"), 10);
+    animations[ATTACK] = new AttackSpritesheet(std::string("main_1"),4);
 
     // Set the initial animation
     currentAnimation = animations[IDLE];

@@ -21,10 +21,7 @@ public:
 	Menu();
 	void Draw();
 	void Update(GameScreen& currentScreen);
-
-	ResourceManager& rm = ResourceManager::getInstance();
 private:
-	ParallaxSceneComponent background;
 	ParallaxScene parallaxScene;
 	Button playButton; 
 	Music menuMusic;

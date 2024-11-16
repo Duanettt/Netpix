@@ -1,8 +1,8 @@
 #include "Button.h"
 
-Button::Button(const char* filePath)
+Button::Button(const char* buttonTextureKey)
 {
-	this->buttonTexture = LoadTexture(filePath);
+	this->buttonTexture = ResourceManager::getInstance().GetResource<Texture2D>(buttonTextureKey);
 
 	// Get the Height and Width of our frame for our button
 	frameHeight = (float)buttonTexture.height / 2.0f;

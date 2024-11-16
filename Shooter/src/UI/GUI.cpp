@@ -1,14 +1,12 @@
 #include "GUI.h"
 
-Menu::Menu() : playButton("res/UI/play_button.png")
+Menu::Menu() : playButton("UI_3")
 {
 	// Will be implementing either an array or vector for adding buttons to our menu.
 	// Will have to make this a lot neater.
-	this->background = ParallaxSceneComponent("res/background/b4/7.png");
+	parallaxScene = ParallaxScene("b4_7");
 
-	parallaxScene = ParallaxScene(background);
-
-	menuMusic = rm.GetResource<Music>("game_music_3");
+	menuMusic = ResourceManager::getInstance().GetResource<Music>("game_music_3");
 }
 
 void Menu::Draw()

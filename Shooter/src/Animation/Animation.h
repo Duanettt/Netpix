@@ -42,7 +42,6 @@ public:
     Spritesheet(const char* filePath, int frameCount);
     Spritesheet(std::string userPrompt, int frameCount);
 protected:
-    ResourceManager& rm = ResourceManager::getInstance();
 };
 
 class IdleSpritesheet : public Spritesheet

@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "../Game/Player.h"
 #include "../Core/Camera.h"
+#include "../ResourceManager.h"
 #include <unordered_map>
 
 

@@ -25,7 +25,8 @@ public:
 
 protected:
     Texture2D texture;
-    ResourceManager& rm = ResourceManager::getInstance();
+    // Dont initialize resource managers in objects makes huge problems..
+    //ResourceManager& rm = ResourceManager::getInstance();
 };
 
 

@@ -4,6 +4,7 @@
 #include "../Animation/Animation.h"
 #include <iostream>
 #include "../Core/States.h"
+#include "../ResourceManager.h"
 
 class Player {
 public:

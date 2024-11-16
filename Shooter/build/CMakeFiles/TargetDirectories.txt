@@ -1,0 +1,3 @@
+C:/dev/Netpix2/Shooter/build/CMakeFiles/Netpix.dir
+C:/dev/Netpix2/Shooter/build/CMakeFiles/ALL_BUILD.dir
+C:/dev/Netpix2/Shooter/build/CMakeFiles/ZERO_CHECK.dir

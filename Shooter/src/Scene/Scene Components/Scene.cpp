@@ -173,7 +173,7 @@ SceneComponent::SceneComponent(const char* filePath)
 
 SceneComponent::SceneComponent(std::string textureKey)
 {
-    texture = rm.GetResource<Texture2D>(textureKey);
+    texture = ResourceManager::getInstance().GetResource<Texture2D>(textureKey);
     if (texture.width == 0 || texture.height == 0)
     {
         TraceLog(LOG_ERROR, "Failed to load texture: %s", textureKey);

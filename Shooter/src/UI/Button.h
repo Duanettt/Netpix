@@ -4,6 +4,7 @@
 
 #include "../Core/States.h"
 #include "../Animation/Transitions.h"
+#include "../ResourceManager.h"
 
 class Button
 {
@@ -16,9 +17,11 @@ public:
 	Rectangle sourceRec;
 	//Transitions transition;
 
-	Button(const char* filePath);
+	//Button(const char* filePath);
+	Button(const char* buttonTextureKey);
 
 	// Button Methods
+	
 
 	Rectangle CreateButtonBoundingBox();
 	void SetButtonState();

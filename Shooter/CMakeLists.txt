@@ -1,58 +1,51 @@
-# Set project name
+cmake_minimum_required(VERSION 3.30)
+# Set the project name
 project(Netpix)
 
-# Set C++ standard
+# Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add all source files (cpp files) to a variable
-set(SOURCES
-    src/Animation.cpp
-    src/Camera.cpp
-    src/GameObjects.cpp
-    src/NewScene.cpp
-    src/Player.cpp
-    src/Scene.cpp
-    src/ScreenManager.cpp
-    src/main.cpp
+# Add Raylib (assumed to be installed via vcpkg or system package manager)
+find_package(raylib REQUIRED)
+find_package(OpenGL REQUIRED)
+
+# Define the executable target
+add_executable(${PROJECT_NAME})
+
+# Collect all source files (.cpp and .h) from subdirectories
+file(GLOB_RECURSE SRC_FILES
+    ${PROJECT_SOURCE_DIR}/src/*.cpp
+    ${PROJECT_SOURCE_DIR}/src/*.h
 )
 
-# Add header files to a variable
-set(HEADERS
-    src/Animation.h
-    src/Camera.h
-    src/GameObjects.h
-    src/NewScene.h
-    src/Player.h
-    src/Scene.h
-    src/ScreenManager.h
-)
+# Add source files to the target
+target_sources(${PROJECT_NAME} PRIVATE ${SRC_FILES})
 
-# Add raylib (assumed to be installed via vcpkg)
-find_package(raylib CONFIG REQUIRED)
+# Include directories (for headers)
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
-# Create executable
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-
-# Link libraries (link raylib)
+# Link libraries (link Raylib)
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 
-# Include directories if needed (for headers)
-target_include_directories(${PROJECT_NAME} PRIVATE src)
+# Set the working directory to the root of your project
+set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
 
-# Add textures and sprites directory
-set(TEXTURE_DIR ${CMAKE_SOURCE_DIR}/src/background)
-set(SPRITES_DIR ${CMAKE_SOURCE_DIR}/src/character)
 
-message(STATUS "Texture directory: ${TEXTURE_DIR}")
-message(STATUS "Sprites directory: ${SPRITES_DIR}")
+# Print the VS_DEBUGGER_WORKING_DIRECTORY property for the target
+get_target_property(WORKING_DIR ${PROJECT_NAME} VS_DEBUGGER_WORKING_DIRECTORY)
+message(STATUS "Configured working directory for target '${PROJECT_NAME}': ${WORKING_DIR}")
 
-# Specify where to copy textures and sprites after the build
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${TEXTURE_DIR} $<TARGET_FILE_DIR:${PROJECT_NAME}>/background
-)
+
+# Define texture and sprite directories
+set(RESOURCE_DIR ${PROJECT_SOURCE_DIR}/res)
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${SPRITES_DIR} $<TARGET_FILE_DIR:${PROJECT_NAME}>/character
+    ${RESOURCE_DIR} ${CMAKE_BINARY_DIR}/res
 )
+
+# Print resource directories for debugging
+foreach(RESOURCE_DIR ${RESOURCE_DIRS})
+    message(STATUS "Adding resource directory: ${RESOURCE_DIR}")
+endforeach()
