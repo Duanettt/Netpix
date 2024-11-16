@@ -17,6 +17,22 @@ As of September 2024, **Netpix** is primarily set up for use with **Visual Studi
 
 ### Running the Project
 
+**With CMake**
+_______
+
+1. Before, install in specifically vcpkg raylib e.g
+   * ./vcpkg install raylib
+   * ./vcpkg integrate install
+2. Clone the Repository and run the command "cd Shooter"
+3. Then run this command:
+   * cmake -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_PREFIX_PATH="C:/vcpkg/installed/x64-windows/share/raylib" ..
+   * cmake --build .
+4. Then cd BuildMode(e.g. Debug) and then run Netpix.exe
+
+
+**In Visual Studio**
+_______
+
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/netpix.git
@@ -24,8 +40,10 @@ As of September 2024, **Netpix** is primarily set up for use with **Visual Studi
 
 2. **Open in Visual Studio:**
    * Open the `solution.sln` file in Visual Studio.
+  
+3. Within the **ResourceManager.h** file, for now, you'll need to change the resourcePath variable to "./res" instead of the "../res/" due to how the relative paths are working for this code base.
 
-3. **Build and Run:**
+4. **Build and Run:**
    * Select your configuration (e.g., `x64/Debug`) and build the project.
    * Run the game directly from Visual Studio.
 
