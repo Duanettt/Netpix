@@ -47,6 +47,7 @@ void SceneManager::DrawCurrentScene(Player& player, CameraController& camera)
     if (currentScene != nullptr)
     {
         currentScene->DrawScene(player, camera);
+
     }
 }
 
@@ -57,6 +58,7 @@ void SceneManager::UpdateCurrentScene(Player& player, CameraController& camera)
     {
         //std::cout << "In the update scene" << std::endl;
         currentScene->UpdateScene(player, camera);
+
     }
 }
 

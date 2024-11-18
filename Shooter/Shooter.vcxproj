@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DialogueManager.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
     <ClCompile Include="src\UI\GUI.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Background.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="src\Animation\Transitions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DialogueManager.h" />
     <ClInclude Include="src\UI\Button.h" />
     <ClInclude Include="src\UI\GUI.h" />
     <ClInclude Include="src\Scene\Scene.h" />

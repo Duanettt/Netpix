@@ -8,7 +8,15 @@
 
 // GameObjects is an interface for constructing various objects within our game that the player will have to interact with.
 
-class GameObjects
+class Interactable
+{
+public:
+    virtual void Interact(const std::string prompt) = 0;
+    virtual ~Interactable() = default;
+private:
+};
+
+class GameObjects : public Interactable
 {
 public:
     // Draws the object
@@ -17,14 +25,20 @@ public:
     virtual void UpdateObject() = 0;
     // Allows us to set a state for the object.
     virtual void setCurrentAnimation(State state) = 0;
+
+    virtual void Unload() = 0;
     // Allows us to set a position
     void setPosition(const Vector2& pos);
 
+    void Interact(const std::string prompt) override
+    {
+        std::cout << prompt << std::endl;
+    }
     Vector2& getPosition();
-    Rectangle GetCurrentObjectBoundingRect();
+    Vector2 cameraAdjustedPosition;
+    virtual Rectangle GetCurrentObjectBoundingRect();
 protected:
     Vector2 position;
-    Vector2 cameraAdjustedPosition;
     Spritesheet* currentAnimation;
 };
 
@@ -35,8 +49,12 @@ public:
     NPC(std::unordered_map<State, Spritesheet*> spritesheets);
     void setCurrentAnimation(State state) override;
     void DrawObject(CameraController& camera) override;
+    Rectangle GetCurrentObjectBoundingRect() override;
     void UpdateObject() override;
     void Unload();
+    std::vector<const char*> getDialogueLines();
+
+    std::vector<const char*> dialogues;
 
 private:
     std::unordered_map<State, Spritesheet*> npcAnimations;

@@ -25,6 +25,11 @@ void Player::Update(float worldWidth) {
 
 void Player::Draw() {
     if (currentAnimation) {
+
+        if (inventoryDetected)
+        {
+            DrawRectangle(0, 400, 500, 500, BLACK);
+        }
         currentAnimation->DrawAnimation(position, isFacingRight);
 
         Rectangle playerRect = GetPlayerBoundingRect();
@@ -57,9 +62,24 @@ void Player::SetPlayerPosition(Vector2 newPosition)
     position = newPosition;
 }
 
+void Player::SetActiveObject(GameObjects* object)
+{
+    activeObject = object;
+}
+
+GameObjects* Player::GetActiveObject()
+{
+    return activeObject;
+}
+
 Vector2 Player::GetPlayerPosition()
 {
     return position;
+}
+
+bool Player::IsInteracting()
+{
+    return isInteracting;
 }
 
 void Player::HandleInput(float worldWidth) 
@@ -69,6 +89,18 @@ void Player::HandleInput(float worldWidth)
     if (!isAttacking)
     {
         HandleMovementInput(worldWidth);
+    }
+
+    if (IsKeyPressed(KEY_TAB))
+    {
+        std::cout << "Tab detected" << std::endl;
+        inventoryDetected = !inventoryDetected;
+    }
+
+    if (IsKeyPressed(KEY_E) && activeObject)
+    {
+        activeObject->Interact("Welcome to the Adventures of Ronnell!");
+        isInteracting = true;
     }
 }
 

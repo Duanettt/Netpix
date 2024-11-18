@@ -59,6 +59,7 @@ int main(void) {
 
     SceneBuilder builder;
     // FIXME: Stop using so much std::strings performance issue switch to const char* soon.
+    // FIXME: I really have to fix the whole npcs in other scenes..
     builder.AddComponent(std::make_unique<Background>(std::string("b1_1")))
         .AddComponent(std::make_unique<Midground>(std::string("b1_2")))
         .AddComponent(std::make_unique<Midground>(std::string("b1_3")))
@@ -78,7 +79,7 @@ int main(void) {
     Scene scene2 = builder.Build();
 
     sceneManager.AddScene(std::make_unique<Scene>(scene2));
-    //sceneManager.AddScene(std::make_unique<Scene>(scene1));
+    sceneManager.AddScene(std::make_unique<Scene>(scene1));
 
     sceneManager.SetScene(1);
 

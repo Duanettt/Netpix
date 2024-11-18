@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../Core/States.h"
 #include "../ResourceManager.h"
+#include "../Game/GameObjects.h"
 
 class Player {
 public:
@@ -15,18 +16,27 @@ public:
     void Draw();
     Rectangle GetPlayerBoundingRect();
     void SetPlayerPosition(Vector2 newPosition);
+    void SetActiveObject(GameObjects* object);
+    GameObjects* GetActiveObject();
     Vector2 GetPlayerPosition();
+
+    bool IsInteracting();
+
 private:
+
+    GameObjects* activeObject = nullptr;
     std::unordered_map<State, Spritesheet*> animations;
     State playerState;
     State currentState = State::IDLE;
     Vector2 position;
     bool isFacingRight = false;
+    bool inventoryDetected = false;
     Spritesheet* currentAnimation = nullptr;
 
     float halfScreenWidth = GetScreenWidth() / 2;
 
     bool isAttacking;
+    bool isInteracting;
 
     void HandleInput(float worldWidth);
     void HandleMovementInput(float worldWidth);

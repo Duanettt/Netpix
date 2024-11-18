@@ -11,6 +11,7 @@
 #include "../Game/GameObjects.h"
 #include "../Sound/Music.h"
 #include "../ResourceManager.h"
+#include "../../DialogueManager.h"
 
 class SceneComponent
 {
@@ -87,17 +88,24 @@ public:
     NPC* getNPCByIndex(int num);
     float getWorldWidth();
     float getWorldHeight();
-    void DrawScene(Player& player, CameraController& camera) const;
+    void DrawScene(Player& player, CameraController& camera);
     void UpdateScene(Player& player, CameraController& camera);
     void Unload();
     void setCurrentSong(std::string musicName);
     bool checkCollisions(Player& player);
+
 
 private:
     std::vector<SceneComponent*> components;
     std::vector<GameObjects*> objects;
     std::unordered_map<std::string, MusicComponent*> musicMap;
     MusicComponent* currentMusic = nullptr;
+
+    DialogueManager dm; 
+
+    GameObjects* closestObject = nullptr;
+
+    bool collisionDetected = false;
 };
 
 class SceneBuilder

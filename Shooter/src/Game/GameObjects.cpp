@@ -26,9 +26,9 @@ Rectangle GameObjects::GetCurrentObjectBoundingRect()
         rectangleHeight = (currentAnimation->getTextureHeight());
     }
     // CameraAdjustedPosition  needs to be implemented here for collision detection.
-    Rectangle playerRect = Rectangle({ cameraAdjustedPosition.x, cameraAdjustedPosition.y, rectangleWidth, rectangleHeight });
+    Rectangle objectRect = Rectangle({ cameraAdjustedPosition.x, cameraAdjustedPosition.y, rectangleWidth, rectangleHeight });
 
-    return playerRect;
+    return objectRect;
 }
 
 // Implementation of NPC methods
@@ -43,6 +43,8 @@ NPC::NPC(std::unordered_map<State, Spritesheet*> spritesheets)
     // Set the default animation
     currentAnimation = npcAnimations[IDLE];
     setPosition({ 758.0f, 224.0f });
+
+    dialogues = { "Hello!", "Welcome to the game.", "Goodbye!" };
 }
 
 void NPC::setCurrentAnimation(State state)
@@ -75,6 +77,26 @@ void NPC::DrawObject(CameraController& camera)
     }
 }
 
+Rectangle NPC::GetCurrentObjectBoundingRect()
+{
+    float rectangleWidth = 0;
+    float rectangleHeight = 0;
+
+    if (currentAnimation != nullptr)
+    {
+        // We get the full texture's width and divide it by the number of frames within the texture.
+        float currentFrameCount = currentAnimation->getFrameCount();
+        rectangleWidth = (currentAnimation->getTextureWidth() / currentFrameCount) - 75.0f;
+        rectangleHeight = (currentAnimation->getTextureHeight());
+    }
+    // CameraAdjustedPosition  needs to be implemented here for collision detection.
+    Rectangle npcRect = Rectangle({ cameraAdjustedPosition.x + 45.0f, cameraAdjustedPosition.y + 30.0f, rectangleWidth, rectangleHeight - 30.0f });
+
+    return npcRect;
+}
+
+
+
 void NPC::UpdateObject()
 {
     if (currentAnimation) {
@@ -88,3 +110,7 @@ void NPC::Unload()
     currentAnimation = nullptr;
 }
 
+std::vector<const char*> NPC::getDialogueLines()
+{
+    return dialogues;
+}

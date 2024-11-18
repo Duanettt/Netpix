@@ -30,25 +30,31 @@ Scene SceneBuilder::Build()
 
     // Create a scene varaible
     // Add every component to our scene vectors
-    for (const auto& component : sceneComponents)
+
+    // Release in this case basically relinquishes ownership of this pointer and returns a raw pointer to our scene component, it allows us to relinquish ownership without triggering the destructor of our object.
+    for (auto& component : sceneComponents)
     {
-        scene.AddComponentPointerToSceneVector(component.get());
+        scene.AddComponentPointerToSceneVector(component.release());
     }
 
-    for (const auto& object : gameObjects)
+    sceneComponents.clear();
+
+    for (auto& object : gameObjects)
     {
-        scene.AddGameObjectPointerToSceneVector(object.get());
+        scene.AddGameObjectPointerToSceneVector(object.release());
     }
 
-    for (const auto& [name, music] : musicMap)
+    gameObjects.clear();
+
+    for (auto& [name, music] : musicMap)
     {
-        scene.AddMusicPointerToMusicMap(name, music.get());
+        scene.AddMusicPointerToMusicMap(name, music.release());
     }
+
+    musicMap.clear();
 
     std::cout << "Scene successfully built..." << std::endl;
 
-    //this->sceneComponents.clear();
-    //this->gameObjects.clear();
     return scene;
 }
 

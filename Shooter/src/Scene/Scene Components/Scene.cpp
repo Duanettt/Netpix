@@ -74,7 +74,7 @@ float Scene::getWorldHeight()
     return 0.0f;
 }
 
-void Scene::DrawScene(Player& player, CameraController& camera) const
+void Scene::DrawScene(Player& player, CameraController& camera)
 {
     currentMusic->PlayMusic();
 
@@ -88,8 +88,17 @@ void Scene::DrawScene(Player& player, CameraController& camera) const
     for (const auto& object : objects)
     {
         object->DrawObject(camera);
+
+        if (object == player.GetActiveObject())
+        {
+            DrawRectangleLinesEx(object->GetCurrentObjectBoundingRect(), 2.0f, YELLOW);
+            DrawText("Press 'E' to Interact", player.GetPlayerPosition().x, player.GetPlayerPosition().y, 20, RED);
+        }
     }
+
     player.Draw();
+
+    dm.Draw(camera);
 
     camera.EndCameraMode();
 }
@@ -113,7 +122,17 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
     player.Update(this->getWorldWidth());
 
     // Might move this into scenemanager to check for collisions to allow us.
-    this->checkCollisions(player);
+    collisionDetected = this->checkCollisions(player);
+
+    if (collisionDetected && player.IsInteracting() && player.GetActiveObject())
+    {
+        if (closestObject)
+            // Dynamic casting is very bad for performance to much.. we need to start implementing ENUMS with object types soon.
+            dm.StartDialogue(dynamic_cast<NPC*>(closestObject));
+    }
+
+
+    dm.Update();
 }
 
 void Scene::Unload()
@@ -124,8 +143,33 @@ void Scene::Unload()
     }
 
     components.clear();
-}
 
+    for (auto& object : objects)
+    {
+        object->Unload();
+    }
+
+    objects.clear();
+
+    for (auto& pair : musicMap) {
+        delete pair.second;  // Delete the pointer to MusicComponent
+    }
+    musicMap.clear();  // Clear the map after deleting the pointers
+
+    if (currentMusic != nullptr) {
+        delete currentMusic;
+        currentMusic = nullptr;  // Set to nullptr to avoid dangling pointers
+    }
+
+    if (closestObject != nullptr) {
+        delete closestObject;
+        closestObject = nullptr;  // Set to nullptr to avoid dangling pointers
+    }
+
+
+
+}
+    
 void Scene::setCurrentSong(std::string musicName)
 {
     auto it = musicMap.find(musicName);
@@ -144,6 +188,8 @@ void Scene::setCurrentSong(std::string musicName)
 bool Scene::checkCollisions(Player& player)
 {
     Rectangle playerRect = player.GetPlayerBoundingRect();
+    float closestDistance = FLT_MAX;
+
     for (const auto& object : objects)
     {
         NPC* npc = dynamic_cast<NPC*>(object);
@@ -151,14 +197,26 @@ bool Scene::checkCollisions(Player& player)
         {
             if (CheckCollisionRecs(npc->GetCurrentObjectBoundingRect(), playerRect))
             {
-                // If this returns true we set a variable to true and draw our rectangle.
 
+                float distance = Vector2Distance(player.GetPlayerPosition(), object->cameraAdjustedPosition);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestObject = object;
+                    std::cout << closestDistance << std::endl;
+                }
+                // If this returns true we set a variable to true and draw our rectangle.
                 // Collision detection somewhat working for each scene. So now 
+
+                player.SetActiveObject(closestObject);
                 std::cout << "Collision detected!" << std::endl;
                 return true;
             }
         }
     }
+
+    player.SetActiveObject(nullptr);
     return false;
 }
 
