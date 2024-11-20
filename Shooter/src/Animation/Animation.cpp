@@ -59,6 +59,20 @@ void Animation::DrawAnimation(Vector2 position, bool isFacingRight)
     DrawTextureRec(texture, sourceRec, position, WHITE);
 }
 
+void Animation::DrawAnimation(Vector2 position, bool isFacingRight, int scaleFactor)
+{
+    Rectangle sourceRec = frameRec;
+    if (!isFacingRight)
+    {
+        sourceRec.width = -frameRec.width;
+    }
+
+    texture.width = texture.width * scaleFactor;
+    texture.height = texture.height * scaleFactor;
+
+    DrawTextureRec(texture, sourceRec, position, WHITE);
+}
+
 // Basic draw call for animation
 void Animation::DrawAnimation(Vector2 position)
 {

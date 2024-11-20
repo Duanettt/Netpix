@@ -15,6 +15,7 @@ public:
     void Update(float worldWidth);
     void Draw();
     Rectangle GetPlayerBoundingRect();
+    void SetIsInteracting(bool value);
     void SetPlayerPosition(Vector2 newPosition);
     void SetActiveObject(GameObjects* object);
     GameObjects* GetActiveObject();
@@ -35,8 +36,8 @@ private:
 
     float halfScreenWidth = GetScreenWidth() / 2;
 
-    bool isAttacking;
-    bool isInteracting;
+    bool isAttacking = false;
+    bool isInteracting = false;
 
     void HandleInput(float worldWidth);
     void HandleMovementInput(float worldWidth);

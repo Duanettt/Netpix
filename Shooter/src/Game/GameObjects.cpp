@@ -76,6 +76,26 @@ void NPC::DrawObject(CameraController& camera)
 
     }
 }
+void NPC::DrawObject(CameraController& camera, Vector2 screenPosition, int scaleFactor)
+{
+    // This method as of right now is specifically for dialogues.
+    if (currentAnimation)
+    {
+        // Adjust NPC position based on the camera's offset.
+        float npcPosition = getPosition().x;
+
+      
+
+        bool IsFacingRight = camera.getCameraDirection(npcPosition);
+
+        currentAnimation->DrawAnimation(screenPosition, IsFacingRight, scaleFactor);
+
+        // See the size of our rectangle height, width
+        //DrawRectangle(rect.x, rect.y, rect.width, rect.height, RED);
+
+    }
+}
+
 
 Rectangle NPC::GetCurrentObjectBoundingRect()
 {

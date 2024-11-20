@@ -1,7 +1,7 @@
 #pragma once
 #include <queue>
-#include "src/Game/GameObjects.h"
-#include "src/Core/Camera.h" 
+#include "./Core/Camera.h"
+#include "./Game/GameObjects.h" 
 
 class DialogueManager
 {
@@ -11,8 +11,7 @@ public:
 
 	void Update();
 
-	void Draw(CameraController& camera);
-
+	void Draw(CameraController& camera, NPC* npc); 
 
 	bool GetIsDialogueActive();
 

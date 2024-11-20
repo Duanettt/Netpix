@@ -98,7 +98,7 @@ void Scene::DrawScene(Player& player, CameraController& camera)
 
     player.Draw();
 
-    dm.Draw(camera);
+    dm.Draw(camera, dynamic_cast<NPC*>(closestObject));
 
     camera.EndCameraMode();
 }
@@ -129,6 +129,9 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
         if (closestObject)
             // Dynamic casting is very bad for performance to much.. we need to start implementing ENUMS with object types soon.
             dm.StartDialogue(dynamic_cast<NPC*>(closestObject));
+
+        // Set the interacting value to false once we've started dialogue.
+        player.SetIsInteracting(false);
     }
 
 

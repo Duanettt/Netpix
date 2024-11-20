@@ -35,6 +35,7 @@ int main(void) {
 
     ResourceManager& rm = ResourceManager::getInstance();
     auto& sceneManager = SceneManager::getInstance();
+    // Might make dialogueManager a s
 
     Player player;
 

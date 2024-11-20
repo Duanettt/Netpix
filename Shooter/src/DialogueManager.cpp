@@ -8,7 +8,13 @@ void DialogueManager::EndDialogue()
 
 void DialogueManager::StartDialogue(NPC* npc)
 {
+
+	if (isDialogueActive) return;
+
 	std::cout << "About to get dialogue lines" << std::endl;
+
+	// Clear the lines before use.
+	dialogueLines = std::queue<const char*>();
 	for (const auto& user_DialogueLines : npc->getDialogueLines())
 	{
 		std::cout << user_DialogueLines << std::endl;
@@ -24,7 +30,6 @@ void DialogueManager::Update()
 
 	if (isDialogueActive)
 	{
-		std::cout << "Updating our dialogue!" << std::endl;
 		if (IsKeyPressed(KEY_ENTER) && !dialogueLines.empty())
 		{
 			dialogueLines.pop();
@@ -38,12 +43,14 @@ void DialogueManager::Update()
 	}
 }
 
-void DialogueManager::Draw(CameraController& camera)
+void DialogueManager::Draw(CameraController& camera, NPC* npc)
 {
+	Vector2 npcCharacterScreenPosition = { camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y};
 	if (!isDialogueActive) return;
-	DrawRectangle(camera.getCameraPosition().x + 105.0f, camera.getCameraPosition().y, 200, 300, BLACK); // Dialogue box
+	DrawRectangle(camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y, 400, 200, BLACK); // Dialogue box
 	if (!dialogueLines.empty()) {
-		DrawText(dialogueLines.front(), camera.getCameraPosition().x + 105.0f, camera.getCameraPosition().y, 20, WHITE);
+		npc->DrawObject(camera, npcCharacterScreenPosition, 1);
+		DrawText(dialogueLines.front(), camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y, 20, WHITE);
 	}
 }
 

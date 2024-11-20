@@ -7,8 +7,29 @@ ResourceManager::ResourceManager()
 	printMap();
 }
 
+
+void ResourceManager::IdentifyPath()
+{
+	std::vector<const char*> allPossiblePaths = {
+		"./res/",
+		"../res/",
+		"../../res/",
+		"../../../res/"
+	};
+
+	for (const auto path : allPossiblePaths)
+	{
+		if (exists(std::filesystem::path(path)))
+		{
+			resourcePath = path;
+			break;
+		}
+	}
+}
 void ResourceManager::LoadAllTextures()
 {
+	// IdentifyPath method basically chooses which path to use based on which build system.
+	IdentifyPath();
 	if(exists(resourcePath))
 		for (const auto& entry : recursive_directory_iterator(resourcePath))
 		{

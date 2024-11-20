@@ -11,7 +11,7 @@
 #include "../Game/GameObjects.h"
 #include "../Sound/Music.h"
 #include "../ResourceManager.h"
-#include "../../DialogueManager.h"
+#include "../DialogueManager.h"
 
 class SceneComponent
 {

@@ -40,12 +40,12 @@ message(STATUS "Configured working directory for target '${PROJECT_NAME}': ${WOR
 # Define texture and sprite directories
 set(RESOURCE_DIR ${PROJECT_SOURCE_DIR}/res)
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${RESOURCE_DIR} ${CMAKE_BINARY_DIR}/res
-)
+#add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+ #   COMMAND ${CMAKE_COMMAND} -E copy_directory
+  #  ${RESOURCE_DIR} ${CMAKE_BINARY_DIR}/res
+#)
 
 # Print resource directories for debugging
-foreach(RESOURCE_DIR ${RESOURCE_DIRS})
-    message(STATUS "Adding resource directory: ${RESOURCE_DIR}")
-endforeach()
+#foreach(RESOURCE_DIR ${RESOURCE_DIRS})
+#   message(STATUS "Adding resource directory: ${RESOURCE_DIR}")
+#endforeach()

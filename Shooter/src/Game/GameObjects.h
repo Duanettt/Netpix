@@ -49,6 +49,8 @@ public:
     NPC(std::unordered_map<State, Spritesheet*> spritesheets);
     void setCurrentAnimation(State state) override;
     void DrawObject(CameraController& camera) override;
+    void DrawObject(CameraController& camera, Vector2 screenPosition, int scaleFactor);
+    void DrawObject(CameraController& camera, Vector2 screenPosition);
     Rectangle GetCurrentObjectBoundingRect() override;
     void UpdateObject() override;
     void Unload();

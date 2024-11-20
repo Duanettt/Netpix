@@ -5,8 +5,6 @@
 #include <filesystem>
 #include <iostream>
 #include <type_traits>
-
-
 using namespace std::filesystem;
 
 // NEXT STEP! Optimisations, firstly implementing a destructor for cleanup and learning about move assignments and move operator overloading for efficient resource use.
@@ -24,6 +22,8 @@ public:
 		static ResourceManager instance; // Created once and shared
 		return instance;
 	}
+
+	void IdentifyPath();
 
 	void LoadAllTextures();
 
@@ -75,7 +75,7 @@ private:
 	std::unordered_map<std::string, Texture2D> textureBuffer;
 	std::unordered_map<std::string, Music> musicBuffer;
 
-	path resourcePath = "./res/";
+	path resourcePath;
 
 	std::string previousDirectory = "";
 	int directoryCounter;

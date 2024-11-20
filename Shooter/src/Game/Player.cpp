@@ -57,6 +57,11 @@ Rectangle Player::GetPlayerBoundingRect()
     return playerRect;
 }
 
+
+void Player::SetIsInteracting(bool value)
+{
+    isInteracting = value;
+}
 void Player::SetPlayerPosition(Vector2 newPosition)
 {
     position = newPosition;
@@ -103,6 +108,7 @@ void Player::HandleInput(float worldWidth)
         isInteracting = true;
     }
 }
+
 
 void Player::HandleMovementInput(float worldWidth)
 {

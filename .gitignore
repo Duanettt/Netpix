@@ -10,6 +10,7 @@ x64/Release/
 # Ignore other build artifacts (you may also want to ignore other platforms' build outputs)
 Debug/
 Release/
+build/
 
 # You can also ignore temporary files like:
 *.log

@@ -72,7 +72,7 @@
     <ClCompile Include="src\Animation\Transitions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DialogueManager.cpp">
+    <ClCompile Include="src\DialogueManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,7 +122,7 @@
     <ClInclude Include="src\Animation\Transitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DialogueManager.h">
+    <ClInclude Include="src\DialogueManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
