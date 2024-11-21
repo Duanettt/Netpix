@@ -98,9 +98,12 @@ void Scene::DrawScene(Player& player, CameraController& camera)
 
     player.Draw();
 
-    dm.Draw(camera, dynamic_cast<NPC*>(closestObject));
+    //FIXME: Might decouple the camera from this class and move it one up for the scene manager to allow to manage between UI and Game Objects.  
 
     camera.EndCameraMode();
+
+    dm.Draw(dynamic_cast<NPC*>(closestObject));
+
 }
 
 void Scene::UpdateScene(Player& player, CameraController& camera)
@@ -130,11 +133,9 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
             // Dynamic casting is very bad for performance to much.. we need to start implementing ENUMS with object types soon.
             dm.StartDialogue(dynamic_cast<NPC*>(closestObject));
 
-        // Set the interacting value to false once we've started dialogue.
-        player.SetIsInteracting(false);
     }
 
-
+    dm.SetPlayer(&player);
     dm.Update();
 }
 

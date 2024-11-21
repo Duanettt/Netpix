@@ -79,8 +79,11 @@ private:
 class Scene
 {
 public:
+
+    // This will be implemented soon I guess.
     template<typename T>
     void addPointerToSceneVector(T* component);
+
     void AddComponentPointerToSceneVector(SceneComponent* component);
     void AddGameObjectPointerToSceneVector(GameObjects* object);
     void AddMusicPointerToMusicMap(std::string musicName, MusicComponent* music);

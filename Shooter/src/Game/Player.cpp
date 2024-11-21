@@ -104,7 +104,7 @@ void Player::HandleInput(float worldWidth)
 
     if (IsKeyPressed(KEY_E) && activeObject)
     {
-        activeObject->Interact("Welcome to the Adventures of Ronnell!");
+        // How we invoke function calls in other methods without coupling too much.
         isInteracting = true;
     }
 }
@@ -112,8 +112,10 @@ void Player::HandleInput(float worldWidth)
 
 void Player::HandleMovementInput(float worldWidth)
 {
-    SetPlayerState(IDLE);
 
+    if (isInteracting) return;
+
+    SetPlayerState(IDLE);
 
     if (IsKeyDown(KEY_S) && position.y <= 275.0f)
     {
@@ -161,6 +163,8 @@ void Player::HandleMovementInput(float worldWidth)
 
 bool Player::HandleMouseInput()
 {
+    if (isInteracting) return false;
+
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
     {
         //std::cout << "Click detected!" << std::endl;

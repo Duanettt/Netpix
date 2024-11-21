@@ -96,7 +96,18 @@ void NPC::DrawObject(CameraController& camera, Vector2 screenPosition, int scale
     }
 }
 
-
+void NPC::DrawDialogueSprite(int scaleFactor)
+{
+    if (currentAnimation)
+    {
+        // Always face right during dialogues (or set based on your logic)
+        bool isFacingRight = true;
+        Vector2 npcScreenPosition = { 0.0f, 0.0f };
+        // Render the NPC sprite at a fixed screen-space position
+        currentAnimation->DrawAnimation(npcScreenPosition, isFacingRight, scaleFactor);
+    }
+}
+ 
 Rectangle NPC::GetCurrentObjectBoundingRect()
 {
     float rectangleWidth = 0;

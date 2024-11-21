@@ -2,7 +2,11 @@
 
 void DialogueManager::EndDialogue()
 {
-	isDialogueActive = false;
+	if (playerPointer)
+	{
+		playerPointer->SetIsInteracting(false);
+		isDialogueActive = false;
+	}
 
 }
 
@@ -21,7 +25,16 @@ void DialogueManager::StartDialogue(NPC* npc)
 		dialogueLines.push(user_DialogueLines);
 	}
 
+	if (playerPointer)
+	{
+		playerPointer->SetIsInteracting(true);
+	}
 	isDialogueActive = true;
+}
+
+void DialogueManager::SetPlayer(Player* player)
+{
+	playerPointer = player;
 }
 
 void DialogueManager::Update()
@@ -43,17 +56,23 @@ void DialogueManager::Update()
 	}
 }
 
-void DialogueManager::Draw(CameraController& camera, NPC* npc)
+void DialogueManager::Draw(NPC* npc)
 {
-	Vector2 npcCharacterScreenPosition = { camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y};
 	if (!isDialogueActive) return;
-	DrawRectangle(camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y, 400, 200, BLACK); // Dialogue box
-	if (!dialogueLines.empty()) {
-		npc->DrawObject(camera, npcCharacterScreenPosition, 1);
-		DrawText(dialogueLines.front(), camera.getCameraPosition().x + 250.0f, camera.getCameraPosition().y, 20, WHITE);
-	}
-}
 
+	// Dialogue box screen-space coordinates
+	Vector2 dialogueBoxPosition = { 0.0f, 400.0f }; // Position for the dialogue box
+
+	// Fixed NPC screen position for dialogues
+	npc->DrawDialogueSprite(5); // Pass scale factor to draw large sprite
+	DrawRectangle(dialogueBoxPosition.x, dialogueBoxPosition.y - 50, 400, 400, BLACK); // Draw dialogue box
+	if (!dialogueLines.empty())
+	{
+		DrawText(dialogueLines.front(), dialogueBoxPosition.x + 10, dialogueBoxPosition.y - 50, 20, WHITE);
+	}
+
+
+}
 
 bool DialogueManager::GetIsDialogueActive()
 {

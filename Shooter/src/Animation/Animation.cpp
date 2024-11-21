@@ -67,10 +67,18 @@ void Animation::DrawAnimation(Vector2 position, bool isFacingRight, int scaleFac
         sourceRec.width = -frameRec.width;
     }
 
-    texture.width = texture.width * scaleFactor;
-    texture.height = texture.height * scaleFactor;
+    // Try and figure out why we need to hardcode values here....
+    Rectangle destRec = {
+        position.x - 200.0f,
+        position.y - 200.0f,
+        frameRec.width * scaleFactor,
+        frameRec.height * scaleFactor
+    };
 
-    DrawTextureRec(texture, sourceRec, position, WHITE);
+
+    Vector2 origin = { 0.0f, 0.0f };
+
+    DrawTexturePro(texture, sourceRec,destRec, origin, 0,WHITE);
 }
 
 // Basic draw call for animation

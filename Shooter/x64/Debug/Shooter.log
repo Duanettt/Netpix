@@ -1,8 +1,8 @@
-﻿  DialogueManager.cpp
-C:\dev\Netpix\Shooter\src\DialogueManager.cpp(50,81): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\dev\Netpix\Shooter\src\DialogueManager.cpp(50,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\dev\Netpix\Shooter\src\DialogueManager.cpp(53,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\dev\Netpix\Shooter\src\DialogueManager.cpp(53,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Player.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(37,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Game/Player.cpp')
+  
+C:\dev\Netpix\Shooter\src\Game\Player.cpp(49,33): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
