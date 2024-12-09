@@ -21,6 +21,10 @@ public:
     virtual void Update(CameraController& camera) = 0;
     virtual void Draw(CameraController& camera) = 0;
     virtual void Unload() = 0;
+
+    virtual int getWidth();
+    virtual int getHeight();
+
     Texture2D getTexture();
     virtual ~SceneComponent();
 

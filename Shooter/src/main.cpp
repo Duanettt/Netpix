@@ -10,6 +10,7 @@
 #include "../src/Core/Camera.h"
 #include "../src/Scene/SceneManager.h"
 #include "../src/UI/GUI.h"
+#include "Game/Pathfinding.h"
 
 
 #define MAX_FRAME_SPEED     15
@@ -60,7 +61,7 @@ int main(void) {
 
     SceneBuilder builder;
     // FIXME: Stop using so much std::strings performance issue switch to const char* soon.
-    // FIXME: I really have to fix the whole npcs in other scenes..
+    // FIXME: I really have to fix the whole npcs in other scenes.. (FIXED i think!)
     builder.AddComponent(std::make_unique<Background>(std::string("b1_1")))
         .AddComponent(std::make_unique<Midground>(std::string("b1_2")))
         .AddComponent(std::make_unique<Midground>(std::string("b1_3")))
@@ -75,6 +76,7 @@ int main(void) {
         .AddComponent(std::make_unique<Midground>(std::string("b2_3")))
         .AddComponent(std::make_unique<Foreground>(std::string("b2_4")))
         .AddObject(std::make_unique<NPC>(spritesheets))
+        .AddObject(std::make_unique<NPC>(tSpritesheets))
         .AddMusic("music2", std::make_unique<MusicComponent>("game_music_3"));
 
     Scene scene2 = builder.Build();
@@ -84,10 +86,14 @@ int main(void) {
 
     sceneManager.SetScene(1);
 
+   
+
     // One thing since we're returning like references in our resource manager it will play music at the last point it was played at so.. maybe a fix will be needed.
     sceneManager.getCurrentScene()->setCurrentSong("music2");
 
     sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 758, 200 });
+    sceneManager.getCurrentScene()->getNPCByIndex(1)->setPosition({ 458, 200 });
+
 
     CameraController camera;
 
@@ -99,6 +105,9 @@ int main(void) {
 
     // The reason for one of these bugs is because basically in our scene builder we have a vector full of objects we're adding and when we build one scene the settings are saved due to the vector stored.. 
     // Once one scene is done we basically need to unload these vectors and build the next scene thats proving difficult since we woulld need to use unique pointers to transfer ownership from one class to another class. SceneBuilder -> Scene.
+
+
+    Pathfinding pf;
 
 
     int mainFramesCounter = 0;
@@ -166,6 +175,15 @@ int main(void) {
                 // TODO: Draw GAMEPLAY screen here!
 
                 sceneManager.DrawCurrentScene(player, camera);
+                Node* playerNode = pf.getNodeAt(player.GetPlayerPosition().x, player.GetPlayerPosition().y);
+
+                std::vector<Node*> testNodes = pf.getNeighbours(playerNode);
+
+                for (const auto& node : testNodes)
+                {
+                    std::cout << *node << std::endl;
+                }
+
                 break;        
         }
 

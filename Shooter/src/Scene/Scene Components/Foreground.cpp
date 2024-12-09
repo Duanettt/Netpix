@@ -16,9 +16,9 @@ void Foreground::Update(CameraController& camera)
 
 void Foreground::Draw(CameraController& camera)
 {
-    xOffset = camera.getCameraOffset().x;
+    xOffset = fmod(camera.getCameraOffset().x, texture.width * 2);
     DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
-    DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+    DrawTextureEx(texture, Vector2{ -xOffset + (texture.width * 2), 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
 }
 
 void Foreground::Unload()

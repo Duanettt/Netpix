@@ -44,4 +44,5 @@ private:
     bool HandleMouseInput();
     void SetPlayerState(State state);
     void CheckStatePriority(State state);
+    //void DrawPlayerOnGrid(Pathfinding& pathfinding);
 };

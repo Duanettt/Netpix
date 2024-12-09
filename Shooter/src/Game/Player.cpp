@@ -121,13 +121,13 @@ void Player::HandleMovementInput(float worldWidth)
     {
         position.y += 2.0f;
         SetPlayerState(WALKING);
-        if (IsKeyDown(KEY_LEFT_SHIFT))
-        {
-            position.y += 2.7f;
-            SetPlayerState(RUNNING);
-        }
+        //if (IsKeyDown(KEY_LEFT_SHIFT))
+        //{
+        //    position.y += 2.7f;
+        //    SetPlayerState(RUNNING);
+        //}
     }
-    if (IsKeyDown(KEY_W) && position.y >= 190.0f)
+    if (IsKeyDown(KEY_W) && position.y > 190.0f)
     {
         position.y -= 2.0f;
         SetPlayerState(WALKING);
@@ -204,3 +204,4 @@ void Player::CheckStatePriority(State state)
         // One issue: If we start walking 
     }
 }
+

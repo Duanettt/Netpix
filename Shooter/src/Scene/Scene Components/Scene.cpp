@@ -241,3 +241,13 @@ SceneComponent::SceneComponent(std::string textureKey)
         TraceLog(LOG_ERROR, "Failed to load texture: %s", textureKey);
     }
 }
+
+int SceneComponent::getWidth()
+{
+    return this->getTexture().width;
+}
+
+int SceneComponent::getHeight()
+{
+    return this->getTexture().height;
+}

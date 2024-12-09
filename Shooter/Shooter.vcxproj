@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\Pathfinding.cpp" />
     <ClCompile Include="src\DialogueManager.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
     <ClCompile Include="src\UI\GUI.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\Animation\Transitions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game\Pathfinding.h" />
     <ClInclude Include="src\DialogueManager.h" />
     <ClInclude Include="src\UI\Button.h" />
     <ClInclude Include="src\UI\GUI.h" />
