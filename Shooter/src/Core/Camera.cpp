@@ -1,18 +1,35 @@
 #include "Camera.h"
 
 
-void CameraController::UpdateCamera(const Vector2& playerPosition, float worldWidth, float worldHeight)
-{
-	// Initially set the camera to our players position.
-	camera.target = playerPosition;
-	// Calculate half of the screenWidth for our boundary checks.
+void CameraController::UpdateCamera(const Vector2& playerPosition, float worldWidth, float worldHeight) {
+	float delta = GetFrameTime();
+	float cameraSmoothness = 5.0f; // Adjust this value to change camera smoothing
+
+	Vector2 targetPosition = playerPosition;
 	float halfScreenWidth = GetScreenWidth() / 2;
 	float halfScreenHeight = GetScreenHeight() / 2;
 
-	// Do boundary checks.
-	XAxisBoundaryCheck(playerPosition, halfScreenWidth, worldWidth);
-	YAxisBoundaryCheck(playerPosition, halfScreenHeight, worldHeight);
 
+	// X Axis Boundary checks can put in a function if need be
+	if (targetPosition.x - halfScreenWidth <= 0) {
+		targetPosition.x = halfScreenWidth;
+	}
+	else if (targetPosition.x + halfScreenWidth >= worldWidth) {
+		targetPosition.x = worldWidth - halfScreenWidth;
+	}
+
+	// Y Axis Boundary checks
+	if (targetPosition.y - halfScreenHeight <= 190) {
+		targetPosition.y = halfScreenHeight;
+	}
+	else if (targetPosition.y + halfScreenHeight >= worldHeight) {
+		targetPosition.y = worldHeight - halfScreenHeight;
+	}
+
+	// Linear interpolation but chase method instead. Where camera.target.x = start, the targetPosition.x - cameraTarget = to the end and we then interpolate across using cameraSmoothness * delta which basically gives us a fraction in which how far
+	// The camera is in terms of our player.
+	camera.target.x = camera.target.x + (targetPosition.x - camera.target.x) * cameraSmoothness * delta;
+	camera.target.y = camera.target.y + (targetPosition.y - camera.target.y) * cameraSmoothness * delta;
 }
 
 void CameraController::BeginCameraMode()
@@ -63,38 +80,3 @@ bool CameraController::getCameraDirection(float objectPosition)
 		}
 	}
 }
-
-void CameraController::XAxisBoundaryCheck(const Vector2& playerPosition, float halfScreenWidth, float worldWidth)
-{
-
-	if (playerPosition.x - halfScreenWidth <= 0)
-	{
-		camera.target.x = halfScreenWidth;
-	}
-	else if (playerPosition.x + halfScreenWidth >= worldWidth)
-	{
-		camera.target.x = worldWidth - halfScreenWidth;
-	}
-	else
-	{
-		camera.target = playerPosition;
-	}
-
-}
-
-void CameraController::YAxisBoundaryCheck(const Vector2& playerPosition, float halfScreenHeight, float worldHeight)
-{
-	if (playerPosition.y - halfScreenHeight <= 190)
-	{
-		camera.target.y = halfScreenHeight;
-	}
-	else if (playerPosition.y + halfScreenHeight >= worldHeight)
-	{
-		camera.target.y = worldHeight - halfScreenHeight;
-	}
-	else
-	{
-		camera.target = playerPosition;
-	}
-}
-

@@ -76,7 +76,7 @@ float Scene::getWorldHeight()
 
 void Scene::DrawScene(Player& player, CameraController& camera)
 {
-    currentMusic->PlayMusic();
+    //currentMusic->PlayMusic();
 
     camera.BeginCameraMode();
 
@@ -85,6 +85,9 @@ void Scene::DrawScene(Player& player, CameraController& camera)
         component->Draw(camera);
     }
 
+    if (showNavGraph) {
+        navGraph.Draw(camera);
+    }
     for (const auto& object : objects)
     {
         object->DrawObject(camera);
@@ -108,7 +111,7 @@ void Scene::DrawScene(Player& player, CameraController& camera)
 
 void Scene::UpdateScene(Player& player, CameraController& camera)
 {
-    currentMusic->UpdateMusic();
+    //currentMusic->UpdateMusic();
 
     camera.UpdateCamera(player.GetPlayerPosition(), this->getWorldWidth(), this->getWorldHeight());
 
@@ -117,8 +120,10 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
         component->Update(camera);
     }
 
-    for (const auto& object : objects)
-    {
+    for (auto& object : objects) {
+        if (NPC* npc = dynamic_cast<NPC*>(object)) {
+            npc->UpdateAI(player);
+        }
         object->UpdateObject();
     }
 
@@ -222,6 +227,17 @@ bool Scene::checkCollisions(Player& player)
 
     player.SetActiveObject(nullptr);
     return false;
+}
+
+void Scene::InitNavGraph()
+{
+    float worldWidth = getWorldWidth();
+    navGraph.Generate(worldWidth, 175, 224);  // Using your Y-axis boundaries
+}
+
+void Scene::ToggleNavGraph()
+{
+    showNavGraph = !showNavGraph;
 }
 
 SceneComponent::SceneComponent(const char* filePath)

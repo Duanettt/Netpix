@@ -1,6 +1,7 @@
 #include "Player.h"
+#include "../Scene/Scene.h"
 
-Player::Player() : playerState(IDLE), position{ 358.0f, 224.0f } {
+Player::Player() : playerState(IDLE), position{ 358.0, 224.0f } {
     animations[IDLE] = new IdleSpritesheet(std::string("main_4"), 6);
     animations[WALKING] = new WalkingSpritesheet(std::string("main_6"), 10);
     animations[RUNNING] = new RunningSpritesheet(std::string("main_5"), 10);
@@ -33,6 +34,8 @@ void Player::Draw() {
         currentAnimation->DrawAnimation(position, isFacingRight);
 
         Rectangle playerRect = GetPlayerBoundingRect();
+
+        DrawRectangle(playerRect.x, playerRect.y, playerRect.width,playerRect.height, RED);
     }
 }
 
@@ -53,7 +56,7 @@ Rectangle Player::GetPlayerBoundingRect()
         // std::cout << "This is the players height: " << rectangleWidth << std::endl;
     }
     
-    Rectangle playerRect = Rectangle({ position.x, position.y, rectangleWidth, rectangleHeight });
+    Rectangle playerRect = Rectangle({ position.x + 20, position.y + 70, rectangleWidth - 50, rectangleHeight - 70});
     return playerRect;
 }
 
@@ -70,6 +73,11 @@ void Player::SetPlayerPosition(Vector2 newPosition)
 void Player::SetActiveObject(GameObjects* object)
 {
     activeObject = object;
+}
+
+void Player::SetCollisionDetected(bool col)
+{
+    collisionDetected = col;
 }
 
 GameObjects* Player::GetActiveObject()
@@ -110,56 +118,52 @@ void Player::HandleInput(float worldWidth)
 }
 
 
-void Player::HandleMovementInput(float worldWidth)
-{
+void Player::HandleMovementInput(float worldWidth) {
+    float delta = GetFrameTime();
 
-    if (isInteracting) return;
+    if (isInteracting || collisionDetected) return;
 
     SetPlayerState(IDLE);
+    float currentSpeed = BASE_MOVE_SPEED;
 
-    if (IsKeyDown(KEY_S) && position.y <= 275.0f)
-    {
-        position.y += 2.0f;
-        SetPlayerState(WALKING);
-        //if (IsKeyDown(KEY_LEFT_SHIFT))
-        //{
-        //    position.y += 2.7f;
-        //    SetPlayerState(RUNNING);
-        //}
+    if (IsKeyDown(KEY_LEFT_SHIFT)) {
+        currentSpeed *= SPRINT_MULTIPLIER;
     }
-    if (IsKeyDown(KEY_W) && position.y > 190.0f)
-    {
-        position.y -= 2.0f;
-        SetPlayerState(WALKING);
-        if (IsKeyDown(KEY_LEFT_SHIFT))
-        {
-            position.y -= 2.7f;
-            SetPlayerState(RUNNING);
-        }
+
+    Vector2 moveDirection = { 0.0f, 0.0f };
+
+    if (IsKeyDown(KEY_S) && position.y <= 275.0f) {
+        moveDirection.y = 1.0f;
+        SetPlayerState(IsKeyDown(KEY_LEFT_SHIFT) ? RUNNING : WALKING);
     }
-    if (IsKeyDown(KEY_D) && position.x <= worldWidth - 25.0f)
-    {
+    if (IsKeyDown(KEY_W) && position.y > 190.0f) {
+        moveDirection.y = -1.0f;
+        SetPlayerState(IsKeyDown(KEY_LEFT_SHIFT) ? RUNNING : WALKING);
+    }
+    if (IsKeyDown(KEY_D) && position.x <= worldWidth - 25.0f) {
+        moveDirection.x = 1.0f;
         isFacingRight = true;
-        position.x += 2.0f;
-        SetPlayerState(WALKING);
-        if (IsKeyDown(KEY_LEFT_SHIFT))
-        {
-            position.x += 2.7f;
-            SetPlayerState(RUNNING);
-        }
+        SetPlayerState(IsKeyDown(KEY_LEFT_SHIFT) ? RUNNING : WALKING);
     }
-    if (IsKeyDown(KEY_A) && position.x >= 0)
-    {
+    if (IsKeyDown(KEY_A) && position.x >= 0) {
+        moveDirection.x = -1.0f;
         isFacingRight = false;
-        position.x -= 2.0f;
-        SetPlayerState(WALKING);
-        if (IsKeyDown(KEY_LEFT_SHIFT))
-        {
-            position.x -= 2.7f;
-            SetPlayerState(RUNNING);
-        }
+        SetPlayerState(IsKeyDown(KEY_LEFT_SHIFT) ? RUNNING : WALKING);
     }
+
+    // Normalize diagonal movement
+    if (moveDirection.x != 0.0f && moveDirection.y != 0.0f) {
+        float length = sqrt(moveDirection.x * moveDirection.x + moveDirection.y * moveDirection.y);
+        moveDirection.x /= length;
+        moveDirection.y /= length;
+    }
+
+    // Apply movement
+    position.x += moveDirection.x * currentSpeed * delta;
+    position.y += moveDirection.y * currentSpeed * delta;
 }
+
+
 
 bool Player::HandleMouseInput()
 {

@@ -7,6 +7,9 @@
 #include "../ResourceManager.h"
 #include "../Game/GameObjects.h"
 
+#define SPRINT_MULTIPLIER 1.75f
+#define BASE_MOVE_SPEED 100.0f
+
 class Player {
 public:
     Player();
@@ -18,6 +21,7 @@ public:
     void SetIsInteracting(bool value);
     void SetPlayerPosition(Vector2 newPosition);
     void SetActiveObject(GameObjects* object);
+    void SetCollisionDetected(bool col);
     GameObjects* GetActiveObject();
     Vector2 GetPlayerPosition();
 
@@ -38,6 +42,7 @@ private:
 
     bool isAttacking = false;
     bool isInteracting = false;
+    bool collisionDetected = false;
 
     void HandleInput(float worldWidth);
     void HandleMovementInput(float worldWidth);

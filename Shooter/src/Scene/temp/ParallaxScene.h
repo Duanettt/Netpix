@@ -38,7 +38,7 @@ public:
         * First draw call places the first foreground texture at the scrolling position
         * We place a second copy of the foreground texture right after the first one, at scrollingFore + foreground.width * 2. The foreground.width * 2 accounts for the width of the texture, considering that it's scaled by a factor of 2.0. By placing the second texture here, it "follows" the first one and will appear when the first texture has moved off the screen
         */
-        DrawTextureEx(background, Vector2{scrollingBack, 450.0f - (background.height * 2)}, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background, Vector2{ scrollingBack, 450.0f - (background.height * 2) }, 0.0f, 2.0f, WHITE);
         DrawTextureEx(background, Vector2{ scrollingBack + background.width * 2, 450.0f - (background.height * 2) }, 0.0f, 2.0f, WHITE);
 
 

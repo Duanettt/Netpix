@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include <cmath>
 #include <iostream>
 
 class CameraController
@@ -35,7 +36,5 @@ private:
     // Need a camera to utilise so declaration of a camera member variable.
     Camera2D camera;
     float previousOffset = 0.0f;
-    // These methods basically readjusts the cameras position based on how close the user is to the boundary.
-    void XAxisBoundaryCheck(const Vector2& playerPosition, float halfScreenWidth, float worldWidth);
-    void YAxisBoundaryCheck(const Vector2& playerPosition, float halfScreenHeight, float worldHeight);
+    float cameraSmoothness = 0.0f;
 };

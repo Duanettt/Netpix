@@ -16,6 +16,7 @@ void Midground::Update(CameraController& camera)
 void Midground::Draw(CameraController& camera)
 {
     DrawTextureEx(texture, Vector2{ -xOffset, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
+    // Decision to just stop drawing two textures and just draw one for now.
     DrawTextureEx(texture, Vector2{ -xOffset + texture.width * 2, 450.0f - (texture.height * 2) }, 0.0f, 2.0f, WHITE);
 }
 

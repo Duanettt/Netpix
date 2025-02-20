@@ -6,7 +6,10 @@
 #include "../Core/Camera.h"
 #include "../Core/States.h"
 
+
 // GameObjects is an interface for constructing various objects within our game that the player will have to interact with.
+
+class Player;
 
 class Interactable
 {
@@ -37,6 +40,8 @@ public:
     Vector2& getPosition();
     Vector2 cameraAdjustedPosition;
     virtual Rectangle GetCurrentObjectBoundingRect();
+
+
 protected:
     Vector2 position;
     Spritesheet* currentAnimation;
@@ -52,13 +57,45 @@ public:
     void DrawObject(CameraController& camera, Vector2 screenPosition, int scaleFactor);
     void DrawDialogueSprite(int scaleFactor);
     void DrawObject(CameraController& camera, Vector2 screenPosition);
+
+
     Rectangle GetCurrentObjectBoundingRect() override;
+    void UpdateAI(Player& player);
     void UpdateObject() override;
     void Unload();
     std::vector<const char*> getDialogueLines();
 
     std::vector<const char*> dialogues;
 
+
+    enum AIState {
+        PATROL,
+        CHASE,
+        ATTACK,
+        RETREAT
+    } aiState = PATROL;
+
+    struct Stats {
+        float health = 100.0f;
+        float damage = 10.0f;
+        float attackSpeed = 1.0f;
+        float attackRange = 50.0f;
+        float detectionRange = 200.0f;
+    } stats;
+
+    const float FOLLOW_DISTANCE = 200.0f;    // Distance at which NPC starts following
+    const float ATTACK_RANGE = 50.0f;        // Distance at which NPC attacks
+    const float MOVEMENT_SPEED = 1.0f;       // How fast the NPC moves
+    const float BASE_MOVE_SPEED = 120.0f;
+    float attackCooldown = 0.0f;             // Current cooldown timer
+    const float ATTACK_COOLDOWN_TIME = 1.0f; // Time between attacks
+    bool isAggressive = true;                // Whether NPC will chase/attack player
+
 private:
     std::unordered_map<State, Spritesheet*> npcAnimations;
+
+    bool inCombat = false;
+    std::vector<Vector2> currentPath;
+    Vector2 targetPosition;
+
 };

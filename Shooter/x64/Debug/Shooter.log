@@ -1,9 +1,13 @@
 ﻿  main.cpp
-C:\dev\Netpix\Shooter\src\Game\Player.h(37,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
-C:\dev\Netpix\Shooter\src\main.cpp(178,105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\dev\Netpix\Shooter\src\main.cpp(178,75): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/main.cpp')
+  
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

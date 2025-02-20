@@ -1,4 +1,8 @@
-C:\dev\Netpix\Shooter\src\Game\Pathfinding.cpp;C:\dev\Netpix\Shooter\x64\Debug\Pathfinding.obj
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.cpp;C:\dev\Netpix\Shooter\x64\Debug\NavigationGraph.obj
+C:\dev\Netpix\Shooter\src\Pathfinding\Pathfinding.cpp;C:\dev\Netpix\Shooter\x64\Debug\Pathfinding.obj
+C:\dev\Netpix\Shooter\src\Scene\temp\ParallaxScene.cpp;C:\dev\Netpix\Shooter\x64\Debug\ParallaxScene.obj
+C:\dev\Netpix\Shooter\src\Game\PlayerStats.cpp;C:\dev\Netpix\Shooter\x64\Debug\PlayerStats.obj
+C:\dev\Netpix\Shooter\src\Game\InventorySystem.cpp;C:\dev\Netpix\Shooter\x64\Debug\InventorySystem.obj
 C:\dev\Netpix\Shooter\src\DialogueManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\DialogueManager.obj
 C:\dev\Netpix\Shooter\src\UI\Button.cpp;C:\dev\Netpix\Shooter\x64\Debug\Button.obj
 C:\dev\Netpix\Shooter\src\UI\GUI.cpp;C:\dev\Netpix\Shooter\x64\Debug\GUI.obj
@@ -12,7 +16,6 @@ C:\dev\Netpix\Shooter\src\Sound\Music.cpp;C:\dev\Netpix\Shooter\x64\Debug\Music.
 C:\dev\Netpix\Shooter\src\ResourceManager.cpp;C:\dev\Netpix\Shooter\x64\Debug\ResourceManager.obj
 C:\dev\Netpix\Shooter\src\Core\Camera.cpp;C:\dev\Netpix\Shooter\x64\Debug\Camera.obj
 C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp;C:\dev\Netpix\Shooter\x64\Debug\Scene.obj
-C:\dev\Netpix\Shooter\src\Scene\temp\ParallaxScene.cpp;C:\dev\Netpix\Shooter\x64\Debug\ParallaxScene.obj
 C:\dev\Netpix\Shooter\src\Animation\Animation.cpp;C:\dev\Netpix\Shooter\x64\Debug\Animation.obj
 C:\dev\Netpix\Shooter\src\Game\Player.cpp;C:\dev\Netpix\Shooter\x64\Debug\Player.obj
 C:\dev\Netpix\Shooter\src\Game\GameObjects.cpp;C:\dev\Netpix\Shooter\x64\Debug\GameObjects.obj

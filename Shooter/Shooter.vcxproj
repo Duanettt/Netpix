@@ -129,7 +129,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game\Pathfinding.cpp" />
+    <ClCompile Include="src\Pathfinding\NavigationGraph.cpp" />
+    <ClCompile Include="src\Pathfinding\Pathfinding.cpp" />
+    <ClCompile Include="src\Scene\temp\ParallaxScene.cpp" />
+    <ClCompile Include="src\Game\PlayerStats.cpp" />
+    <ClCompile Include="src\Game\InventorySystem.cpp" />
     <ClCompile Include="src\DialogueManager.cpp" />
     <ClCompile Include="src\UI\Button.cpp" />
     <ClCompile Include="src\UI\GUI.cpp" />
@@ -143,7 +147,6 @@
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Core\Camera.cpp" />
     <ClCompile Include="src\Scene\Scene Components\Scene.cpp" />
-    <ClCompile Include="src\Scene\temp\ParallaxScene.cpp" />
     <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\Game\Player.cpp" />
     <ClCompile Include="src\Game\GameObjects.cpp" />
@@ -152,7 +155,11 @@
     <ClCompile Include="src\Animation\Transitions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Game\Pathfinding.h" />
+    <ClInclude Include="src\Pathfinding\NavigationGraph.h" />
+    <ClInclude Include="src\Pathfinding\Pathfinding.h" />
+    <ClInclude Include="src\Scene\temp\ParallaxScene.h" />
+    <ClInclude Include="src\Game\PlayerStats.h" />
+    <ClInclude Include="src\Game\InventorySystem.h" />
     <ClInclude Include="src\DialogueManager.h" />
     <ClInclude Include="src\UI\Button.h" />
     <ClInclude Include="src\UI\GUI.h" />
@@ -161,8 +168,6 @@
     <ClInclude Include="src\Sound\Music.h" />
     <ClInclude Include="src\ResourceManager.h" />
     <ClInclude Include="src\Core\Camera.h" />
-    <ClInclude Include="src\Scene\temp\Scene3.h" />
-    <ClInclude Include="src\Scene\temp\ParallaxScene.h" />
     <ClInclude Include="src\Animation\Animation.h" />
     <ClInclude Include="src\Game\Player.h" />
     <ClInclude Include="src\Game\GameObjects.h" />
@@ -178,6 +183,7 @@
     <Image Include="res\character\main\Run.png" />
     <Image Include="res\character\scarfy.png" />
     <Image Include="res\character\main\Walk.png" />
+    <Image Include="res\character\main\test.png" />
     <Image Include="res\UI\brown_bar.png" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
 #include <raylib.h>
 #include "../ResourceManager.h"
+#include <iostream>
 
 // The animation class is responsible for handling animations for game objects
 class Animation
@@ -20,8 +21,8 @@ public:
 
     // Draw animation at given position and direction
     void DrawAnimation(Vector2 position, bool isFacingRight);
-    void DrawAnimation(Vector2 position, bool isFacingRight, int scaleFactor);
-    void DrawAnimation(Vector2 position);
+    //void DrawAnimation(Vector2 position, bool isFacingRight, int scaleFactor);
+    //void DrawAnimation(Vector2 position);
 
     // Getters for texture dimensions and frame count
     float getTextureWidth();
@@ -34,6 +35,9 @@ protected:
     int framesCounter = 0;
     int currentFrame = 0;
     int frameCount = 0;
+    Vector2 origin = { 0.0f, 0.0f }; 
+    float rotation = 0.0f;
+    float scale = 1.0f;
 };
 
 // Derived classes for different spritesheets

@@ -10,7 +10,7 @@
 #include "../src/Core/Camera.h"
 #include "../src/Scene/SceneManager.h"
 #include "../src/UI/GUI.h"
-#include "Game/Pathfinding.h"
+#include "Game/InventorySystem.h"
 
 
 #define MAX_FRAME_SPEED     15
@@ -26,7 +26,6 @@ int main(void) {
     // Figuring out how to make the game look better in full screen is also another thing on the list to check for.
     const int screenWidth = 800;
     const int screenHeight = 450;
-
 
 
     InitWindow(screenWidth, screenHeight, "Netpix");
@@ -52,7 +51,7 @@ int main(void) {
 
 
     Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet(std::string("Onre_7"), 6);
-    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet(std::string("Onre_8"), 10);
+    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet(std::string("Onre_8"), 7);
 
     std::unordered_map<State, Spritesheet*> tSpritesheets = {
        {IDLE, tracyIdleSpritesheet},
@@ -60,7 +59,7 @@ int main(void) {
     };  
 
     SceneBuilder builder;
-    // FIXME: Stop using so much std::strings performance issue switch to const char* soon.
+    // FIXME: Stop using so much std::strings performance issue switch to const char* soon.camera.target.x = worldWidth - halfScreenWidth;
     // FIXME: I really have to fix the whole npcs in other scenes.. (FIXED i think!)
     builder.AddComponent(std::make_unique<Background>(std::string("b1_1")))
         .AddComponent(std::make_unique<Midground>(std::string("b1_2")))
@@ -89,10 +88,12 @@ int main(void) {
    
 
     // One thing since we're returning like references in our resource manager it will play music at the last point it was played at so.. maybe a fix will be needed.
-    sceneManager.getCurrentScene()->setCurrentSong("music2");
+    //sceneManager.getCurrentScene()->setCurrentSong("music2");
 
     sceneManager.getCurrentScene()->getNPCByIndex(0)->setPosition({ 758, 200 });
     sceneManager.getCurrentScene()->getNPCByIndex(1)->setPosition({ 458, 200 });
+
+    sceneManager.getCurrentScene()->InitNavGraph();
 
 
     CameraController camera;
@@ -103,12 +104,21 @@ int main(void) {
 
     Menu menu;
 
+    NPC* npc = sceneManager.getCurrentScene()->getNPCByIndex(0);
+
     // The reason for one of these bugs is because basically in our scene builder we have a vector full of objects we're adding and when we build one scene the settings are saved due to the vector stored.. 
     // Once one scene is done we basically need to unload these vectors and build the next scene thats proving difficult since we woulld need to use unique pointers to transfer ownership from one class to another class. SceneBuilder -> Scene.
 
 
-    Pathfinding pf;
+    //InventorySystem is;
 
+    //// Create inventory
+    //InventorySystem inventory(20); // max 20 items
+
+    //// Register an item type
+    //auto swordObject = std::make_shared<GameObjects>(); // Your game object setup here
+
+    //inventory.RegisterItem("sword", swordObject);
 
     int mainFramesCounter = 0;
    // Music music = LoadMusicStream("src/sounds/CVHarris.mp3");
@@ -148,6 +158,11 @@ int main(void) {
 
             case GameScreen::GAMEPLAY:
 
+                if (IsKeyPressed(KEY_G)) {  // Or whatever key you prefer
+                    sceneManager.getCurrentScene()->ToggleNavGraph();
+                }
+
+                std::cout << player.GetPlayerPosition().x << std::endl;
                 sceneManager.UpdateCurrentScene(player, camera);       
 
                 break;
@@ -175,15 +190,6 @@ int main(void) {
                 // TODO: Draw GAMEPLAY screen here!
 
                 sceneManager.DrawCurrentScene(player, camera);
-                Node* playerNode = pf.getNodeAt(player.GetPlayerPosition().x, player.GetPlayerPosition().y);
-
-                std::vector<Node*> testNodes = pf.getNeighbours(playerNode);
-
-                for (const auto& node : testNodes)
-                {
-                    std::cout << *node << std::endl;
-                }
-
                 break;        
         }
 

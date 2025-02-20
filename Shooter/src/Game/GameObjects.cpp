@@ -1,5 +1,7 @@
 #include "GameObjects.h"
 #include <iostream>
+#include "Player.h"
+
 
 // Implementation of GameObjects methods
 
@@ -88,7 +90,7 @@ void NPC::DrawObject(CameraController& camera, Vector2 screenPosition, int scale
 
         bool IsFacingRight = camera.getCameraDirection(npcPosition);
 
-        currentAnimation->DrawAnimation(screenPosition, IsFacingRight, scaleFactor);
+        currentAnimation->DrawAnimation(screenPosition, IsFacingRight);
 
         // See the size of our rectangle height, width
         //DrawRectangle(rect.x, rect.y, rect.width, rect.height, RED);
@@ -104,7 +106,7 @@ void NPC::DrawDialogueSprite(int scaleFactor)
         bool isFacingRight = true;
         Vector2 npcScreenPosition = { 0.0f, 0.0f };
         // Render the NPC sprite at a fixed screen-space position
-        currentAnimation->DrawAnimation(npcScreenPosition, isFacingRight, scaleFactor);
+        currentAnimation->DrawAnimation(npcScreenPosition, isFacingRight);
     }
 }
  
@@ -126,7 +128,55 @@ Rectangle NPC::GetCurrentObjectBoundingRect()
     return npcRect;
 }
 
+void NPC::UpdateAI(Player& player) {
+    if (!isAggressive) return;
 
+    float delta = GetFrameTime();
+    Vector2 playerPos = player.GetPlayerPosition();
+
+    float distToPlayer = Vector2Distance(cameraAdjustedPosition, playerPos);
+    std::cout << "NPC position: " << position.x << std::endl;
+   
+
+    // Remove this check since it will rarely be exactly 0
+    // if (distToPlayer == 0) {
+    //     setCurrentAnimation(IDLE);
+    //     return;
+    // }
+
+    // Add a minimum distance to prevent jittering when very close
+    const float MIN_DISTANCE = 40.0f;  // Adjust this value as needed
+    // Only move if we're not too close to the player
+    if (distToPlayer > MIN_DISTANCE) {
+        setCurrentAnimation(WALKING);
+        Vector2 direction = Vector2Subtract(playerPos, cameraAdjustedPosition);
+
+        // Normalize direction vector
+        float length = sqrt(direction.x * direction.x + direction.y * direction.y);
+        if (length > 0) {
+            direction.x /= length;
+            direction.y /= length;
+        }
+
+        // Optional: Add variable speed based on distance
+        float speedMultiplier = 1.0f;
+        if (distToPlayer > FOLLOW_DISTANCE * 0.7f) {
+            // Move faster when further away
+            speedMultiplier = 1.25f;
+        }
+
+        // Apply movement with delta time
+        position.x += direction.x * BASE_MOVE_SPEED * speedMultiplier * delta;
+        position.y = Clamp(
+            position.y + direction.y * BASE_MOVE_SPEED * speedMultiplier * delta,
+            190.0f,  // Minimum Y
+            275.0f   // Maximum Y
+        );
+    }
+    else {
+        setCurrentAnimation(IDLE);
+    }
+}
 
 void NPC::UpdateObject()
 {
@@ -145,3 +195,4 @@ std::vector<const char*> NPC::getDialogueLines()
 {
     return dialogues;
 }
+

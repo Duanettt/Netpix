@@ -66,6 +66,7 @@ void ResourceManager::AddTexture(Texture2D texture, path parentDirectory)
 	{
 		directoryCounter = 1;
 		std::string parentDirectoryKey = parentDirectoryString + "_" + std::to_string(directoryCounter);
+		std::cout << parentDirectory << std::endl;
 		textureBuffer.insert(std::make_pair(parentDirectoryKey, texture));
 	}
 	// Here if the previous directory and parentDirectory passed in are the same we increase the counter by 1 and insert into our unordered map.
@@ -73,6 +74,7 @@ void ResourceManager::AddTexture(Texture2D texture, path parentDirectory)
 	{
 		directoryCounter++;
 		std::string parentDirectoryKey = parentDirectoryString + "_" + std::to_string(directoryCounter);
+		std::cout << parentDirectory << std::endl;
 		textureBuffer.insert(std::make_pair(parentDirectoryKey, texture));
 	}
 	previousDirectory = parentDirectoryString;

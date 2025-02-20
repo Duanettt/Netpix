@@ -12,6 +12,7 @@
 #include "../Sound/Music.h"
 #include "../ResourceManager.h"
 #include "../DialogueManager.h"
+#include "../Pathfinding/NavigationGraph.h"
 
 class SceneComponent
 {
@@ -100,9 +101,13 @@ public:
     void Unload();
     void setCurrentSong(std::string musicName);
     bool checkCollisions(Player& player);
+    void InitNavGraph();
+    void ToggleNavGraph();
 
 
 private:
+    NavigationGraph navGraph;
+    bool showNavGraph = true;  // Toggle for debugging
     std::vector<SceneComponent*> components;
     std::vector<GameObjects*> objects;
     std::unordered_map<std::string, MusicComponent*> musicMap;

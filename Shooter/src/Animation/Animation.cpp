@@ -1,9 +1,5 @@
 #include "Animation.h"
 
-
-#include "Animation.h"
-#include <iostream>
-
 // Load animation by setting up texture and frame rectangle
 void Animation::LoadAnimation(const char* filePath, int frameCount)
 {
@@ -48,44 +44,31 @@ void Animation::UpdateAnimation(int framesSpeed, Rectangle playerBox)
     }
 }
 
-// Draw animation at given position and flip based on direction
-void Animation::DrawAnimation(Vector2 position, bool isFacingRight)
-{
-    Rectangle sourceRec = frameRec;
-    if (!isFacingRight)
-    {
-        sourceRec.width = -frameRec.width;
-    }
-    DrawTextureRec(texture, sourceRec, position, WHITE);
-}
 
-void Animation::DrawAnimation(Vector2 position, bool isFacingRight, int scaleFactor)
-{
+void Animation::DrawAnimation(Vector2 position, bool isFacingRight) {
     Rectangle sourceRec = frameRec;
-    if (!isFacingRight)
-    {
+    if (!isFacingRight) {
         sourceRec.width = -frameRec.width;
     }
 
-    // Try and figure out why we need to hardcode values here....
+    // Destination rectangle with proper positioning
     Rectangle destRec = {
-        position.x - 200.0f,
-        position.y - 200.0f,
-        frameRec.width * scaleFactor,
-        frameRec.height * scaleFactor
+        position.x,
+        position.y,
+        frameRec.width * scale,
+        frameRec.height * scale
     };
 
-
-    Vector2 origin = { 0.0f, 0.0f };
-
-    DrawTexturePro(texture, sourceRec,destRec, origin, 0,WHITE);
+    DrawTexturePro(
+        texture,
+        sourceRec,
+        destRec,
+        origin,
+        rotation,
+        WHITE
+    );
 }
 
-// Basic draw call for animation
-void Animation::DrawAnimation(Vector2 position)
-{
-    DrawTextureRec(texture, frameRec, position, WHITE);
-}
 
 // Getters for texture dimensions and frame count
 float Animation::getTextureWidth()
