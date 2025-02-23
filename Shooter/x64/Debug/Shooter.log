@@ -1,4 +1,117 @@
-﻿  main.cpp
+﻿  DialogueManager.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/DialogueManager.cpp')
+  
+C:\dev\Netpix\Shooter\src\DialogueManager.cpp(68,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\DialogueManager.cpp(68,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\DialogueManager.cpp(71,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\DialogueManager.cpp(71,57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  GameObjects.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Game/GameObjects.cpp')
+  
+C:\dev\Netpix\Shooter\src\Game\GameObjects.cpp(27,33): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Game\GameObjects.cpp(123,33): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  InventorySystem.cpp
+C:\dev\Netpix\Shooter\src\Game\InventorySystem.cpp(19,32): warning C4552: '+': result of expression not used
+  Player.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Game/Player.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Game/Player.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Game/Player.cpp')
+  
+C:\dev\Netpix\Shooter\src\Game\Player.cpp(52,33): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Background.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Background.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Background.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Background.cpp')
+  
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Background.cpp(16,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Foreground.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Foreground.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Foreground.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Foreground.cpp')
+  
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Foreground.cpp(19,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Midground.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Midground.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Midground.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Midground.cpp')
+  
+  Scene.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Scene.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Scene.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/Scene.cpp')
+  
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp(60,43): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp(73,44): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp(100,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\Netpix\Shooter\src\Scene\Scene Components\Scene.cpp(100,73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  SceneBuilder.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneBuilder.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneBuilder.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneBuilder.cpp')
+  
+  SceneComponent.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneComponent.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneComponent.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/Scene%20Components/SceneComponent.cpp')
+  
+  SceneManager.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/Scene/SceneManager.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/SceneManager.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/Scene/SceneManager.cpp')
+  
+  GUI.cpp
+C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'src/UI/GUI.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/UI/GUI.cpp')
+  
+C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'src/UI/GUI.cpp')
+  
+  main.cpp
 C:\dev\Netpix\Shooter\src\Game\Player.h(41,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'src/main.cpp')
   
@@ -8,6 +121,7 @@ C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,50): warning C4244: '
 C:\dev\Netpix\Shooter\src\Pathfinding\NavigationGraph.h(41,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'src/main.cpp')
   
+  Generating Code...
   Shooter.vcxproj -> C:\dev\Netpix\x64\Debug\Shooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

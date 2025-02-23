@@ -21,6 +21,7 @@ public:
 
     // Draw animation at given position and direction
     void DrawAnimation(Vector2 position, bool isFacingRight);
+    void DrawAnimation(Vector2 position, bool isFacingRight, int scale);
     //void DrawAnimation(Vector2 position, bool isFacingRight, int scaleFactor);
     //void DrawAnimation(Vector2 position);
 

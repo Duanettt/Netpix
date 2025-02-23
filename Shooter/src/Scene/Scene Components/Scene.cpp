@@ -8,6 +8,11 @@ void Scene::AddComponentPointerToSceneVector(SceneComponent* component)
 void Scene::AddGameObjectPointerToSceneVector(GameObjects* object)
 {
     std::cout << "The memory address for the object pointer is: " << object << std::endl;
+    if (NPC* npc = dynamic_cast<NPC*>(object))
+    {
+        npcVec.push_back(npc);
+    }
+
     objects.push_back(object);
 }
 
@@ -31,19 +36,16 @@ NPC* Scene::getNPC()
 
 NPC* Scene::getNPCByIndex(int num)
 {
-    std::vector<NPC*> npcVec;
-
-    for (const auto& object : objects)
-    {
-        NPC* npc = dynamic_cast<NPC*>(object);
-        std::cout << "The memory address when we get the NPC by index is: " << npc << std::endl;
-        if (npc != nullptr)
-        {
-            npcVec.push_back(npc);
-            std::cout << "This NPC's memory address is: " << npc << std::endl;
-        }
-    }
-
+    //for (const auto& object : objects)
+    //{
+    //    NPC* npc = dynamic_cast<NPC*>(object);
+    //    std::cout << "The memory address when we get the NPC by index is: " << npc << std::endl;
+    //    if (npc != nullptr)
+    //    {
+    //        npcVec.push_back(npc);
+    //        std::cout << "This NPC's memory address is: " << npc << std::endl;
+    //    }
+    //}
     std::cout << "The memory address we're about to return" << npcVec[num] << std::endl;
     return npcVec[num];
 }
@@ -123,6 +125,7 @@ void Scene::UpdateScene(Player& player, CameraController& camera)
     for (auto& object : objects) {
         if (NPC* npc = dynamic_cast<NPC*>(object)) {
             npc->UpdateAI(player);
+            npc->HandleIntercollisionResponse(npcVec);
         }
         object->UpdateObject();
     }
@@ -194,7 +197,7 @@ void Scene::setCurrentSong(std::string musicName)
     }
 }
 
-bool Scene::checkCollisions(Player& player)
+/* bool Scene::checkCollisions(Player& player)
 {
     Rectangle playerRect = player.GetPlayerBoundingRect();
     float closestDistance = FLT_MAX;
@@ -227,6 +230,39 @@ bool Scene::checkCollisions(Player& player)
 
     player.SetActiveObject(nullptr);
     return false;
+} */
+
+bool Scene::checkCollisions(Player& player) {
+    Rectangle playerRect = player.GetPlayerBoundingRect();
+    float closestDistance = FLT_MAX;
+    bool collisionDetected = false;
+
+    for (auto& object : objects) {
+        NPC* npc = dynamic_cast<NPC*>(object);
+        if (npc != nullptr) {
+            if (CheckCollisionRecs(npc->GetCurrentObjectBoundingRect(), playerRect)) {
+                float distance = Vector2Distance(player.GetPlayerPosition(), object->cameraAdjustedPosition);
+
+                // Handle collision response
+                float delta = GetFrameTime();
+                npc->HandleCollisionResponse(player, delta);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestObject = object;
+                    collisionDetected = true;
+                }
+
+                player.SetActiveObject(closestObject);
+            }
+        }
+    }
+
+    if (!collisionDetected) {
+        player.SetActiveObject(nullptr);
+    }
+
+    return collisionDetected;
 }
 
 void Scene::InitNavGraph()

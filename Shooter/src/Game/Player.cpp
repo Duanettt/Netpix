@@ -35,7 +35,7 @@ void Player::Draw() {
 
         Rectangle playerRect = GetPlayerBoundingRect();
 
-        DrawRectangle(playerRect.x, playerRect.y, playerRect.width,playerRect.height, RED);
+        //DrawRectangle(playerRect.x, playerRect.y, playerRect.width,playerRect.height, RED);
     }
 }
 

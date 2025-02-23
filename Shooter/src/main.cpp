@@ -43,19 +43,23 @@ int main(void) {
 
     Spritesheet* idleSpritesheet = new IdleSpritesheet(std::string("npc1_4"), 6);
     Spritesheet* walkingSpritesheet = new WalkingSpritesheet(std::string("npc1_6"), 10);
+    Spritesheet* runningSpritesheet = new RunningSpritesheet(std::string("npc1_5"), 10);
 
     std::unordered_map<State, Spritesheet*> spritesheets = {
         {IDLE, idleSpritesheet},
-        {WALKING, walkingSpritesheet} 
+        {WALKING, walkingSpritesheet}, 
+        {RUNNING, runningSpritesheet},
     };
 
 
     Spritesheet* tracyIdleSpritesheet = new IdleSpritesheet(std::string("Onre_7"), 6);
-    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet(std::string("Onre_8"), 7);
+    Spritesheet* tracyWalkingSpritesheet = new WalkingSpritesheet(std::string("Onre_10"), 7);
+    Spritesheet* tracyRunningSpritesheet = new RunningSpritesheet(std::string("Onre_8"), 7);
 
     std::unordered_map<State, Spritesheet*> tSpritesheets = {
        {IDLE, tracyIdleSpritesheet},
-       {WALKING, tracyWalkingSpritesheet}
+       {WALKING, tracyWalkingSpritesheet},
+       {RUNNING, tracyRunningSpritesheet}
     };  
 
     SceneBuilder builder;
@@ -200,7 +204,7 @@ int main(void) {
 
         //sceneManager.DrawCurrentScene(player, camera);
 
-        //DrawText("use WASD to move", 10, 10, 20, RED);
+        DrawFPS(0, 0);
         //DrawText("(c) Netpix by Duaine Nettey", screenWidth - 330, screenHeight - 20, 10, RAYWHITE);
         EndDrawing();
     }

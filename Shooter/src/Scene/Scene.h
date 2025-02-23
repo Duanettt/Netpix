@@ -74,6 +74,7 @@ public:
 
     void Update(CameraController& camera) override;
     void Draw(CameraController& camera) override;
+
     void Unload() override;
     ~Foreground() override;
 
@@ -110,6 +111,7 @@ private:
     bool showNavGraph = true;  // Toggle for debugging
     std::vector<SceneComponent*> components;
     std::vector<GameObjects*> objects;
+    std::vector<NPC*> npcVec;
     std::unordered_map<std::string, MusicComponent*> musicMap;
     MusicComponent* currentMusic = nullptr;
 

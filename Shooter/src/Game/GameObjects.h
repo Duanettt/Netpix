@@ -33,6 +33,7 @@ public:
     // Allows us to set a position
     void setPosition(const Vector2& pos);
 
+
     void Interact(const std::string prompt) override
     {
         std::cout << prompt << std::endl;
@@ -45,6 +46,9 @@ public:
 protected:
     Vector2 position;
     Spritesheet* currentAnimation;
+    // Variables
+    const float PUSH_FORCE = 300.0f;
+    const float MIN_SEPARATION_DISTANCE = 40.0f;
 };
 
 // NPC inherits from GameObjects and we can now create an NPC object and add it to our scene in the client.
@@ -61,7 +65,10 @@ public:
 
     Rectangle GetCurrentObjectBoundingRect() override;
     void UpdateAI(Player& player);
+    //void HandleIntercollisionResponse(std::vector<NPC*>& npcVec, float delta);
+    void HandleIntercollisionResponse(std::vector<NPC*>& npcVec);
     void UpdateObject() override;
+    void HandleCollisionResponse(Player& other, float delta);
     void Unload();
     std::vector<const char*> getDialogueLines();
 
@@ -83,7 +90,7 @@ public:
         float detectionRange = 200.0f;
     } stats;
 
-    const float FOLLOW_DISTANCE = 200.0f;    // Distance at which NPC starts following
+    const float FOLLOW_DISTANCE = 100.0f;    // Distance at which NPC starts following
     const float ATTACK_RANGE = 50.0f;        // Distance at which NPC attacks
     const float MOVEMENT_SPEED = 1.0f;       // How fast the NPC moves
     const float BASE_MOVE_SPEED = 120.0f;
@@ -93,9 +100,10 @@ public:
 
 private:
     std::unordered_map<State, Spritesheet*> npcAnimations;
-
-    bool inCombat = false;
     std::vector<Vector2> currentPath;
+
     Vector2 targetPosition;
+    bool inCombat = false;
+
 
 };

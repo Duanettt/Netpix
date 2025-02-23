@@ -69,6 +69,30 @@ void Animation::DrawAnimation(Vector2 position, bool isFacingRight) {
     );
 }
 
+void Animation::DrawAnimation(Vector2 position, bool isFacingRight, int scale) {
+    Rectangle sourceRec = frameRec;
+    if (!isFacingRight) {
+        sourceRec.width = -frameRec.width;
+    }
+
+    // Destination rectangle with proper positioning
+    Rectangle destRec = {
+        position.x - 200.0f,
+        position.y - 200.0f,
+        frameRec.width * scale,
+        frameRec.height * scale
+    };
+
+    DrawTexturePro(
+        texture,
+        sourceRec,
+        destRec,
+        origin,
+        rotation,
+        WHITE
+    );
+}
+
 
 // Getters for texture dimensions and frame count
 float Animation::getTextureWidth()

@@ -5,6 +5,7 @@
 
 // Implementation of GameObjects methods
 
+
 void GameObjects::setPosition(const Vector2& pos)
 {
     this->position = pos;
@@ -28,6 +29,7 @@ Rectangle GameObjects::GetCurrentObjectBoundingRect()
         rectangleHeight = (currentAnimation->getTextureHeight());
     }
     // CameraAdjustedPosition  needs to be implemented here for collision detection.
+    void HandleCollisionResponse(GameObjects* other, float delta);
     Rectangle objectRect = Rectangle({ cameraAdjustedPosition.x, cameraAdjustedPosition.y, rectangleWidth, rectangleHeight });
 
     return objectRect;
@@ -106,7 +108,7 @@ void NPC::DrawDialogueSprite(int scaleFactor)
         bool isFacingRight = true;
         Vector2 npcScreenPosition = { 0.0f, 0.0f };
         // Render the NPC sprite at a fixed screen-space position
-        currentAnimation->DrawAnimation(npcScreenPosition, isFacingRight);
+        currentAnimation->DrawAnimation(npcScreenPosition, isFacingRight, 5);
     }
 }
  
@@ -158,11 +160,12 @@ void NPC::UpdateAI(Player& player) {
             direction.y /= length;
         }
 
-        // Optional: Add variable speed based on distance
         float speedMultiplier = 1.0f;
-        if (distToPlayer > FOLLOW_DISTANCE * 0.7f) {
+        // This could be for sprinting
+        if (distToPlayer > FOLLOW_DISTANCE) {
             // Move faster when further away
-            speedMultiplier = 1.25f;
+            speedMultiplier = 1.75f;
+            setCurrentAnimation(RUNNING);
         }
 
         // Apply movement with delta time
@@ -175,6 +178,100 @@ void NPC::UpdateAI(Player& player) {
     }
     else {
         setCurrentAnimation(IDLE);
+    }
+}
+
+void NPC::HandleCollisionResponse(Player& other, float delta) {
+    // Calculate the vector between the two objects
+    Vector2 otherPosition = other.GetPlayerPosition();
+    Vector2 direction = Vector2Subtract(otherPosition, this->cameraAdjustedPosition);
+    float distance = Vector2Length(direction);
+
+    // Only apply pushing force if objects are too close
+    if (distance < MIN_SEPARATION_DISTANCE && distance > 0) {
+        // Normalize the direction vector
+        direction.x /= distance;
+        direction.y /= distance;
+
+        // Calculate push force based on how close the objects are
+        float pushStrength = (MIN_SEPARATION_DISTANCE - distance) / MIN_SEPARATION_DISTANCE * PUSH_FORCE;
+
+        // Apply the push force to both objects in opposite directions
+        Vector2 push = {
+            direction.x * pushStrength * delta,
+            direction.y * pushStrength * delta
+        };
+
+        // Move objects apart
+        this->position = Vector2Subtract(this->position, push);
+        otherPosition = Vector2Add(otherPosition, push);
+
+        // Clamp Y positions to stay within boundaries
+        this->position.y = Clamp(this->position.y, 190.0f, 275.0f);
+        otherPosition.y = Clamp(otherPosition.y, 190.0f, 275.0f);
+    }
+}
+
+
+void NPC::HandleIntercollisionResponse(std::vector<NPC*>& npcVec) {
+
+    float delta = GetFrameTime();
+    // Skip if this is the only NPC
+    if (npcVec.size() <= 1) return;
+
+    for (NPC* otherNPC : npcVec) {
+        // Skip checking collision with self
+        if (otherNPC == this) continue;
+
+        // Get the rectangles for collision check
+        Rectangle thisRect = this->GetCurrentObjectBoundingRect();
+        Rectangle otherRect = otherNPC->GetCurrentObjectBoundingRect();
+
+        // Check if NPCs are colliding
+        if (CheckCollisionRecs(thisRect, otherRect)) {
+            // Calculate centers of both NPCs
+            Vector2 thisCenter = {
+                thisRect.x + thisRect.width / 2,
+                thisRect.y + thisRect.height / 2
+            };
+            Vector2 otherCenter = {
+                otherRect.x + otherRect.width / 2,
+                otherRect.y + otherRect.height / 2
+            };
+
+            // Calculate separation vector
+            Vector2 direction = Vector2Subtract(thisCenter, otherCenter);
+            float distance = Vector2Length(direction);
+
+            // Avoid division by zero
+            if (distance > 0) {
+                // Normalize direction
+                direction.x /= distance;
+                direction.y /= distance;
+
+                // Calculate push force based on overlap
+                float overlap = (MIN_SEPARATION_DISTANCE - distance);
+                if (overlap > 0) {
+                    float pushStrength = overlap * PUSH_FORCE * delta;
+
+                    // Calculate push vector
+                    Vector2 push = {
+                        direction.x * pushStrength,
+                        direction.y * pushStrength
+                    };
+
+                    // Apply push to both NPCs in opposite directions
+                    // Move this NPC away
+                    this->position = Vector2Add(this->position, push);
+                    // Move other NPC away
+                    otherNPC->position = Vector2Subtract(otherNPC->position, push);
+
+                    // Clamp both NPCs to valid Y positions
+                    this->position.y = Clamp(this->position.y, 190.0f, 275.0f);
+                    otherNPC->position.y = Clamp(otherNPC->position.y, 190.0f, 275.0f);
+                }
+            }
+        }
     }
 }
 
@@ -195,4 +292,3 @@ std::vector<const char*> NPC::getDialogueLines()
 {
     return dialogues;
 }
-

@@ -7,7 +7,7 @@
 #include "../ResourceManager.h"
 #include "../Game/GameObjects.h"
 
-#define SPRINT_MULTIPLIER 1.75f
+#define SPRINT_MULTIPLIER 2.5f
 #define BASE_MOVE_SPEED 100.0f
 
 class Player {
