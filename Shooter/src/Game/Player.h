@@ -27,23 +27,26 @@ public:
 
     bool IsInteracting();
 
-private:
+    void SetAttackCooldownDuration(float duration);
 
+    void SetAttackCooldown(bool attackCooldown);
+
+private:
     GameObjects* activeObject = nullptr;
     std::unordered_map<State, Spritesheet*> animations;
     State playerState;
     State currentState = State::IDLE;
     Vector2 position;
+    float attackCooldownTimer = 0.0f;           // Current cooldown timer
+    float attackCooldownDuration = 0.5f;        // Duration of cooldown in seconds
+    bool isAttackOnCooldown = false;            // Flag to track if attack is on cooldown
     bool isFacingRight = false;
     bool inventoryDetected = false;
     Spritesheet* currentAnimation = nullptr;
-
     float halfScreenWidth = GetScreenWidth() / 2;
-
     bool isAttacking = false;
     bool isInteracting = false;
     bool collisionDetected = false;
-
     void HandleInput(float worldWidth);
     void HandleMovementInput(float worldWidth);
     bool HandleMouseInput();

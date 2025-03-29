@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\dev\Netpix\Shooter\CMakeFiles\d8344b1e3cb0dce0416625d24da14344\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1CD38C2B-7AFA-3E8B-812B-0D46097656B7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

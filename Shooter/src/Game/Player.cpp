@@ -18,6 +18,20 @@ Player::~Player() {
 }
 
 void Player::Update(float worldWidth) {
+    // Handle cooldown timer
+    if (isAttackOnCooldown) {
+        attackCooldownTimer -= GetFrameTime();
+        if (attackCooldownTimer <= 0) {
+            isAttackOnCooldown = false;
+            attackCooldownTimer = 0;
+
+            // Reset to IDLE state if we were in ATTACK state and animation completed
+            if (playerState == ATTACK) {
+                SetPlayerState(IDLE);
+            }
+        }
+    }
+
     HandleInput(worldWidth);
     if (currentAnimation) {
         currentAnimation->UpdateAnimation(8);
@@ -94,6 +108,19 @@ bool Player::IsInteracting()
 {
     return isInteracting;
 }
+void Player::SetAttackCooldownDuration(float duration) {
+    attackCooldownDuration = duration;
+}
+
+void Player::SetAttackCooldown(bool cooldown) {
+    isAttackOnCooldown = cooldown;
+    if (cooldown) {
+        attackCooldownTimer = attackCooldownDuration;
+    }
+    else {
+        attackCooldownTimer = 0;
+    }
+}
 
 void Player::HandleInput(float worldWidth) 
 {
@@ -163,21 +190,23 @@ void Player::HandleMovementInput(float worldWidth) {
     position.y += moveDirection.y * currentSpeed * delta;
 }
 
-
-
-bool Player::HandleMouseInput()
-{
+bool Player::HandleMouseInput() {
     if (isInteracting) return false;
+    if (isAttackOnCooldown) return false;
 
-    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-    {
-        //std::cout << "Click detected!" << std::endl;
+    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {  // Change to Pressed instead of Down
+        // Start attack
         SetPlayerState(ATTACK);
+
+        // Start cooldown
+        isAttackOnCooldown = true;
+        attackCooldownTimer = attackCooldownDuration;
+
         return true;
     }
+
     return false;
 }
-
 
 
 void Player::SetPlayerState(State state) {
@@ -189,23 +218,20 @@ void Player::SetPlayerState(State state) {
     }
 }
 
-void Player::CheckStatePriority(State state)
-{
-    // PROBLEM: The animation class plays based on holding instead of clicking in animation we need to build a new way of animating so when the user clicks it plays the full animation.. So its when the user released the click.
-    // This checks for our players current state based on the user input.
-
-    // Somewhat solved -- We have the basic attack.
-    if (currentState < state)
-    {
-        // We print out our state
-        std::cout << currentState << "\n" << std::endl;
-        // Find the time taken for our attack state to finish the animation.
-
+void Player::CheckStatePriority(State state) {
+    // For attack state, we need special handling
+    if (state == ATTACK) {
+        // When entering attack state, ensure we start the cooldown
+        isAttackOnCooldown = true;
+        attackCooldownTimer = attackCooldownDuration;
         currentState = state;
-        std::cout << "New state is greater than the previous state!";
+        return;
+    }
 
-        // Now successfully checks which state is greater than which.
-        // One issue: If we start walking 
+    // For other states, only change if not currently attacking
+    if (!isAttackOnCooldown || currentState != ATTACK) {
+        if (currentState < state) {
+            currentState = state;
+        }
     }
 }
-

@@ -46,6 +46,7 @@ void Animation::UpdateAnimation(int framesSpeed, Rectangle playerBox)
 
 
 void Animation::DrawAnimation(Vector2 position, bool isFacingRight) {
+
     Rectangle sourceRec = frameRec;
     if (!isFacingRight) {
         sourceRec.width = -frameRec.width;
